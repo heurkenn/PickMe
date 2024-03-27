@@ -28,7 +28,7 @@ $activitesSociales = $_POST['activites_sociales'];
 $objectifsAspirations = $_POST['objectifs_aspirations'];
 
 // Requête SQL pour insérer les données dans la table Gouts
-$query = "INSERT INTO Gouts (jeux_video, sports, hobbies, musique_preferee, films_prefers, livres_prefers, regime_alimentaire, habitudes_de_vie, domaines_interet, valeurs_personnelles, opinions_politiques, activites_sociales, objectifs_aspirations)
+$query = "INSERT INTO Gouts (JeuxVideo, Sports, Hobbies, MusiquePreferee, FilmsPrefers, LivresPrefers, RegimeAlimentaire, HabitudesDeVie, DomainesInteret, ValeursPersonnelles, OpinionsPolitiques, ActivitesSociales, ObjectifsAspirations)
         VALUES ('$jeuxVideo', '$sports', '$hobbies', '$musiquePreferee', '$filmsPrefers', '$livresPrefers', '$regimeAlimentaire', '$habitudesDeVie', '$domainesInteret', '$valeursPersonnelles', '$opinionsPolitiques', '$activitesSociales', '$objectifsAspirations')";
 echo "Requête SQL: " . $query . "<br>";
 
@@ -36,7 +36,9 @@ $result = mysqli_query($conn, $query);
 if (!$result) {
     printf("Erreur: %s\n", mysqli_error($conn));
 } else {
-    echo 'Données insérées avec succès.';
+    echo 'Données insérées avec succès. <br>';
+    // Ajouter le bouton de redirection
+    echo '<a href="accueil.php"><button>Retour à l\'accueil</button></a>';
 }
 
 // Fermeture de la connexion
