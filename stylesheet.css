@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background-image: url("img/bkg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header {
+    background-color: #1e014d;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main {
+  
+    padding: 50px 0;
+    text-align: center;
+    height: 592px;
+}
+
+.main h2 {
+    margin: 0;
+}
+
+footer {
+    background-color: #260027;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+
+
+.buttons button {
+    margin: 10px 300px;
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    font-size: 16px; 
+}
+
+.buttons .hidden {
+    display: none;
+}
+
+.forms {
+    margin-top: 20px;
+}
+
+.forms .hidden {
+    display: none;
+}
+
+.forms div {
+    background-color: #4b4a4a;
+    padding: 20px;
+    width: 600px;
+    margin-bottom: 20px;
+    border-radius: 10px; 
+    margin: 20px auto;
+    margin-top: 100px;
+}
+
+.images {
+    text-align: center;
+    
+    
+}
+
+
+
+.image-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    display: inline-block;
+    height: 200px; /* Hauteur fixe pour les conteneurs */
+    vertical-align: top; /* Alignement vertical */
+    height: 500px;
+    width: 500px;
+    margin-right: 150px;
+    margin-left: 150px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: 100%; /* Remplit la hauteur du conteneur */
+    border-radius: 5px; /* Coins arrondis */
+}
+
+.images .hidden {
+    display: none;
+}
