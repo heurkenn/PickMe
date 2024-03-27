@@ -22,7 +22,7 @@
             </header>
             <main>
                 <p>Merci pour votre inscription. Votre compte a été créé avec succès !</p>
-                <p><a href="index.php">Retour à la page d'accueil</a></p>
+                <p><a href="gouts.php">Vous pouvez remplir vos preferences</a></p>
             </main>
         </div>
         <footer>
