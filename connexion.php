@@ -1,26 +1,25 @@
 <?php
 // Paramètres de connexion à la base de données
 $servername = "localhost";
-$username = "gwenn";
-$password = "Salut333";
+$username = "ProjetR";
+$password = "Paulympe742@";
 $dbname = "maBaseDeDonnees";
 
-// Créer une connexion
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Vérifier la connexion
-if ($conn->connect_error) {
-    die("Connexion échouée : " . $conn->connect_error);
+// Connexion à la base de données
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
+echo "Connexion établie" . "<br>";
 
 // Sécurisation des données reçues du formulaire
 $pseudonyme = $conn->real_escape_string($_POST['Pseudonyme']);
-$motDePasse = $conn->real_escape_string($_POST['Code']);
+$motDePasse = $conn->real_escape_string($_POST['MotDePasse']);
 
 // Préparation de la requête SQL pour sélectionner l'utilisateur
 $sql = "SELECT MotDePasse FROM Utilisateurs WHERE Pseudonyme = '$pseudonyme'";
 
-$result = $conn->query($sql);
+$result = mysqli_query( $conn, $sql );
 
 if ($result->num_rows > 0) {
     // Récupération du mot de passe hashé dans la base de données
@@ -43,4 +42,4 @@ if ($result->num_rows > 0) {
 
 // Fermeture de la connexion
 $conn->close();
-?>
+
