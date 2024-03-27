@@ -23,18 +23,18 @@
             <!-- Formulaire d'inscription -->
             <div id="inscriptionForm" class="hidden">
                 <h2>Formulaire d'inscription</h2>
-                <form method="post" action="inscription.php"> <!-- Notez le changement d'action ici -->
+                <form method="post" action="inscription.php"> 
                     <label for="Nom">Nom :</label><br>
                     <input type="text" id="Nom" name="Nom" required><br>
                     <label for="Prenom">Prenom :</label><br>
                     <input type="text" id="Prenom" name="Prenom" required><br>
                     <label for="DateNaissance">Date de naissance :</label><br>
-                    <input type="date" id="DateNaissance" name="DateNaissance"><br> <!-- Changé pour correspondre au nom de colonne SQL -->
+                    <input type="date" id="DateNaissance" name="DateNaissance"><br> 
                     <label for="Pseudonyme">Pseudonyme :</label><br>
                     <input type="text" id="Pseudonyme" name="Pseudonyme" required><br>
                     <label for="Email">Email :</label><br>
                     <input type="email" id="Email" name="Email" required><br>
-                    <label for="Code">Mot de passe :</label><br> <!-- Correction du label et du name -->
+                    <label for="Code">Mot de passe :</label><br> 
                     <input type="password" id="Code" name="Code" required><br>
                     <input type="submit" value="Envoyer">
                 </form>
@@ -42,11 +42,11 @@
             <!-- Formulaire de connexion -->
             <div id="connexionForm" class="hidden">
                 <h2>Formulaire de connexion</h2>
-                <form method="post" action="connexion.php"> <!-- Notez le changement d'action ici -->
+                <form method="post" action="connexion.php"> 
                     <label for="PseudonymeConnexion">Pseudonyme :</label><br>
-                    <input type="text" id="PseudonymeConnexion" name="Pseudonyme" required><br> <!-- Correction de l'id pour qu'il soit unique -->
+                    <input type="text" id="PseudonymeConnexion" name="Pseudonyme" required><br> 
                     <label for="CodeConnexion">Mot de passe :</label><br>
-                    <input type="password" id="CodeConnexion" name="Code" required><br> <!-- Correction du name et rend l'id unique -->
+                    <input type="password" id="CodeConnexion" name="Code" required><br> 
                     <input type="submit" value="Envoyer">
                 </form>
             </div>
