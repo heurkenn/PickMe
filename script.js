@@ -14,5 +14,4 @@ document.getElementById("connexionButton").addEventListener("click", function() 
     document.getElementById("inscriptionButton").classList.remove("hidden");
     document.getElementById("imgs1").classList.add("hidden");
     document.getElementById("imgs2").classList.add("hidden");
-    
 });

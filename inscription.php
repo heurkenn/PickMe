@@ -20,10 +20,13 @@ $pseudonyme = $_POST['Pseudonyme'];
 $email = $_POST['Email'];
 $motDePasse = $_POST['MotDePasse'];
 
+// Hachage du mot de passe
+$motDePasseHache = password_hash($motDePasse, PASSWORD_DEFAULT);
+
 echo "test" . "<br>";
 // Requête SQL pour insérer les données statiques dans la table appropriée
 $query = "INSERT INTO Utilisateurs (Nom, Prenom, DateNaissance, Pseudonyme, Email, MotDePasse)
-        VALUES ('$nom', '$prenom', '$dateNaissance', '$pseudonyme', '$email', '$motDePasse')";
+        VALUES ('$nom', '$prenom', '$dateNaissance', '$pseudonyme', '$email', '$motDePasseHache')";
 echo "test2" . "<br>";
 echo "Requête SQL: " . $query . "<br>";
 $result = mysqli_query($conn, $query);

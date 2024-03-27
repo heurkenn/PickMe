@@ -28,13 +28,9 @@ if ($result->num_rows > 0) {
 
     // Vérification du mot de passe
     if (password_verify($motDePasse, $motDePasseHash)) {
-        echo "Connexion réussie. Bienvenue, " . $pseudonyme . "!";
-        // Redirection ou démarrage d'une session ici
-        // session_start();
-        // $_SESSION['pseudonyme'] = $pseudonyme;
-        // header('Location: espace_membre.php'); // Décommentez pour activer la redirection
+        // Le mot de passe est valide
     } else {
-        echo "Erreur : Mot de passe incorrect.";
+        // Le mot de passe est invalide
     }
 } else {
     echo "Erreur : Utilisateur non trouvé.";
