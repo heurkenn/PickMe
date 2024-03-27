@@ -1,63 +1,39 @@
 <?php
-// Activation des erreurs PHP pour le debugging
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
-// Paramètres de connexion à la base de données
+// Connexion à la base de données (à remplacer avec vos propres informations)
 $servername = "localhost";
-$username = "gwenn";
-$password = "Salut333";
+$username = "ProjetR";
+$password = "Paulympe742@";
 $dbname = "maBaseDeDonnees";
 
-// Création de la connexion
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Vérification de la connexion
-if ($conn->connect_error) {
-    die("Connexion échouée : " . $conn->connect_error);
+// Connexion à la base de données
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
+echo "Connexion établie" . "<br>";
 
-// Vérification de la présence des données POST
-if (isset($_POST['Nom'], $_POST['Prenom'], $_POST['DateNaissance'], $_POST['Pseudonyme'], $_POST['Email'], $_POST['Code'])) {
+// Informations statiques à insérer
+$nom = $_POST['Nom'];
+$prenom = $_POST['Prenom'];
+$dateNaissance = $_POST['DateNaissance']; 
+$pseudonyme = $_POST['Pseudonyme'];
+$email = $_POST['Email'];
+$motDePasse = $_POST['MotDePasse'];
 
-    // Hashage du mot de passe
-    $passwordHash = password_hash($_POST['Code'], PASSWORD_DEFAULT);
-    
-    // Préparation de la requête SQL
-    $stmt = $conn->prepare("INSERT INTO Utilisateurs (Nom, Prenom, DateNaissance, Pseudonyme, Email, MotDePasse) VALUES (?, ?, ?, ?, ?, ?)");
-    
-    // Liaison des paramètres
-    $stmt->bind_param("ssssss", $_POST['Nom'], $_POST['Prenom'], $_POST['DateNaissance'], $_POST['Pseudonyme'], $_POST['Email'], $passwordHash);
-    
-    // Exécution de la requête
-    if ($stmt->execute()) {
-        // Redirection vers la page de confirmation
-        header('Location: confirmation.php');
-        exit;
-    } else {
-        // Gestion de l'erreur d'insertion
-        $error = "Erreur lors de l'inscription : " . $stmt->error;
-    }
-    
-    // Fermeture de la déclaration
-    $stmt->close();
+echo "test" . "<br>";
+// Requête SQL pour insérer les données statiques dans la table appropriée
+$query = "INSERT INTO Utilisateurs (Nom, Prenom, DateNaissance, Pseudonyme, Email, MotDePasse)
+        VALUES ('$nom', '$prenom', '$dateNaissance', '$pseudonyme', '$email', '$motDePasse')";
+echo "test2" . "<br>";
+echo "Requête SQL: " . $query . "<br>";
+$result = mysqli_query($conn, $query);
+if (!$result) {
+    printf("Erreur: %s\n", mysqli_error($conn));
 } else {
-    $error = "Tous les champs sont requis.";
+    echo 'Données insérées avec succès.';
 }
 
+echo "test3" . "<br>";
 // Fermeture de la connexion
-$conn->close();
-?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Inscription échouée</title>
-    <!-- Assurez-vous d'inclure votre CSS ici si nécessaire -->
-</head>
-<body>
-    <p>Il y a eu une erreur lors de votre inscription :</p>
-    <p><?php echo htmlspecialchars($error); ?></p>
-    <a href="index.php">Retourner au formulaire d'inscription</a>
-</body>
-</html>
+mysqli_close($conn);
+
