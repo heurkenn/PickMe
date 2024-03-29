@@ -46,6 +46,29 @@ function etapePrecedente() {
   }
 }
 
-function redirigeIC(){
-    window.location.href = "InsCon.html";
+function toggleSelection(button) {
+    var maxSelection = 3;
+    var hiddenInput = document.getElementById('genres');
+
+    // Récupérer les boutons sélectionnés
+    var selectedButtons = document.querySelectorAll('.genre-btn[data-selected="true"]');
+    var selectedGenres = [];
+    selectedButtons.forEach(function(btn) {
+        selectedGenres.push(btn.innerText);
+    });
+
+    // Vérifier si le bouton est déjà sélectionné
+    if (button.getAttribute('data-selected') === 'true') {
+        button.setAttribute('data-selected', 'false');
+        button.classList.remove('selected');
+    } else if (selectedGenres.length < maxSelection) { // Vérifier si le nombre maximum de sélections n'est pas atteint
+        button.setAttribute('data-selected', 'true');
+        button.classList.add('selected');
+        selectedGenres.push(button.innerText); // Ajouter les informations du bouton sélectionné au tableau
+    }
+
+    // Mettre à jour la valeur du champ caché avec les genres sélectionnés
+    hiddenInput.value = selectedGenres.join(",");
 }
+
+

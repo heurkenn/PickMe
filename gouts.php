@@ -26,19 +26,24 @@
             plus tard
         </h1>
 
-        <section class="forms" >
+        <section class="forms">
             <form id="monFormulaire" method="post" action="traitement_gouts.php">
                 <div id="etape1">
-                    <label for="genre">Genre de jeu :</label>
-                    <select id="genre" name="genre">
-                        <option value="aventure">Aventure</option>
-                        <option value="fps">FPS</option>
-                        <option value="simulation">Simulation</option>
-                        <option value="rpg">RPG</option>
-                        <option value="puzzle">Puzzle</option>
-                        <option value="platformers">Platformers</option>
-                        <option value="horror">Horror</option>
-                    </select>
+
+                    <button type="button" class="genre-btn" onclick="toggleSelection(this)"
+                        data-selected="false">Aventure</button>
+                    <button type="button" class="genre-btn" onclick="toggleSelection(this)"
+                        data-selected="false">Simulation</button>
+                    <button type="button" class="genre-btn" onclick="toggleSelection(this)"
+                        data-selected="false">RPG</button>
+                    <button type="button" class="genre-btn" onclick="toggleSelection(this)"
+                        data-selected="false">Puzzle</button>
+                    <button type="button" class="genre-btn" onclick="toggleSelection(this)"
+                        data-selected="false">Platformers</button>
+                    <button type="button" class="genre-btn" onclick="toggleSelection(this)"
+                        data-selected="false">Horror</button>
+
+                    <input type="hidden" id="genres" name="genres">
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
                 </div>
                 <div id="etape2" style="display: none;">

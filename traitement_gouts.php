@@ -13,7 +13,7 @@ if (!$conn) {
 echo "Connexion établie" . "<br>";
 
 // Récupération des valeurs du formulaire
-$genre = $_POST['genre'];
+$genre = $_POST['genres'];
 $styleGameplay = $_POST['styleGameplay'];
 $recherche = $_POST['recherche'];
 

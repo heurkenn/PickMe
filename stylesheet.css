@@ -155,6 +155,8 @@ footer {
 
 
 
+
+
 .images {
     text-align: center;
 }
@@ -184,3 +186,27 @@ footer {
 .images .hidden {
     display: none;
 }
+
+.genre-btn {
+    padding: 1em 2em;
+    font-size: 0.9em;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 0.5em;
+    border: 2px solid #00ff00;
+    background-color: #333333;
+    color: #ffffff;
+    border-radius: 0.5em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: Orbitron, sans-serif;
+
+}
+
+.genre-btn:hover {
+    background-color: #006b00;
+    transform: scale(1.1);
+}
+.selected {
+    background-color: #006b00;
+}
+
