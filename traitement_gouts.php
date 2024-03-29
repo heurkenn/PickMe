@@ -18,7 +18,7 @@ $styleGameplay = $_POST['styleGameplay'];
 $recherche = $_POST['recherche'];
 
 // Requête SQL pour insérer les données dans la table Gouts
-$query = "INSERT INTO Gouts (ID_Utilisateur, GenreJeux, StyleGameplay, TypeRecherche)
+$query = "INSERT INTO Gouts (UtilisateurId, GenreJeux, StyleGameplay, TypeRecherche)
         VALUES ((SELECT ID FROM Utilisateurs ORDER BY ID DESC LIMIT 1), '$genre', '$styleGameplay', '$recherche')";
 
 echo "Requête SQL: " . $query . "<br>";
@@ -35,4 +35,3 @@ if (!$result) {
 
 // Fermeture de la connexion
 mysqli_close($conn);
-?>

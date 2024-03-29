@@ -45,3 +45,7 @@ function etapePrecedente() {
     }
   }
 }
+
+function redirigeIC(){
+    window.location.href = "InsCon.html";
+}
