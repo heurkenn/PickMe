@@ -38,7 +38,8 @@
                     <input type="password" id="MotDePasse" name="MotDePasse" 
                         pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}" 
                         title="Le mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial."
-                        required><br>
+                        required
+                    ><br>
                     <input type="submit" value="Envoyer">
                 </form>
             </div>
