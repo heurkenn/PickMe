@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Press+Start+2P&display=swap');*
-html,body {
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Press+Start+2P&display=swap');
+
+* html,
+body {
     margin: 0;
     padding: 0;
     font-family: Orbitron, sans-serif;
@@ -14,9 +16,11 @@ html,body {
 }
 
 .main {
-    padding: 50px 0; /* Ajustez cette valeur en fonction de votre contenu */
+    padding: 50px 0;
+    /* Ajustez cette valeur en fonction de votre contenu */
     text-align: center;
-    min-height: 592px; /* Utilisez min-height au lieu de height */
+    min-height: 592px;
+    /* Utilisez min-height au lieu de height */
 }
 
 header {
@@ -45,8 +49,8 @@ nav ul li a {
 }
 
 .main {
-  flex: 1;
-  padding: 5em;
+    flex: 1;
+    padding: 5em;
 }
 
 .main h2 {
@@ -59,80 +63,82 @@ footer {
     padding: 20px;
     text-align: center;
     width: 97.8%;
-    bottom: 0; 
+    bottom: 0;
     z-index: 10;
     margin-top: auto;
 }
 
-.forms, .buttons {
+.forms,
+.buttons {
     font-family: 'Press Start 2P', cursive;
 }
+
 .forms h2 {
     margin-bottom: 1.5em;
-    text-align: center; 
-    color: #00ff00; 
-    padding-top: 1em; 
+    text-align: center;
+    color: #00ff00;
+    padding-top: 1em;
 }
 
 
 .forms div {
-    background-color: #333333; 
-    border: 2px solid #00ff00; 
+    background-color: #333333;
+    border: 2px solid #00ff00;
     color: #ffffff;
-    transition: transform 0.3s ease, background-color 0.3s ease; 
-    padding: 1em; 
-    width: calc(35em - 4em); 
-    margin: 2em auto; 
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 1em;
+    width: calc(35em - 4em);
+    margin: 2em auto;
     border-radius: 0.5em;
 }
 
 /* Styles pour les input */
-.forms input[type="text"], 
-.forms input[type="date"], 
-.forms input[type="email"], 
+.forms input[type="text"],
+.forms input[type="date"],
+.forms input[type="email"],
 .forms input[type="password"] {
     width: calc(100% - 1em);
-    margin-bottom: 1.5em; 
+    margin-bottom: 1.5em;
     padding: 0.75em;
-    border: 2px solid #555555; 
+    border: 2px solid #555555;
     border-radius: 0.5em;
-    background-color: #222222; 
-    color: #ffffff; 
-    font-size: 0.8em; 
+    background-color: #222222;
+    color: #ffffff;
+    font-size: 0.8em;
 }
 
 
-.forms input[type="submit"], 
+.forms input[type="submit"],
 .buttons button {
-    padding: 1em 2em; 
-    font-size: 0.9em; 
-    cursor: pointer; 
-    display: inline-block; 
-    margin: 0 0.5em; 
-    border: 2px solid #00ff00; 
-    background-color: #333333; 
-    color: #ffffff; 
-    border-radius: 0.5em; 
+    padding: 1em 2em;
+    font-size: 0.9em;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 0.5em;
+    border: 2px solid #00ff00;
+    background-color: #333333;
+    color: #ffffff;
+    border-radius: 0.5em;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 
-.forms input[type="submit"]:hover, 
+.forms input[type="submit"]:hover,
 .buttons button:hover {
-    background-color: #007bff; 
-    transform: scale(1.1); 
+    background-color: #007bff;
+    transform: scale(1.1);
 }
 
 .buttons button {
     margin: 0.5em 20em;
     width: 15em;
     display: inline-block;
-    height: auto; 
-    font-size: 0.8em; 
+    height: auto;
+    font-size: 0.8em;
     transition: background-color 0.3s, transform 0.3s;
-    cursor: pointer; 
-    border-radius: 0.5em; 
-    border: 2px solid #00ff00; 
+    cursor: pointer;
+    border-radius: 0.5em;
+    border: 2px solid #00ff00;
     padding: 0.5em 2em;
 }
 
@@ -147,6 +153,8 @@ footer {
 
 
 
+
+
 .images {
     text-align: center;
 }
@@ -158,8 +166,8 @@ footer {
     padding: 10px;
     margin-top: 10px;
     display: inline-block;
-    height: 200px; 
-    vertical-align: top; 
+    height: 200px;
+    vertical-align: top;
     height: 25em;
     width: 25em;
     margin-right: 10em;
@@ -170,7 +178,7 @@ footer {
 .image-container img {
     max-width: 100%;
     height: 100%;
-    border-radius: 5px; 
+    border-radius: 5px;
 }
 
 .images .hidden {

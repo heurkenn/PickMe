@@ -19,7 +19,7 @@ $motDePasse = $conn->real_escape_string($_POST['MotDePasse']);
 // Préparation de la requête SQL pour sélectionner l'utilisateur
 $sql = "SELECT MotDePasse FROM Utilisateurs WHERE Pseudonyme = '$pseudonyme'";
 
-$result = mysqli_query( $conn, $sql );
+$result = mysqli_query($conn, $sql);
 
 if ($result->num_rows > 0) {
     // Récupération du mot de passe hashé dans la base de données
