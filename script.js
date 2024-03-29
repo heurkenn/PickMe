@@ -46,12 +46,11 @@ function etapePrecedente() {
   }
 }
 
-function toggleSelection(button) {
+function toggleSelection(button,question) {
     var maxSelection = 3;
-    var hiddenInput = document.getElementById('genres');
-
+    var hiddenInput = document.getElementById(question);
     // Récupérer les boutons sélectionnés
-    var selectedButtons = document.querySelectorAll('.genre-btn[data-selected="true"]');
+    var selectedButtons = document.querySelectorAll('.'+question+'-btn[data-selected="true"]');
     var selectedGenres = [];
     selectedButtons.forEach(function(btn) {
         selectedGenres.push(btn.innerText);

@@ -13,13 +13,15 @@ if (!$conn) {
 echo "Connexion établie" . "<br>";
 
 // Récupération des valeurs du formulaire
+
+$langue= $_POST['langue'];
 $genre = $_POST['genres'];
 $styleGameplay = $_POST['styleGameplay'];
 $recherche = $_POST['recherche'];
 
 // Requête SQL pour insérer les données dans la table Gouts
-$query = "INSERT INTO Gouts (UtilisateurId, GenreJeux, StyleGameplay, TypeRecherche)
-        VALUES ((SELECT ID FROM Utilisateurs ORDER BY ID DESC LIMIT 1), '$genre', '$styleGameplay', '$recherche')";
+$query = "INSERT INTO Gouts (UtilisateurId,Pays, Langue, GenreJeux, StyleGameplay, TypeRecherche)
+        VALUES ((SELECT ID FROM Utilisateurs ORDER BY ID DESC LIMIT 1), 'France', $langue', '$genre', '$styleGameplay', '$recherche')";
 
 echo "Requête SQL: " . $query . "<br>";
 

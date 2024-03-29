@@ -28,25 +28,44 @@
 
         <section class="forms">
             <form id="monFormulaire" method="post" action="traitement_gouts.php">
-                <div id="etape1">
+                <div>
+                    <label for="langues">Langue(s) :</label>
+                    <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">Français</button>
+                    <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">English</button>
+                    <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">Español</button>
+                    <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">Deutsch</button>
+                    <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">日本語</button>
+                    <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">簡体字中国語</button>
 
-                    <button type="button" class="genre-btn" onclick="toggleSelection(this)"
+                    <input type="hidden" id="langue" name="langue">
+                    <button type="button" onclick="etapeSuivante()">Suivant</button>
+                </div>
+                <div style="display: none;">
+                    <label for="genre">Genre de Jeu :</label>
+                    <button type="button" class="genres-btn" onclick="toggleSelection(this,'genres')"
                         data-selected="false">Aventure</button>
-                    <button type="button" class="genre-btn" onclick="toggleSelection(this)"
+                    <button type="button" class="genres-btn" onclick="toggleSelection(this,'genres')"
                         data-selected="false">Simulation</button>
-                    <button type="button" class="genre-btn" onclick="toggleSelection(this)"
+                    <button type="button" class="genres-btn" onclick="toggleSelection(this,'genres')"
                         data-selected="false">RPG</button>
-                    <button type="button" class="genre-btn" onclick="toggleSelection(this)"
+                    <button type="button" class="genres-btn" onclick="toggleSelection(this,'genres')"
                         data-selected="false">Puzzle</button>
-                    <button type="button" class="genre-btn" onclick="toggleSelection(this)"
+                    <button type="button" class="genres-btn" onclick="toggleSelection(this,'genres')"
                         data-selected="false">Platformers</button>
-                    <button type="button" class="genre-btn" onclick="toggleSelection(this)"
+                    <button type="button" class="genres-btn" onclick="toggleSelection(this,'genres')"
                         data-selected="false">Horror</button>
 
                     <input type="hidden" id="genres" name="genres">
+                    <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
                 </div>
-                <div id="etape2" style="display: none;">
+                <div style="display: none;">
                     <label for="styleGameplay">Style de gameplay :</label>
                     <select id="styleGameplay" name="styleGameplay">
                         <option value="casual">Casual</option>
@@ -57,7 +76,7 @@
                     <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
                 </div>
-                <div id="etape3" style="display: none;">
+                <div style="display: none;">
                     <label for="recherche">Recherche :</label>
                     <select id="recherche" name="recherche">
                         <option value="discuter">Gens pour discuter</option>
