@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Press+Start+2P&display=swap');
-
-* html,
-body {
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Press+Start+2P&display=swap');*
+html,body {
     margin: 0;
     padding: 0;
     font-family: Orbitron, sans-serif;
@@ -13,14 +11,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .main {
-    padding: 50px 0;
-    /* Ajustez cette valeur en fonction de votre contenu */
+    padding: 50px 0; 
     text-align: center;
     min-height: 592px;
-    /* Utilisez min-height au lieu de height */
 }
 
 header {
@@ -28,29 +25,92 @@ header {
     color: #fff;
     padding: 20px;
     text-align: center;
+    position: relative; 
 }
 
 header h1 {
     margin: 0;
+    cursor: pointer; 
+    transition: transform 0.3s ease; 
+}
+
+
+header h1:hover, header h1:focus {
+    transform: scale(1.1); 
+    color: #00ff00;
 }
 
 nav ul {
     list-style-type: none;
+    padding: 0; 
+    display: flex; 
+    justify-content: center; 
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 10px;
+    margin: 0 15px; 
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    position: relative; 
+    transition: color 0.3s ease; 
 }
 
+
+nav ul li a:hover,
+nav ul li a:focus { 
+    color: #00ff00; 
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #00ff00;
+    left: 50%;
+    bottom: -5px; 
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a:focus::after {
+    width: 100%; 
+    left: 0; 
+}
+/* Ceci place le conteneur du bouton en haut à droite de la page */
+.account-button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px; /* Espacement depuis le haut et la droite de la page */
+}
+
+/* Style pour le bouton "Mon compte" */
+.account-button {
+    padding: 8px 15px; /* Taille du bouton */
+    background-color: #1e014d; /* Couleur de fond */
+    color: #ffffff; /* Couleur du texte */
+    text-decoration: none; /* Pas de soulignement de texte */
+    font-weight: bold; /* Gras pour le texte */
+    border-radius: 4px; /* Coins arrondis */
+    transition: background-color 0.3s, transform 0.3s; /* Transition douce pour le survol */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre portée subtile */
+    display: inline-block; /* Permet le padding et les transitions */
+}
+
+
+.account-button:hover {
+    background-color: #00ff00; 
+    transform: translateY(-2px); 
+}
+
+
 .main {
-    flex: 1;
-    padding: 5em;
+  flex: 1;
+  padding: 5em;
 }
 
 .main h2 {
@@ -62,83 +122,86 @@ footer {
     color: #fff;
     padding: 20px;
     text-align: center;
-    width: 97.8%;
-    bottom: 0;
+    width: 15;
+    bottom: 0; 
     z-index: 10;
     margin-top: auto;
+    width: 100%;
+    padding: 0;
+    height: 3em;
+    
+    
 }
 
-.forms,
-.buttons {
+.forms, .buttons {
     font-family: 'Press Start 2P', cursive;
 }
-
 .forms h2 {
     margin-bottom: 1.5em;
-    text-align: center;
-    color: #00ff00;
-    padding-top: 1em;
+    text-align: center; 
+    color: #00ff00; 
+    padding-top: 1em; 
 }
 
 
 .forms div {
-    background-color: #333333;
-    border: 2px solid #00ff00;
+    background-color: #333333; 
+    border: 2px solid #00ff00; 
     color: #ffffff;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    padding: 1em;
-    width: calc(35em - 4em);
-    margin: 2em auto;
+    transition: transform 0.3s ease, background-color 0.3s ease; 
+    padding: 1em; 
+    width: calc(35em - 4em); 
+    margin: 2em auto; 
     border-radius: 0.5em;
 }
 
 /* Styles pour les input */
-.forms input[type="text"],
-.forms input[type="date"],
-.forms input[type="email"],
+.forms input[type="text"], 
+.forms input[type="date"], 
+.forms input[type="email"], 
 .forms input[type="password"] {
     width: calc(100% - 1em);
-    margin-bottom: 1.5em;
+    margin-bottom: 1.5em; 
     padding: 0.75em;
-    border: 2px solid #555555;
+    border: 2px solid #555555; 
     border-radius: 0.5em;
-    background-color: #222222;
-    color: #ffffff;
-    font-size: 0.8em;
+    background-color: #222222; 
+    color: #ffffff; 
+    font-size: 0.8em; 
 }
 
 
-.forms input[type="submit"],
-.buttons button {
-    padding: 1em 2em;
-    font-size: 0.9em;
-    cursor: pointer;
-    display: inline-block;
-    margin: 0 0.5em;
-    border: 2px solid #00ff00;
-    background-color: #333333;
-    color: #ffffff;
-    border-radius: 0.5em;
+.forms input[type="submit"] {
+    padding: 0.75em 1em; 
+    font-size: 0.9em; 
+    cursor: pointer; 
+    display: inline-block; 
+    margin: 0 0.5em; 
+    background-color: #333333; 
+    color: #ffffff; 
+    border-radius: 0.5em; 
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 
-.forms input[type="submit"]:hover,
+.forms input[type="submit"]:hover, 
 .buttons button:hover {
-    background-color: #007bff;
-    transform: scale(1.1);
+    background-color: #007bff; 
+    transform: scale(1.1); 
 }
 
 .buttons button {
     margin: 0.5em 20em;
     width: 15em;
+    background-color: #1b17ee;
+    color: #ffffff;
+    font-weight: bold;
     display: inline-block;
-    height: auto;
-    font-size: 0.8em;
+    height: auto; 
+    font-size: 0.8em; 
     transition: background-color 0.3s, transform 0.3s;
-    cursor: pointer;
-    border-radius: 0.5em;
-    border: 2px solid #00ff00;
+    cursor: pointer; 
+    border-radius: 0.5em; 
     padding: 0.5em 2em;
 }
 
@@ -146,16 +209,9 @@ footer {
     display: none;
 }
 
-
 .forms .hidden {
     display: none;
 }
-
-
-
-
-
-
 
 .images {
     text-align: center;
@@ -168,8 +224,8 @@ footer {
     padding: 10px;
     margin-top: 10px;
     display: inline-block;
-    height: 200px;
-    vertical-align: top;
+    height: 200px; 
+    vertical-align: top; 
     height: 25em;
     width: 25em;
     margin-right: 10em;
@@ -180,7 +236,7 @@ footer {
 .image-container img {
     max-width: 100%;
     height: 100%;
-    border-radius: 5px;
+    border-radius: 5px; 
 }
 
 .images .hidden {
@@ -209,4 +265,3 @@ footer {
 .selected {
     background-color: #006b00;
 }
-
