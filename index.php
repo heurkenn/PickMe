@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site Web</title>
+    <title>PICK ME !</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
     <header>
-        <h1>Click me!</h1>
+        <h1>PICK ME !</h1>
         <nav>
             <ul>
                 <li><a href="#">Accueil</a></li>
@@ -17,8 +17,12 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
+
     </header>
     <div class="main">
+    <div class="account-button-container">
+    <a href="#" class="account-button">Mon compte</a>
+</div>
         <section class="forms">
             <!-- Formulaire d'inscription -->
             <div id="inscriptionForm" class="hidden">
