@@ -29,6 +29,15 @@
         <section class="forms">
             <form id="monFormulaire" method="post" action="traitement_gouts.php">
                 <div>
+                    <label for="pays">Pays :</label>
+                    <input type="text" id="paysSearch" oninput="filterCountries()" placeholder="Recherche par pays...">
+                    <select name="pays" id="pays">
+
+                    </select>
+                    <button type="button" onclick="etapeSuivante()">Suivant</button>
+                </div>
+
+                <div style="display: none;">
                     <label for="langues">Langue(s) :</label>
                     <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
                         data-selected="false">Français</button>
@@ -44,6 +53,7 @@
                         data-selected="false">簡体字中国語</button>
 
                     <input type="hidden" id="langue" name="langue">
+                    <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
                 </div>
                 <div style="display: none;">

@@ -1,5 +1,7 @@
 <?php
 // Connexion à la base de données (à remplacer avec vos propres informations)
+session_start();
+
 $servername = "localhost";
 $username = "ProjetR";
 $password = "Paulympe742@";
@@ -31,6 +33,11 @@ $query = "INSERT INTO Utilisateurs (Nom, Prenom, DateNaissance, Pseudonyme, Emai
 $result = mysqli_query($conn, $query);
 
 if ($result) {
+
+
+    // Stocker l'identifiant de l'utilisateur dans la session
+    $_SESSION['user_id'] = mysqli_insert_id($conn);
+
     // Redirection vers gout.php si l'insertion réussie
     header("Location: gouts.php");
     exit();
@@ -43,4 +50,4 @@ if ($result) {
 
 
 // Fermeture de la connexion
-mysqli_close($conn); 
+mysqli_close($conn);
