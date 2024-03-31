@@ -16,7 +16,7 @@ CREATE TABLE Utilisateurs (
 
 CREATE TABLE Gouts (
     UtilisateurId INT,
-    Pays VARCHAR(25),
+    Pays VARCHAR(50),
     Langue VARCHAR(100),
     GenreJeux VARCHAR(100),
     StyleGameplay VARCHAR(100),

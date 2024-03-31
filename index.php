@@ -1,15 +1,18 @@
 <?php
-// Démarrer la session
 session_start();
 
-// Vérifier si l'utilisateur est connecté
+
 if (!isset($_SESSION['user_id'])) {
-    // Rediriger vers la page de connexion
     header("Location: InsCon.php");
-    exit(); // Arrêter l'exécution du script après la redirection
+    exit();
 }
 
-// Si l'utilisateur est connecté, continuer le traitement de la page normalement
+if (!isset($_SESSION['gouts_enregistres'])) {
+    session_destroy();
+    header("Location: gouts.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
