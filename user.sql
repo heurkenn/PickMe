@@ -10,7 +10,8 @@ CREATE TABLE Utilisateurs (
     DateNaissance DATE, 
     Pseudonyme VARCHAR(50) NOT NULL UNIQUE, 
     Email VARCHAR(100) NOT NULL UNIQUE, 
-    MotDePasse VARCHAR(255) NOT NULL 
+    MotDePasse VARCHAR(255) NOT NULL,
+    Forfait VARCHAR(20) DEFAULT "free"
 );
 
 CREATE TABLE Gouts (

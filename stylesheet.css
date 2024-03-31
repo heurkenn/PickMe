@@ -286,3 +286,10 @@ footer {
     background-color: #006b00;
 }
 
+
+a.custom-link {
+    text-decoration: none; /* Supprimer le soulignement du lien */
+    color: inherit; /* Utiliser la couleur du texte parent */
+    cursor: default; /* Utiliser le curseur par défaut */
+    /* Autres styles personnalisés si nécessaire */
+}

@@ -10,15 +10,8 @@
 
 <body>
     <header>
-        <h1>PICK ME !</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+        <h1><a href="InsCon.php" class="custom-link">PICK ME !</a></h1>
+
 
     </header>
     <div class="main">
@@ -38,8 +31,11 @@
                     <input type="text" id="Pseudonyme" name="Pseudonyme" required><br>
                     <label for="Email">Email :</label><br><br>
                     <input type="email" id="Email" name="Email" required><br>
-                    <label for="Code">Mot de passe :</label><br><br>
-                    <input type="password" id="Code" name="Code" required><br>
+                    <label for="MotDePasse">Mot de passe :</label><br><br>
+                    <input type="password" id="MotDePasse" name="MotDePasse"
+                        pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}"
+                        title="Le mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial."
+                        placeholder="8 caractères, une majuscule, un chiffre et un caractère spécial." required><br>
                     <input type="submit" value="Envoyer">
                 </form>
             </div>
@@ -50,8 +46,8 @@
                     <label for="PseudonymeConnexion">Pseudonyme :</label><br><br>
                     <input type="text" id="PseudonymeConnexion" name="Pseudonyme" required><br>
                     <!-- Correction de l'id pour qu'il soit unique -->
-                    <label for="CodeConnexion">Mot de passe :</label><br><br>
-                    <input type="password" id="CodeConnexion" name="Code" required><br>
+                    <label for="MotDePasse">Mot de passe :</label><br><br>
+                    <input type="password" id="MotDePasse" name="MotDePasse" required><br>
                     <!-- Correction du name et rend l'id unique -->
                     <input type="submit" value="Envoyer">
                 </form>

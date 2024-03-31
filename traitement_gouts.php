@@ -43,7 +43,7 @@ $result = mysqli_query($conn, $query);
 if (!$result) {
     printf("Erreur: %s\n", mysqli_error($conn));
 } else {
-    echo 'Données insérées avec succès. <br>';
+    header("Location: index.php");
     // Ajouter le bouton de redirection
     echo '<a href="accueil.php"><button>Retour à l\'accueil</button></a>';
 }

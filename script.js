@@ -336,3 +336,41 @@ function toggleSelection(button, question) {
   // Mettre à jour la valeur du champ caché avec les genres sélectionnés
   hiddenInput.value = selectedGenres.join(",");
 }
+
+function validateForm() {
+    // Récupérer tous les boutons des genres de jeux
+    var genreButtons = document.getElementsByClassName('genres-btn');
+    var langueButtons = document.getElementsByClassName('langue-btn');
+    var selectedGenre = false;
+    var selectedLangue = false;
+    
+    // Vérifier si au moins un bouton est sélectionné
+    for (var i = 0; i < genreButtons.length; i++) {
+        if (genreButtons[i].getAttribute('data-selected') === 'true') {
+            selectedGenre = true;
+            break;
+        }
+    }
+    
+    // Si aucun genre n'est sélectionné, afficher un message d'erreur et empêcher le formulaire de se soumettre
+    if (!selectedGenre) {
+        alert('Veuillez sélectionner au moins un genre de jeu.');
+        return false;
+    }
+
+    for (var i = 0; i < langueButtons.length; i++) {
+        if (langueButtons[i].getAttribute('data-selected') === 'true') {
+            selectedLangue = true;
+            break;
+        }
+    }
+    
+    // Si aucun genre n'est sélectionné, afficher un message d'erreur et empêcher le formulaire de se soumettre
+    if (!selectedLangue) {
+        alert('Veuillez sélectionner au moins une langue.');
+        return false;
+    }
+    
+    // Si au moins un genre est sélectionné, autoriser le formulaire à se soumettre
+    return true;
+}

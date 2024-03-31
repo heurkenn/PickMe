@@ -11,14 +11,7 @@
 <body>
     <header>
         <h1>Click me!</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+        
     </header>
     <div class="main">
         <h1>
@@ -27,11 +20,11 @@
         </h1>
 
         <section class="forms">
-            <form id="monFormulaire" method="post" action="traitement_gouts.php">
+            <form id="monFormulaire" method="post" action="traitement_gouts.php" onsubmit="return validateForm()">
                 <div>
                     <label for="pays">Pays :</label>
                     <input type="text" id="paysSearch" oninput="filterCountries()" placeholder="Recherche par pays...">
-                    <select name="pays" id="pays">
+                    <select name="pays" id="pays" required>>
 
                     </select>
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
@@ -52,7 +45,7 @@
                     <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
                         data-selected="false">簡体字中国語</button>
 
-                    <input type="hidden" id="langue" name="langue">
+                    <input type="hidden" id="langue" name="langue" required>
                     <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
                 </div>
@@ -71,13 +64,13 @@
                     <button type="button" class="genres-btn" onclick="toggleSelection(this,'genres')"
                         data-selected="false">Horror</button>
 
-                    <input type="hidden" id="genres" name="genres">
+                    <input type="hidden" id="genres" name="genres" required>
                     <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
                 </div>
                 <div style="display: none;">
                     <label for="styleGameplay">Style de gameplay :</label>
-                    <select id="styleGameplay" name="styleGameplay">
+                    <select id="styleGameplay" name="styleGameplay" required>
                         <option value="casual">Casual</option>
                         <option value="funSerious">Fun but Serious</option>
                         <option value="absoluteConcentration">Concentration absolue</option>
@@ -88,7 +81,7 @@
                 </div>
                 <div style="display: none;">
                     <label for="recherche">Recherche :</label>
-                    <select id="recherche" name="recherche">
+                    <select id="recherche" name="recherche" required>
                         <option value="discuter">Gens pour discuter</option>
                         <option value="jouer">Gens pour jouer</option>
                         <option value="lesDeux">Les deux</option>
