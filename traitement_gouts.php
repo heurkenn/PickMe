@@ -27,10 +27,11 @@ $langue = $_POST['langue'];
 $genre = $_POST['genres'];
 $styleGameplay = $_POST['styleGameplay'];
 $recherche = $_POST['recherche'];
+$biographie = $_POST['biographie'];
 
 
-$query = "INSERT INTO Gouts (UtilisateurId, Pays, Langue, GenreJeux, StyleGameplay, TypeRecherche)
-        VALUES ('$userId', '$pays', '$langue', '$genre', '$styleGameplay', '$recherche')";
+$query = "INSERT INTO Gouts (UtilisateurId, Pays, Langue, GenreJeux, StyleGameplay, TypeRecherche, Biographie)
+        VALUES ('$userId', '$pays', '$langue', '$genre', '$styleGameplay', '$recherche', '$biographie')";
 
 
 echo "Requête SQL: " . $query . "<br>";

@@ -29,7 +29,8 @@ if ($result->num_rows > 0) {
         header("Location: index.php");
         exit();
     } else {
-        echo "Mot de passe incorrect";
+        
+        header("Location: InsCon.php");
     }
 } else {
     echo "Utilisateur non trouvé";

@@ -21,6 +21,8 @@ CREATE TABLE Gouts (
     GenreJeux VARCHAR(100),
     StyleGameplay VARCHAR(100),
     TypeRecherche VARCHAR(100),
+    Biographie VARCHAR(500),
+    ProfilPicture VARCHAR(100),
     
     FOREIGN KEY (UtilisateurId) REFERENCES Utilisateurs(id)
 );

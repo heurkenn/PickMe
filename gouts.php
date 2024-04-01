@@ -11,7 +11,7 @@
 <body>
     <header>
         <h1>Click me!</h1>
-        
+
     </header>
     <div class="main">
         <h1>
@@ -87,6 +87,13 @@
                         <option value="lesDeux">Les deux</option>
                         <option value="autres">Autres</option>
                     </select>
+                    <button type="button" onclick="etapePrecedente()">Précédent</button>
+                    <button type="button" onclick="etapeSuivante()">Suivant</button>
+
+                </div>
+                <div style="display: none;">
+                    <label for="biographie">Biographie :</label>
+                    <textarea id="biographie" name="biographie" rows="4" cols="50"></textarea>
                     <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="submit">Soumettre</button>
                 </div>
