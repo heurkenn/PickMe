@@ -95,6 +95,24 @@
                     <label for="biographie">Biographie :</label>
                     <textarea id="biographie" name="biographie" rows="4" cols="50"></textarea>
                     <button type="button" onclick="etapePrecedente()">Précédent</button>
+                    <button type="button" onclick="etapeSuivante()">Suivant</button>
+
+                </div>
+                <div style="display: none;">
+                <label for="profilPicture">Image de profile:</label>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">Français</button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">English</button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">Español</button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">Deutsch</button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">日本語</button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">簡体字中国語</button>
+                    <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="submit">Soumettre</button>
                 </div>
             </form>
