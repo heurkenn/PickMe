@@ -3,7 +3,7 @@ html,body {
     margin: 0;
     padding: 0;
     font-family: Orbitron, sans-serif;
-    color: white;
+    color: #333;
     background-image: url("img/bkg.png");
     background-size: cover;
     background-position: center;
@@ -15,15 +15,15 @@ html,body {
 }
 
 .main {
-    padding: 50px 0; 
+    padding: 2rem 0; 
     text-align: center;
     min-height: 592px;
 }
 
 header {
-    background-color: #1e014d;
+    background-color: #5e4b8a;
     color: #fff;
-    padding: 20px;
+    padding: 1.5rem;
     text-align: center;
     position: relative; 
 }
@@ -48,7 +48,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 15px; 
+    margin: 0 25px; 
 }
 
 nav ul li a {
@@ -91,7 +91,7 @@ nav ul li a:focus::after {
 /* Style pour le bouton "Mon compte" */
 .account-button {
     padding: 8px 15px; /* Taille du bouton */
-    background-color: #1e014d; /* Couleur de fond */
+    background-color: #5e4b8a; /* Couleur de fond */
     color: #ffffff; /* Couleur du texte */
     text-decoration: none; /* Pas de soulignement de texte */
     font-weight: bold; /* Gras pour le texte */
@@ -120,7 +120,7 @@ nav ul li a:focus::after {
 footer {
     background-color: #260027;
     color: #fff;
-    padding: 20px;
+    padding: 1.5rem;
     text-align: center;
     width: 15;
     bottom: 0; 
@@ -145,7 +145,7 @@ footer {
 
 
 .forms div {
-    background-color: #333333; 
+    background-color: #f0f0f7; 
     border: 2px solid #00ff00; 
     color: #ffffff;
     transition: transform 0.3s ease, background-color 0.3s ease; 
@@ -165,9 +165,9 @@ footer {
     padding: 0.75em;
     border: 2px solid #555555; 
     border-radius: 0.5em;
-    background-color: #222222; 
+    background-color: #333333; 
     color: #ffffff; 
-    font-size: 0.8em; 
+    font-size: 1rem; 
 }
 
 
@@ -177,7 +177,7 @@ footer {
     cursor: pointer; 
     display: inline-block; 
     margin: 0 0.5em; 
-    background-color: #333333; 
+    background-color: #f0f0f7; 
     color: #ffffff; 
     border-radius: 0.5em; 
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -191,14 +191,14 @@ footer {
 }
 
 .buttons button {
-    margin: 0.5em 20em;
+    margin: 0em 15em; display: block;
     width: 15em;
     background-color: #1b17ee;
     color: #ffffff;
     font-weight: bold;
     display: inline-block;
     height: auto; 
-    font-size: 0.8em; 
+    font-size: 1rem; 
     transition: background-color 0.3s, transform 0.3s;
     cursor: pointer; 
     border-radius: 0.5em; 
@@ -219,12 +219,12 @@ footer {
 
 
 .image-container {
-    background-color: #ffffff;
+    background-color: #f8f9fa;
     border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
     display: inline-block;
-    height: 200px; 
+    height: auto; 
     vertical-align: top; 
     height: 25em;
     width: 25em;
@@ -236,7 +236,7 @@ footer {
 .image-container img {
     max-width: 100%;
     height: 100%;
-    border-radius: 5px; 
+    border-radius: 10px; 
 }
 
 .images .hidden {
