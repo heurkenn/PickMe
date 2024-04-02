@@ -219,7 +219,7 @@ footer {
 
 
 .image-container {
-    background-color: #f8f9fa;
+    background-color: #a72b96;
     border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
@@ -306,4 +306,14 @@ div .info{
     width: calc(35em - 4em); 
     margin: 2em auto; 
     border-radius: 0.5em;
+}
+
+.img-profil{
+    height: 100px;
+    width: 66px;
+}
+
+.profil-btn:hover {
+    background-color: #7e1a70;
+    transform: scale(1.1);
 }
