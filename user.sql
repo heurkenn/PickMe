@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS maBaseDeDonnees;
-USE maBaseDeDonnees;
+CREATE DATABASE IF NOT EXISTS InfoUser;
+USE InfoUser;
 
 DROP TABLE IF EXISTS Gouts;
 DROP TABLE IF EXISTS Utilisateurs;
@@ -10,24 +10,20 @@ CREATE TABLE Utilisateurs (
     DateNaissance DATE, 
     Pseudonyme VARCHAR(50) NOT NULL UNIQUE, 
     Email VARCHAR(100) NOT NULL UNIQUE, 
-    MotDePasse VARCHAR(255) NOT NULL 
+    MotDePasse VARCHAR(255) NOT NULL,
+    Forfait VARCHAR(20) DEFAULT "free"
 );
 
 CREATE TABLE Gouts (
     UtilisateurId INT,
-    JeuxVideo VARCHAR(100),
-    Sports VARCHAR(100),
-    Hobbies VARCHAR(100),
-    MusiquePreferee VARCHAR(100),
-    FilmsPrefers VARCHAR(100),
-    LivresPrefers VARCHAR(100),
-    RegimeAlimentaire VARCHAR(50),
-    HabitudesDeVie VARCHAR(100),
-    DomainesInteret VARCHAR(100),
-    ValeursPersonnelles VARCHAR(100),
-    OpinionsPolitiques VARCHAR(100),
-    ActivitesSociales VARCHAR(100),
-    ObjectifsAspirations VARCHAR(255),
+    Pays VARCHAR(50),
+    Langue VARCHAR(100),
+    GenreJeux VARCHAR(100),
+    StyleGameplay VARCHAR(100),
+    TypeRecherche VARCHAR(100),
+    Biographie VARCHAR(500),
+    ProfilPicture VARCHAR(100),
+    
     FOREIGN KEY (UtilisateurId) REFERENCES Utilisateurs(id)
 );
 

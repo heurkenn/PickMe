@@ -1,46 +1,49 @@
 <?php
-// Connexion à la base de données (à remplacer avec vos propres informations)
+session_start();
+
 $servername = "localhost";
 $username = "ProjetR";
 $password = "Paulympe742@";
-$dbname = "maBaseDeDonnees";
+$dbname = "InfoUser";
 
-// Connexion à la base de données
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+
+
+// Vérifier si l'utilisateur est connecté
+if (isset($_SESSION['user_id'])) {
+    
+    $userId = $_SESSION['user_id'];
+    echo "L'identifiant de l'utilisateur connecté est : " . $userId;
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+} else {
+    echo "Aucun utilisateur connecté.";
 }
-echo "Connexion établie" . "<br>";
 
-// Informations statiques à insérer
-$jeuxVideo = $_POST['jeux_video'];
-$sports = $_POST['sports'];
-$hobbies = $_POST['hobbies'];
-$musiquePreferee = $_POST['musique_preferee'];
-$filmsPrefers = $_POST['films_prefers'];
-$livresPrefers = $_POST['livres_prefers'];
-$regimeAlimentaire = $_POST['regime_alimentaire'];
-$habitudesDeVie = $_POST['habitudes_de_vie'];
-$domainesInteret = $_POST['domaines_interet'];
-$valeursPersonnelles = $_POST['valeurs_personnelles'];
-$opinionsPolitiques = $_POST['opinions_politiques'];
-$activitesSociales = $_POST['activites_sociales'];
-$objectifsAspirations = $_POST['objectifs_aspirations'];
 
-// Requête SQL pour insérer les données dans la table Gouts
-$query = "INSERT INTO Gouts (JeuxVideo, Sports, Hobbies, MusiquePreferee, FilmsPrefers, LivresPrefers, RegimeAlimentaire, HabitudesDeVie, DomainesInteret, ValeursPersonnelles, OpinionsPolitiques, ActivitesSociales, ObjectifsAspirations)
-        VALUES ('$jeuxVideo', '$sports', '$hobbies', '$musiquePreferee', '$filmsPrefers', '$livresPrefers', '$regimeAlimentaire', '$habitudesDeVie', '$domainesInteret', '$valeursPersonnelles', '$opinionsPolitiques', '$activitesSociales', '$objectifsAspirations')";
+$pays = $_POST['pays'];
+$langue = $_POST['langue'];
+$genre = $_POST['genres'];
+$styleGameplay = $_POST['styleGameplay'];
+$recherche = $_POST['recherche'];
+$biographie = $_POST['biographie'];
+
+
+$query = "INSERT INTO Gouts (UtilisateurId, Pays, Langue, GenreJeux, StyleGameplay, TypeRecherche, Biographie)
+        VALUES ('$userId', '$pays', '$langue', '$genre', '$styleGameplay', '$recherche', '$biographie')";
+
+
 echo "Requête SQL: " . $query . "<br>";
+
 
 $result = mysqli_query($conn, $query);
 if (!$result) {
     printf("Erreur: %s\n", mysqli_error($conn));
 } else {
-    echo 'Données insérées avec succès. <br>';
-    // Ajouter le bouton de redirection
-    echo '<a href="accueil.php"><button>Retour à l\'accueil</button></a>';
+    $_SESSION['gouts_enregistres'] = true;
+    header("Location: index.php");
 }
 
 // Fermeture de la connexion
 mysqli_close($conn);
-?>

@@ -1,39 +1,39 @@
 <?php
-// Connexion à la base de données (à remplacer avec vos propres informations)
+session_start();
+
 $servername = "localhost";
 $username = "ProjetR";
 $password = "Paulympe742@";
-$dbname = "maBaseDeDonnees";
+$dbname = "InfoUser";
 
 // Connexion à la base de données
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-echo "Connexion établie" . "<br>";
 
-// Informations statiques à insérer
 $nom = $_POST['Nom'];
 $prenom = $_POST['Prenom'];
-$dateNaissance = $_POST['DateNaissance']; 
+$dateNaissance = $_POST['DateNaissance'];
 $pseudonyme = $_POST['Pseudonyme'];
 $email = $_POST['Email'];
 $motDePasse = $_POST['MotDePasse'];
 
-echo "test" . "<br>";
-// Requête SQL pour insérer les données statiques dans la table appropriée
+$motDePasseHash = password_hash($motDePasse, PASSWORD_DEFAULT);
+
 $query = "INSERT INTO Utilisateurs (Nom, Prenom, DateNaissance, Pseudonyme, Email, MotDePasse)
-        VALUES ('$nom', '$prenom', '$dateNaissance', '$pseudonyme', '$email', '$motDePasse')";
-echo "test2" . "<br>";
-echo "Requête SQL: " . $query . "<br>";
+        VALUES ('$nom', '$prenom', '$dateNaissance', '$pseudonyme', '$email', '$motDePasseHash')";
+
 $result = mysqli_query($conn, $query);
-if (!$result) {
-    printf("Erreur: %s\n", mysqli_error($conn));
+
+if ($result) {
+
+    $_SESSION['user_id'] = mysqli_insert_id($conn);
+    header("Location: gouts.php");
+    exit();
 } else {
-    echo 'Données insérées avec succès.';
+    echo "Une erreur est survenue. Veuillez réessayer.";
+    echo '<script>setTimeout(function() { window.location.href = "InsCon.php"; }, 3000);</script>';
 }
 
-echo "test3" . "<br>";
-// Fermeture de la connexion
 mysqli_close($conn);
-

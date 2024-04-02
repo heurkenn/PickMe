@@ -1,58 +1,110 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
-    <title>Formulaire de préférences</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site Web</title>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
+
 <body>
-    <h2>Formulaire de préférences</h2>
-    <form action="traitement_gouts.php" method="post">
-        <label for="jeux_video">Jeux vidéo :</label>
-        <input type="text" id="jeux_video" name="jeux_video"><br><br>
+    <header>
+        <h1>Click me!</h1>
 
-        <label for="sports">Sports :</label>
-        <input type="text" id="sports" name="sports"><br><br>
+    </header>
+    <div class="main">
+        <h1>
+            Très bien, tu vas pouvoir commencer à personnaliser ton profil et ne t'inquiète pas tu pourras le modifier
+            plus tard
+        </h1>
 
-        <label for="hobbies">Hobbies :</label>
-        <input type="text" id="hobbies" name="hobbies"><br><br>
+        <section class="forms">
+            <form id="monFormulaire" method="post" action="traitement_gouts.php" onsubmit="return validateForm()">
+                <div>
+                    <label for="pays">Pays :</label>
+                    <input type="text" id="paysSearch" oninput="filterCountries()" placeholder="Recherche par pays...">
+                    <select name="pays" id="pays" required>>
 
-        <label for="musique_preferee">Musique préférée :</label>
-        <input type="text" id="musique_preferee" name="musique_preferee"><br><br>
+                    </select>
+                    <button type="button" onclick="etapeSuivante()">Suivant</button>
+                </div>
 
-        <label for="films_prefers">Films préférés :</label>
-        <input type="text" id="films_prefers" name="films_prefers"><br><br>
+                <div style="display: none;">
+                    <label for="langues">Langue(s) :</label>
+                    <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">Français</button>
+                    <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">English</button>
+                    <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">Español</button>
+                    <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">Deutsch</button>
+                    <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">日本語</button>
+                    <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
+                        data-selected="false">簡体字中国語</button>
 
-        <label for="livres_prefers">Livres préférés :</label>
-        <input type="text" id="livres_prefers" name="livres_prefers"><br><br>
+                    <input type="hidden" id="langue" name="langue" required>
+                    <button type="button" onclick="etapePrecedente()">Précédent</button>
+                    <button type="button" onclick="etapeSuivante()">Suivant</button>
+                </div>
+                <div style="display: none;">
+                    <label for="genre">Genre de Jeu :</label>
+                    <button type="button" class="genres-btn" onclick="toggleSelection(this,'genres')"
+                        data-selected="false">Aventure</button>
+                    <button type="button" class="genres-btn" onclick="toggleSelection(this,'genres')"
+                        data-selected="false">Simulation</button>
+                    <button type="button" class="genres-btn" onclick="toggleSelection(this,'genres')"
+                        data-selected="false">RPG</button>
+                    <button type="button" class="genres-btn" onclick="toggleSelection(this,'genres')"
+                        data-selected="false">Puzzle</button>
+                    <button type="button" class="genres-btn" onclick="toggleSelection(this,'genres')"
+                        data-selected="false">Platformers</button>
+                    <button type="button" class="genres-btn" onclick="toggleSelection(this,'genres')"
+                        data-selected="false">Horror</button>
 
-        <label for="regime_alimentaire">Régime alimentaire :</label>
-        <input type="text" id="regime_alimentaire" name="regime_alimentaire"><br><br>
+                    <input type="hidden" id="genres" name="genres" required>
+                    <button type="button" onclick="etapePrecedente()">Précédent</button>
+                    <button type="button" onclick="etapeSuivante()">Suivant</button>
+                </div>
+                <div style="display: none;">
+                    <label for="styleGameplay">Style de gameplay :</label>
+                    <select id="styleGameplay" name="styleGameplay" required>
+                        <option value="casual">Casual</option>
+                        <option value="funSerious">Fun but Serious</option>
+                        <option value="absoluteConcentration">Concentration absolue</option>
+                        <option value="proLeague">Pro-league</option>
+                    </select>
+                    <button type="button" onclick="etapePrecedente()">Précédent</button>
+                    <button type="button" onclick="etapeSuivante()">Suivant</button>
+                </div>
+                <div style="display: none;">
+                    <label for="recherche">Recherche :</label>
+                    <select id="recherche" name="recherche" required>
+                        <option value="discuter">Gens pour discuter</option>
+                        <option value="jouer">Gens pour jouer</option>
+                        <option value="lesDeux">Les deux</option>
+                        <option value="autres">Autres</option>
+                    </select>
+                    <button type="button" onclick="etapePrecedente()">Précédent</button>
+                    <button type="button" onclick="etapeSuivante()">Suivant</button>
 
-        <label for="habitudes_de_vie">Habitudes de vie :</label>
-        <input type="text" id="habitudes_de_vie" name="habitudes_de_vie"><br><br>
+                </div>
+                <div style="display: none;">
+                    <label for="biographie">Biographie :</label>
+                    <textarea id="biographie" name="biographie" rows="4" cols="50"></textarea>
+                    <button type="button" onclick="etapePrecedente()">Précédent</button>
+                    <button type="submit">Soumettre</button>
+                </div>
+            </form>
+        </section>
 
-        <label for="domaines_interet">Domaines d'intérêt :</label>
-        <input type="text" id="domaines_interet" name="domaines_interet"><br><br>
-
-        <label for="valeurs_personnelles">Valeurs personnelles :</label>
-        <input type="text" id="valeurs_personnelles" name="valeurs_personnelles"><br><br>
-
-        <label for="opinions_politiques">Opinions politiques :</label>
-        <input type="text" id="opinions_politiques" name="opinions_politiques"><br><br>
-
-        <label for="activites_sociales">Activités sociales :</label>
-        <input type="text" id="activites_sociales" name="activites_sociales"><br><br>
-
-        <label for="objectifs_aspirations">Objectifs et aspirations :</label>
-        <input type="text" id="objectifs_aspirations" name="objectifs_aspirations"><br><br>
-
-        <label for="compatibilite_personnalite">Compatibilité de la personnalité :</label>
-        <input type="text" id="compatibilite_personnalite" name="compatibilite_personnalite"><br><br>
-
-        <!-- Ajoutez d'autres champs selon les besoins -->
-
-        <input type="submit" value="Soumettre">
-    </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Mon Site Web. Tous droits réservés.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
-</html>
 
+</html>

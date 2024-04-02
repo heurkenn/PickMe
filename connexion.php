@@ -1,9 +1,10 @@
 <?php
-// Paramètres de connexion à la base de données
+session_start();
+
 $servername = "localhost";
 $username = "ProjetR";
 $password = "Paulympe742@";
-$dbname = "maBaseDeDonnees";
+$dbname = "InfoUser";
 
 // Connexion à la base de données
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -13,31 +14,35 @@ if (!$conn) {
 echo "Connexion établie" . "<br>";
 
 // Sécurisation des données reçues du formulaire
-$pseudonyme = $conn->real_escape_string($_POST['Pseudonyme']);
-$motDePasse = $conn->real_escape_string($_POST['MotDePasse']);
+$pseudonyme = mysqli_real_escape_string($conn, $_POST['Pseudonyme']);
+$motDePasse = mysqli_real_escape_string($conn, $_POST['MotDePasse']);
 
-// Préparation de la requête SQL pour sélectionner l'utilisateur
-$sql = "SELECT MotDePasse FROM Utilisateurs WHERE Pseudonyme = '$pseudonyme'";
+// Préparation de la requête SQL pour sélectionner l'utilisateur et son ID
+$sql = "SELECT id, MotDePasse FROM Utilisateurs WHERE Pseudonyme = '$pseudonyme'";
 
-$result = mysqli_query( $conn, $sql );
-
+$result = mysqli_query($conn, $sql);
 if ($result->num_rows > 0) {
-    // Récupération du mot de passe hashé dans la base de données
     $row = $result->fetch_assoc();
     $motDePasseHash = $row['MotDePasse'];
-
-    // Vérification du mot de passe
     if (password_verify($motDePasse, $motDePasseHash)) {
-        echo "Connexion réussie. Bienvenue, " . $pseudonyme . "!";
-        // Redirection ou démarrage d'une session ici
-        // session_start();
-        // $_SESSION['pseudonyme'] = $pseudonyme;
-        // header('Location: espace_membre.php'); // Décommentez pour activer la redirection
+        $_SESSION['user_id'] = $row['id'];
+        $userId = $_SESSION['user_id'];
+        $sqlGouts = "SELECT * FROM Gouts WHERE UtilisateurId = '$userId'";
+        $resultGouts = mysqli_query($conn, $sqlGouts);
+
+        if (!($resultGouts->num_rows > 0)) {
+
+            header("Location: gouts.php");
+            exit();
+        }
+        header("Location: index.php");
+        exit();
     } else {
-        echo "Erreur : Mot de passe incorrect.";
+
+        header("Location: InsCon.php");
     }
 } else {
-    echo "Erreur : Utilisateur non trouvé.";
+    echo "Utilisateur non trouvé";
 }
 
 // Fermeture de la connexion
