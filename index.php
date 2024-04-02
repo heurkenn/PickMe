@@ -50,7 +50,7 @@ if (!($resultGouts->num_rows > 0)) {
 
 <body>
     <header>
-        <h1>PICK ME !</h1>
+        <h1><a href="index.php" class="custom-link">PICK ME !</a></h1>
         <nav>
             <ul>
                 <li><a href="#">Accueil</a></li>

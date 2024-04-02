@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-
+$userId = $_SESSION['user_id'];
 
 ?>
 
@@ -23,7 +23,7 @@ if (!isset($_SESSION['user_id'])) {
 
 <body>
     <header>
-        <h1>PICK ME !</h1>
+        <h1><a href="index.php" class="custom-link">PICK ME !</a></h1>
         <nav>
             <ul>
                 <li><a href="#">Accueil</a></li>
@@ -37,15 +37,46 @@ if (!isset($_SESSION['user_id'])) {
 
 
     <div class="main">
-        <div class="form">
-            <h2> Modification profil</h2>
+        <h1>Ton profil</h1>
+        <div id="infPerso" class="info">
+            <h3>Tes infos personelles</h3>
         </div>
+        <div id="infGene" class="hidden">
+            <h3>Tes gouts</h3>
+            <div id="pays">
+
+            </div>
+            <div id="langue">
+
+            </div>
+            <div id="genreJeux">
+
+            </div>
+            <div id="styleJeux">
+
+            </div>
+            <div id="recherche">
+
+            </div>
+            <div id="biographie">
+
+            </div>
+            <div id="profilPicture">
+
+            </div>
+        </div>
+        <section class="buttons">
+            <button id="persoButtons">infos personnelles</button>
+            <button id="geneButtons">gouts</button>
+        </section>
+    </div>
+
 
     </div>
     <footer>
         <p>&copy; 2024 Mon Site Web. Tous droits réservés.</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="profil.js"></script>
 </body>
 
 </html>

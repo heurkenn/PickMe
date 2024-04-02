@@ -3,7 +3,7 @@ html,body {
     margin: 0;
     padding: 0;
     font-family: Orbitron, sans-serif;
-    color: white;
+    color: #333;
     background-image: url("img/bkg.png");
     background-size: cover;
     background-position: center;
@@ -15,15 +15,15 @@ html,body {
 }
 
 .main {
-    padding: 50px 0; 
+    padding: 2rem 0; 
     text-align: center;
     min-height: 592px;
 }
 
 header {
-    background-color: #1e014d;
+    background-color: #77628c;
     color: #fff;
-    padding: 20px;
+    padding: 1.5rem;
     text-align: center;
     position: relative; 
 }
@@ -37,7 +37,7 @@ header h1 {
 
 header h1:hover, header h1:focus {
     transform: scale(1.1); 
-    color: #00ff00;
+    color: #acc6aa;
 }
 
 nav ul {
@@ -48,7 +48,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 15px; 
+    margin: 0 25px; 
 }
 
 nav ul li a {
@@ -61,7 +61,7 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a:focus { 
-    color: #00ff00; 
+    color: #acc6aa; 
 }
 
 nav ul li a::after {
@@ -69,7 +69,7 @@ nav ul li a::after {
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: #00ff00;
+    background-color: #acc6aa;
     left: 50%;
     bottom: -5px; 
     transition: width 0.3s ease, left 0.3s ease;
@@ -91,7 +91,7 @@ nav ul li a:focus::after {
 /* Style pour le bouton "Mon compte" */
 .account-button {
     padding: 8px 15px; /* Taille du bouton */
-    background-color: #1e014d; /* Couleur de fond */
+    background-color: #77628c; /* Couleur de fond */
     color: #ffffff; /* Couleur du texte */
     text-decoration: none; /* Pas de soulignement de texte */
     font-weight: bold; /* Gras pour le texte */
@@ -103,7 +103,7 @@ nav ul li a:focus::after {
 
 
 .account-button:hover {
-    background-color: #00ff00; 
+    background-color: #acc6aa; 
     transform: translateY(-2px); 
 }
 
@@ -118,9 +118,9 @@ nav ul li a:focus::after {
 }
 
 footer {
-    background-color: #260027;
+    background-color: #77628c;
     color: #fff;
-    padding: 20px;
+    padding: 1.5rem;
     text-align: center;
     width: 15;
     bottom: 0; 
@@ -128,7 +128,7 @@ footer {
     margin-top: auto;
     width: 100%;
     padding: 0;
-    height: 5em;
+    height: 3em;
     
     
 }
@@ -139,14 +139,14 @@ footer {
 .forms h2 {
     margin-bottom: 1.5em;
     text-align: center; 
-    color: #00ff00; 
+    color: #ffffff; 
     padding-top: 1em; 
 }
 
 
 .forms div {
-    background-color: #333333; 
-    border: 2px solid #00ff00; 
+    background-color: #000000; 
+    border: 5px solid #a72b96;
     color: #ffffff;
     transition: transform 0.3s ease, background-color 0.3s ease; 
     padding: 1em; 
@@ -165,9 +165,9 @@ footer {
     padding: 0.75em;
     border: 2px solid #555555; 
     border-radius: 0.5em;
-    background-color: #222222; 
+    background-color: #333333; 
     color: #ffffff; 
-    font-size: 0.8em; 
+    font-size: 1rem; 
 }
 
 
@@ -177,7 +177,7 @@ footer {
     cursor: pointer; 
     display: inline-block; 
     margin: 0 0.5em; 
-    background-color: #333333; 
+    background-color: #71a0a5; 
     color: #ffffff; 
     border-radius: 0.5em; 
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -186,19 +186,19 @@ footer {
 
 .forms input[type="submit"]:hover, 
 .buttons button:hover {
-    background-color: #007bff; 
+    background-color: #8acdd4; 
     transform: scale(1.1); 
 }
 
 .buttons button {
-    margin: 0.5em 20em;
+    margin: 0em 15em; display: block;
     width: 15em;
-    background-color: #1b17ee;
+    background-color: #71a0a5;
     color: #ffffff;
     font-weight: bold;
     display: inline-block;
     height: auto; 
-    font-size: 0.8em; 
+    font-size: 1rem; 
     transition: background-color 0.3s, transform 0.3s;
     cursor: pointer; 
     border-radius: 0.5em; 
@@ -219,12 +219,12 @@ footer {
 
 
 .image-container {
-    background-color: #ffffff;
+    background-color: #f8f9fa;
     border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
     display: inline-block;
-    height: 200px; 
+    height: auto; 
     vertical-align: top; 
     height: 25em;
     width: 25em;
@@ -236,7 +236,7 @@ footer {
 .image-container img {
     max-width: 100%;
     height: 100%;
-    border-radius: 5px; 
+    border-radius: 10px; 
 }
 
 .images .hidden {
@@ -249,8 +249,8 @@ footer {
     cursor: pointer;
     display: inline-block;
     margin: 0 0.5em;
-    border: 2px solid #00ff00;
-    background-color: #333333;
+    border: 5px solid #a72b96;
+    background-color: #000000;
     color: #ffffff;
     border-radius: 0.5em;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -259,7 +259,7 @@ footer {
 }
 
 .genres-btn:hover {
-    background-color: #006b00;
+    background-color: #7e1a70;
     transform: scale(1.1);
 }
 
@@ -269,8 +269,8 @@ footer {
     cursor: pointer;
     display: inline-block;
     margin: 0 0.5em;
-    border: 2px solid #00ff00;
-    background-color: #333333;
+    border: 5px solid #a72b96;
+    background-color: #000000;
     color: #ffffff;
     border-radius: 0.5em;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -279,11 +279,11 @@ footer {
 }
 
 .langue-btn:hover {
-    background-color: #006b00;
+    background-color: #7e1a70;
     transform: scale(1.1);
 }
 .selected {
-    background-color: #006b00;
+    background-color: #7e1a70;
 }
 
 
@@ -292,4 +292,18 @@ a.custom-link {
     color: inherit; /* Utiliser la couleur du texte parent */
     cursor: default; /* Utiliser le curseur par défaut */
     /* Autres styles personnalisés si nécessaire */
+}
+
+div .hidden {
+    display: none;
+}
+div .info{
+    background-color: #000000; 
+    border: 5px solid #a72b96; 
+    color: #ffffff;
+    transition: transform 0.3s ease, background-color 0.3s ease; 
+    padding: 1em; 
+    width: calc(35em - 4em); 
+    margin: 2em auto; 
+    border-radius: 0.5em;
 }
