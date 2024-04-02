@@ -2,16 +2,39 @@
 session_start();
 
 
+$servername = "localhost";
+$username = "ProjetR";
+$password = "Paulympe742@";
+$dbname = "InfoUser";
+
+// Connexion à la base de données
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: InsCon.php");
     exit();
 }
 
-if (!isset($_SESSION['gouts_enregistres'])) {
-    session_destroy();
+
+$userId = $_SESSION['user_id'];
+
+// Vérifier s'il existe des informations dans la table Gouts pour cet utilisateur
+$sqlGouts = "SELECT * FROM Gouts WHERE UtilisateurId = '$userId'";
+$resultGouts = mysqli_query($conn, $sqlGouts);
+
+if (!($resultGouts->num_rows > 0)) {
+    // Il existe des informations dans la table Gouts pour cet utilisateur
+    // Vous pouvez effectuer les actions appropriées ici
+
+    // Redirection vers une autre page par exemple
     header("Location: gouts.php");
     exit();
 }
+
 
 ?>
 
@@ -38,8 +61,13 @@ if (!isset($_SESSION['gouts_enregistres'])) {
         </nav>
 
     </header>
+
+
     <div class="main">
-    <h1><a href="deconnexion.php">Déconnexion</a></h1>
+        <div class="account-button-container">
+            <a href="profil.php" class="account-button">Mon compte</a>
+        </div>
+        <h1><a href="deconnexion.php">Déconnexion</a></h1>
 
     </div>
     <footer>

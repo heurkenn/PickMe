@@ -26,10 +26,19 @@ if ($result->num_rows > 0) {
     $motDePasseHash = $row['MotDePasse'];
     if (password_verify($motDePasse, $motDePasseHash)) {
         $_SESSION['user_id'] = $row['id'];
+        $userId = $_SESSION['user_id'];
+        $sqlGouts = "SELECT * FROM Gouts WHERE UtilisateurId = '$userId'";
+        $resultGouts = mysqli_query($conn, $sqlGouts);
+
+        if (!($resultGouts->num_rows > 0)) {
+
+            header("Location: gouts.php");
+            exit();
+        }
         header("Location: index.php");
         exit();
     } else {
-        
+
         header("Location: InsCon.php");
     }
 } else {
