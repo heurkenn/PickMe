@@ -57,23 +57,27 @@ window.onload = filterCountries;
 function toggleSelection(button, question) {
   if (question === "profil") {
     var maxSelection = 1;
-    var hiddenInput = document.getElementById(question);
+    var hiddenInput = document.getElementById("profilPicture"); // Correction ici
     var selectedButtons = document.querySelectorAll(
       "." + question + '-btn[data-selected="true"]'
     );
-    var selectedGenres = [];
+    var selectedPic = [];
     selectedButtons.forEach(function (btn) {
-      selectedGenres.push(btn.innerText);
+      selectedPic.push(btn.innerText);
     });
-
     if (button.getAttribute("data-selected") === "true") {
       button.setAttribute("data-selected", "false");
       button.classList.remove("selected");
-    } else if (selectedGenres.length < maxSelection) {
+    } else if (selectedPic.length <= maxSelection) {
+      selectedButtons.forEach(function (btn) {
+        btn.setAttribute("data-selected", "false");
+        btn.classList.remove("selected");
+      });
       button.setAttribute("data-selected", "true");
       button.classList.add("selected");
-      selectedGenres.push(button.innerText);
     }
+    var imageUrl = button.querySelector("img").getAttribute("src");
+    hiddenInput.value = imageUrl;
   } else {
     var maxSelection = 3;
     var hiddenInput = document.getElementById(question);

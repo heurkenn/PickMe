@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site Web</title>
+    <title>PICK ME !</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 
@@ -119,7 +119,15 @@
                         data-selected="false"><img src=img/5.png class="img-profil"></button>
                     <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
                         data-selected="false"><img src=img/6.png class="img-profil"></button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
+                        data-selected="false"><img src=img/7.png class="img-profil"></button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
+                        data-selected="false"><img src=img/8.png class="img-profil"></button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
+                        data-selected="false"><img src=img/9.png class="img-profil"></button>
+
                     </br>
+                    <input type="hidden" id="profilPicture" name="profilPicture" required>
                     <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="submit">Soumettre</button>
                 </div>
