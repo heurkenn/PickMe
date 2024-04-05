@@ -18,7 +18,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Définissez le nombre de profils à afficher
-$nombreProfils = 3;
+$nombreProfils = 5;
 
 // Récupérer un nombre spécifié d'utilisateurs de manière aléatoire avec leur biographie et goûts
 $sqlUtilisateurs = "SELECT Utilisateurs.*, Gouts.* FROM Utilisateurs 
@@ -75,6 +75,9 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
                 <h3>
                     <?= htmlspecialchars($row['Pseudonyme'], ENT_QUOTES, 'UTF-8') ?>
                 </h3>
+                <p>
+                    <img src=<?php echo htmlspecialchars($row['ProfilPicture'], ENT_QUOTES, 'UTF-8'); ?> class="img-profil">
+                </p>
                 <p>Nom:
                     <?= htmlspecialchars($row['Nom'], ENT_QUOTES, 'UTF-8') ?>
                 </p>

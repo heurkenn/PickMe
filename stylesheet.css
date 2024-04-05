@@ -122,16 +122,14 @@ footer {
     color: #fff;
     padding: 1.5rem;
     text-align: center;
-    width: 15;
     bottom: 0; 
     z-index: 10;
     margin-top: auto;
     width: 100%;
     padding: 0;
-    height: 3em;
-    
     
 }
+
 
 .forms, .buttons {
     font-family: 'Press Start 2P', cursive;
@@ -365,3 +363,4 @@ div .info {
 .hidden {
     display: none;
 }
+
