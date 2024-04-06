@@ -21,17 +21,14 @@ if (!isset($_SESSION['user_id'])) {
 $nombreProfils = 5;
 
 // Récupérer un nombre spécifié d'utilisateurs de manière aléatoire avec leur biographie et goûts
-$sqlUtilisateurs = "SELECT Utilisateurs.*, Gouts.*
+$sqlUtilisateurs = "SELECT DISTINCT Utilisateurs.*, Gouts.*
                     FROM Utilisateurs
                     JOIN Gouts ON Utilisateurs.id = Gouts.UtilisateurId
                     WHERE Utilisateurs.id <> {$_SESSION['user_id']}
-                      AND NOT FIND_IN_SET(Utilisateurs.id, (
-                          SELECT Aime FROM LikeList WHERE UtilisateurId = {$_SESSION['user_id']}
-                      ))
-                      AND NOT FIND_IN_SET(Utilisateurs.id, (
-                          SELECT AimePas FROM LikeList WHERE UtilisateurId = {$_SESSION['user_id']}
-                      ))
+                      AND Utilisateurs.id NOT IN (SELECT IdRecoi FROM LikeList WHERE IdEnvoi = {$_SESSION['user_id']})
+                      AND Utilisateurs.id NOT IN (SELECT IdEnvoi FROM LikeList WHERE IdRecoi = {$_SESSION['user_id']} AND Etat = 'non')
                     ORDER BY RAND() LIMIT $nombreProfils";
+
 
 $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
 ?>
@@ -66,7 +63,7 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
 
         <!-- Affichage des profils -->
         <?php while ($row = mysqli_fetch_assoc($resultUtilisateurs)): ?>
-            <div class='profile-card'>
+            <div id="prof" class='profile-card'>
                 <h2>
                     <?= htmlspecialchars($row['Pseudonyme'], ENT_QUOTES, 'UTF-8') ?>
                 </h2>
@@ -104,8 +101,8 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
                 </p>
                 <!-- Continuez selon le même modèle pour les autres champs si nécessaire -->
                 <section>
-                    <button onclick='likeProfile(<?php echo $row['id']; ?>, "no")'><img src="img/non.png"></button>
-                    <button onclick='likeProfile(<?php echo $row['id']; ?>, "yes")'><img src="img/oui.png"></button>
+                    <button onclick='likeProfile(<?php echo $row['id']; ?>, "non")'><img src="img/non.png"></button>
+                    <button onclick='likeProfile(<?php echo $row['id']; ?>, "oui")'><img src="img/oui.png"></button>
 
                 </section>
             </div>

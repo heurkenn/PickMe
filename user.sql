@@ -31,9 +31,9 @@ CREATE TABLE Gouts (
 );
 
 CREATE TABLE LikeList (
-    idEnvoi INT,
-    idRecoi INT,
-    etat INT
+    IdEnvoi INT,
+    IdRecoi INT,
+    Etat VARCHAR(3)
 
 );
 

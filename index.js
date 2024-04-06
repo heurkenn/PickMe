@@ -18,30 +18,35 @@ function hideAdditionalInfo() {
   modalInfo.innerHTML = ""; // Nettoyage de la bulle modale
 }
 
-
 function likeProfile(profileId, action) {
-    // Créer un objet FormData pour envoyer les données
-    var formData = new FormData();
-    formData.append('profileId', profileId);
-    formData.append('action', action);
+  // Créer un objet FormData pour envoyer les données
+  var formData = new FormData();
+  formData.append("profileId", profileId);
+  formData.append("action", action);
 
-    // Créer une requête AJAX
-    var xhr = new XMLHttpRequest();
+  // Créer une requête AJAX
+  var xhr = new XMLHttpRequest();
 
-    // Spécifier la méthode HTTP et l'URL de la requête
-    xhr.open('POST', 'updateLikes.php', true);
+  // Spécifier la méthode HTTP et l'URL de la requête
+  xhr.open("POST", "updateLikes.php", true);
 
-    // Définir le callback pour la réponse de la requête
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            // La requête s'est terminée avec succès, vous pouvez effectuer des actions supplémentaires si nécessaire
-            console.log(xhr.responseText);
-        } else {
-            // Gérer les erreurs si la requête a échoué
-            console.error('La requête a échoué.');
-        }
-    };
+  // Définir le callback pour la réponse de la requête
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      // La requête s'est terminée avec succès, vous pouvez effectuer des actions supplémentaires si nécessaire
+      console.log(xhr.responseText);
+    } else {
+      // Gérer les erreurs si la requête a échoué
+      console.error("La requête a échoué.");
+    }
+  };
 
-    // Envoyer la requête avec les données FormData
-    xhr.send(formData);
+  // Envoyer la requête avec les données FormData
+  xhr.send(formData);
+
+  var modalBackground = document.getElementById("modal-background");
+  modalBackground.style.display = "none"; // Masquage de la bulle modale
+  var modalInfo = document.getElementById("modal-info");
+  modalInfo.innerHTML = ""; // Nettoyage de la bulle modale
+  document.getElementById("prof").classList.add("hidden");
 }

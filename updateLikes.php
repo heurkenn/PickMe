@@ -27,14 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['profileId']) && isset(
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    // Vérifier si l'action est "yes" (like) ou "no" (dislike)
-    if ($action === "yes") {
-        // Mettre à jour la colonne Aime dans la table LikeList
-        $query = "UPDATE LikeList SET Aime = CONCAT_WS(',', Aime, '$profileId') WHERE UtilisateurId = $userId";
-    } elseif ($action === "no") {
-        // Mettre à jour la colonne AimePas dans la table LikeList
-        $query = "UPDATE LikeList SET AimePas = CONCAT_WS(',', AimePas, '$profileId') WHERE UtilisateurId = $userId";
-    }
+    $query = "INSERT INTO LikeList (IdEnvoi, IdRecoi, Etat)
+    VALUES ('$userId', '$profileId', '$action')";
 
     // Exécuter la requête SQL
     if (mysqli_query($conn, $query)) {
