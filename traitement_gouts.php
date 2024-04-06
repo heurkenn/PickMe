@@ -34,11 +34,16 @@ $profilPic = $_POST['profilPicture'];
 $query = "INSERT INTO Gouts (UtilisateurId, Pays, Langue, GenreJeux, StyleGameplay, TypeRecherche, Biographie,ProfilPicture)
         VALUES ('$userId', '$pays', '$langue', '$genre', '$styleGameplay', '$recherche', '$biographie','$profilPic')";
 
+$query2= "INSERT INTO LikeList (UtilisateurId)
+        VALUES ('$userId')";
+
 
 echo "Requête SQL: " . $query . "<br>";
 
 
 $result = mysqli_query($conn, $query);
+$result2 = mysqli_query($conn, $query2);
+
 if (!$result) {
     printf("Erreur: %s\n", mysqli_error($conn));
 } else {

@@ -21,9 +21,18 @@ if (!isset($_SESSION['user_id'])) {
 $nombreProfils = 5;
 
 // Récupérer un nombre spécifié d'utilisateurs de manière aléatoire avec leur biographie et goûts
-$sqlUtilisateurs = "SELECT Utilisateurs.*, Gouts.* FROM Utilisateurs 
-                    JOIN Gouts ON Utilisateurs.id = Gouts.UtilisateurId 
+$sqlUtilisateurs = "SELECT Utilisateurs.*, Gouts.*
+                    FROM Utilisateurs
+                    JOIN Gouts ON Utilisateurs.id = Gouts.UtilisateurId
+                    WHERE Utilisateurs.id <> {$_SESSION['user_id']}
+                      AND NOT FIND_IN_SET(Utilisateurs.id, (
+                          SELECT Aime FROM LikeList WHERE UtilisateurId = {$_SESSION['user_id']}
+                      ))
+                      AND NOT FIND_IN_SET(Utilisateurs.id, (
+                          SELECT AimePas FROM LikeList WHERE UtilisateurId = {$_SESSION['user_id']}
+                      ))
                     ORDER BY RAND() LIMIT $nombreProfils";
+
 $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
 ?>
 
@@ -61,11 +70,8 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
                 <h2>
                     <?= htmlspecialchars($row['Pseudonyme'], ENT_QUOTES, 'UTF-8') ?>
                 </h2>
-                <p>Nom:
-                    <?= htmlspecialchars($row['Nom'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
-                <p>Prénom:
-                    <?= htmlspecialchars($row['Prenom'], ENT_QUOTES, 'UTF-8') ?>
+                <p>
+                    <img src=<?php echo htmlspecialchars($row['ProfilPicture'], ENT_QUOTES, 'UTF-8'); ?> class="img-profil">
                 </p>
                 <button onclick='showAdditionalInfo(<?= $row['id'] ?>)'>Plus d'infos</button>
             </div>
@@ -77,15 +83,6 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
                 </h3>
                 <p>
                     <img src=<?php echo htmlspecialchars($row['ProfilPicture'], ENT_QUOTES, 'UTF-8'); ?> class="img-profil">
-                </p>
-                <p>Nom:
-                    <?= htmlspecialchars($row['Nom'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
-                <p>Prénom:
-                    <?= htmlspecialchars($row['Prenom'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
-                <p>Biographie:
-                    <?= htmlspecialchars($row['Biographie'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
                 <p>Pays:
                     <?= htmlspecialchars($row['Pays'], ENT_QUOTES, 'UTF-8') ?>
@@ -99,10 +96,18 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
                 <p>Style de gameplay:
                     <?= htmlspecialchars($row['StyleGameplay'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
-                <p>Type de recherche:
+                <p>Recherche:
                     <?= htmlspecialchars($row['TypeRecherche'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
+                <p>Biographie:
+                    <?= htmlspecialchars($row['Biographie'], ENT_QUOTES, 'UTF-8') ?>
+                </p>
                 <!-- Continuez selon le même modèle pour les autres champs si nécessaire -->
+                <section>
+                    <button onclick='likeProfile(<?php echo $row['id']; ?>, "no")'><img src="img/non.png"></button>
+                    <button onclick='likeProfile(<?php echo $row['id']; ?>, "yes")'><img src="img/oui.png"></button>
+
+                </section>
             </div>
         <?php endwhile; ?>
     </div>
