@@ -364,3 +364,19 @@ div .info {
     display: none;
 }
 
+.match-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    font-size: larger;
+    background-color: #000000;
+    color: #ffffff;
+    border: 5px solid #71a0a5;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 1em;
+    width: calc(35em - 4em);
+    border-radius: 0.5em;
+    z-index: 9999; /* Assurez-vous que l'alerte s'affiche au-dessus de tout le contenu */
+}

@@ -60,10 +60,11 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
             <a href="profil.php" class="account-button">Mon compte</a>
             <a href="deconnexion.php" class="account-button">Déconnexion</a>
         </div>
+        <div id="match-alert" class="match-alert hidden">C'est un match!</div>
 
         <!-- Affichage des profils -->
         <?php while ($row = mysqli_fetch_assoc($resultUtilisateurs)): ?>
-            <div id="prof" class='profile-card'>
+            <div id='prof-<?= $row['id'] ?>' class='profile-card'>
                 <h2>
                     <?= htmlspecialchars($row['Pseudonyme'], ENT_QUOTES, 'UTF-8') ?>
                 </h2>

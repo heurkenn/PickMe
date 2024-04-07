@@ -29,10 +29,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['profileId']) && isset(
 
     $query = "INSERT INTO LikeList (IdEnvoi, IdRecoi, Etat)
     VALUES ('$userId', '$profileId', '$action')";
+    
 
     // Exécuter la requête SQL
     if (mysqli_query($conn, $query)) {
-        echo "Mise à jour des likes réussie.";
+        if ($action === "oui") {
+            $matchQuery = "SELECT * FROM LikeList WHERE IdEnvoi = $profileId AND IdRecoi = $userId";
+            $result = mysqli_query($conn, $matchQuery);
+            if (mysqli_num_rows($result) > 0) {
+                // Il y a un match
+                echo "Match";
+            }
+        }
     } else {
         echo "Erreur lors de la mise à jour des likes : " . mysqli_error($conn);
     }

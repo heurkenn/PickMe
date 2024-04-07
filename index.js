@@ -35,6 +35,11 @@ function likeProfile(profileId, action) {
     if (xhr.status === 200) {
       // La requête s'est terminée avec succès, vous pouvez effectuer des actions supplémentaires si nécessaire
       console.log(xhr.responseText);
+      // Masquer le profil une fois que la requête est terminée
+      document.getElementById("prof-" + profileId).classList.add("hidden");
+      if (xhr.responseText.trim() === "Match") {
+        showMatchAlert();
+      }
     } else {
       // Gérer les erreurs si la requête a échoué
       console.error("La requête a échoué.");
@@ -48,5 +53,14 @@ function likeProfile(profileId, action) {
   modalBackground.style.display = "none"; // Masquage de la bulle modale
   var modalInfo = document.getElementById("modal-info");
   modalInfo.innerHTML = ""; // Nettoyage de la bulle modale
-  document.getElementById("prof").classList.add("hidden");
+}
+
+function showMatchAlert() {
+  var matchAlert = document.getElementById("match-alert");
+  matchAlert.style.display = "block"; // Afficher la div d'alerte
+
+  // Masquer la div d'alerte après 5 secondes
+  setTimeout(function () {
+    matchAlert.style.display = "none";
+  }, 5000);
 }
