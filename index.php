@@ -51,6 +51,7 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
                 <li><a href="#">À propos</a></li>
                 <li><a href="#">Abonnement</a></li>
                 <li><a href="#">Contact</a></li>
+                <li><a href="message.php">Tes matchs</a></li>
             </ul>
         </nav>
     </header>

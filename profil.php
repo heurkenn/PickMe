@@ -77,6 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li><a href="#">À propos</a></li>
                 <li><a href="#">Abonnement</a></li>
                 <li><a href="#">Contact</a></li>
+                <li><a href="message.php">Tes matchs</a></li>
             </ul>
         </nav>
 
