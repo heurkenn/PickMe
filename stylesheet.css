@@ -380,3 +380,58 @@ div .info {
     border-radius: 0.5em;
     z-index: 9999; /* Assurez-vous que l'alerte s'affiche au-dessus de tout le contenu */
 }
+
+.message-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    font-size: larger;
+    background-color: #000000;
+    color: #ffffff;
+    border: 5px solid #71a0a5;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 1em;
+    width: calc(35em - 4em);
+    border-radius: 0.5em;
+    width: 1000px;
+    height: 800px;
+    
+    z-index: 9999;
+}
+
+
+.message-history {
+    overflow-y: auto;
+    height: 700px;
+}
+
+
+
+.message-bubble {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 0px;
+    width:fit-content;
+    max-width: 70%; /* Limitez la largeur des bulles de message */
+    word-wrap: break-word; /* Permettez le retour à la ligne */
+    color: red; /* Définissez la couleur du texte */
+}
+
+.receiver-message {
+    background-color: #fadb5f;
+    color: red; /* Couleur jaune pour les messages du profil */
+}
+
+.sender-message {
+    background-color: #8fc97b;
+    color: red;
+    margin-left: auto; /* Pousse les bulles de message envoyées vers la droite */
+}
+
+.message-time {
+    font-size: small;
+    color: #666;
+    margin-bottom: 10px; /* Couleur grise pour les horaires */
+}

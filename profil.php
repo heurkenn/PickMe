@@ -84,15 +84,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <div class="main">
+        <div class="account-button-container">
+            <a href="deconnexion.php" class="account-button">Déconnexion</a>
+        </div>
         <h1>Ton profil</h1>
         <div id="infPerso" class="hidden">
             <h3>Tes infos personelles</h3></br></br>
-            <div style="font-weight: bold;">Nom: </div><?php echo $user2['Nom']; ?></br></br>
-            <div style="font-weight: bold;">Prénom: </div><?php echo $user2['Prenom']; ?></br></br>
-            <div style="font-weight: bold;">Date de naissance: </div><?php echo $user2['DateNaissance_format']; ?></br></br>
-            <div style="font-weight: bold;">Pseudonyme: </div><?php echo $user2['Pseudonyme']; ?></br></br>
-            <div style="font-weight: bold;">Email: </div><?php echo $user2['Email']; ?></br></br>
-            <div style="font-weight: bold;">Forfait: </div><?php echo $user2['Forfait']; ?></br></br>
+            <div style="font-weight: bold;">Nom: </div>
+            <?php echo $user2['Nom']; ?></br></br>
+            <div style="font-weight: bold;">Prénom: </div>
+            <?php echo $user2['Prenom']; ?></br></br>
+            <div style="font-weight: bold;">Date de naissance: </div>
+            <?php echo $user2['DateNaissance_format']; ?></br></br>
+            <div style="font-weight: bold;">Pseudonyme: </div>
+            <?php echo $user2['Pseudonyme']; ?></br></br>
+            <div style="font-weight: bold;">Email: </div>
+            <?php echo $user2['Email']; ?></br></br>
+            <div style="font-weight: bold;">Forfait: </div>
+            <?php echo $user2['Forfait']; ?></br></br>
         </div>
         <div id="infGene" class="hidden">
             <section class="buttons_gene">
@@ -108,7 +117,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form id="changeProfil" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <div id="paysDiv" class="hidden">
                     <label for="pays">Pays :</label>
-                    <input type="text" id="paysSearch" oninput="filterCountries()" placeholder="Recherche par pays..." value="<?php echo $user['Pays']; ?>">
+                    <input type="text" id="paysSearch" oninput="filterCountries()" placeholder="Recherche par pays..."
+                        value="<?php echo $user['Pays']; ?>">
                     <select name="pays" id="pays">
                     </select>
                     <br>
@@ -157,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div id="styleJeuxDiv" class="hidden">
                     <label for="styleGameplay">Style de gameplay :</label>
-                    <select id="styleGameplay" name="styleGameplay"  value="<?php echo $user['StyleGameplay']; ?>">
+                    <select id="styleGameplay" name="styleGameplay" value="<?php echo $user['StyleGameplay']; ?>">
                         <option value="casual">Casual</option>
                         <option value="funSerious">Fun but Serious</option>
                         <option value="absoluteConcentration">Concentration absolue</option>
@@ -181,8 +191,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div id="biographieDiv" class="hidden">
                     <label for="biographie">Biographie :</label>
-                    <textarea id="biographie" name="biographie" rows="4" cols="50"><?php echo $user['Biographie']; ?></textarea>
-                    
+                    <textarea id="biographie" name="biographie" rows="4"
+                        cols="50"><?php echo $user['Biographie']; ?></textarea>
+
                 </div>
                 <div id="profilPictureDiv" class="hidden">
                     <label for="profilPicture">Image de profile:</label></br>
@@ -205,8 +216,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
                         data-selected="false"><img src=img/9.png class="img-profil"></button>
 
-                    
-                    <input type="hidden" id="profilPicture" name="profilPicture" value="<?php echo $user['ProfilPicture']; ?>">
+
+                    <input type="hidden" id="profilPicture" name="profilPicture"
+                        value="<?php echo $user['ProfilPicture']; ?>">
                     <p>Informations enregistrées:
                         <img src=<?php echo htmlspecialchars($user['ProfilPicture']); ?> class="img-profil">
                     </p>
