@@ -22,6 +22,8 @@ body {
     min-height: 592px;
 }
 
+
+
 header {
     background-color: #77628c;
     color: #fff;
@@ -463,7 +465,7 @@ div .info {
     color: #ffffff;
 }
 
-.msg-input{
+.msg-input {
     width: 700px;
     height: 50px;
     color: #ffffff;
@@ -472,11 +474,11 @@ div .info {
     border: 5px solid #71a0a5;
 }
 
-.msg-input:focus{
+.msg-input:focus {
     outline: none;
 }
 
-#match-list{
+#match-list {
     width: 350px;
     height: fit-content;
     color: #ffffff;
@@ -493,20 +495,25 @@ a.match-link {
 }
 
 .img-profil2 {
-    height: 100px; /* Hauteur fixe pour les images de profil */
+    height: 100px;
+    /* Hauteur fixe pour les images de profil */
     width: 66px;
-    border-radius: 50%; /* Assurez-vous que les images de profil sont des cercles */
-    margin-right: 15px; /* Espacement entre l'image de profil et le pseudonyme */
+    border-radius: 50%;
+    /* Assurez-vous que les images de profil sont des cercles */
+    margin-right: 15px;
+    /* Espacement entre l'image de profil et le pseudonyme */
 }
 
 
 #match-list ul li {
     display: flex;
-    align-items: center; /* Centrer verticalement les éléments enfants */
-    margin-bottom: 10px; /* Espacement entre les éléments de la liste */
+    align-items: center;
+    /* Centrer verticalement les éléments enfants */
+    margin-bottom: 10px;
+    /* Espacement entre les éléments de la liste */
 }
 
-.close-btn-msg{
+.close-btn-msg {
     background-color: #000000;
     color: #71a0a5;
     float: right;
@@ -516,7 +523,7 @@ a.match-link {
     border: #000000;
 }
 
-.close-btn-msg:hover{
+.close-btn-msg:hover {
     cursor: pointer;
     background-color: #000000;
     color: #71a0a5;
@@ -529,7 +536,7 @@ a.match-link {
 
 
 
-.gestion-container{
+.gestion-container {
     width: 500px;
     height: 100px;
     color: #ffffff;
@@ -542,7 +549,7 @@ a.match-link {
     left: 25%;
 }
 
-.gestion-btn{
+.gestion-btn {
     padding: 1em 2em;
     font-size: 0.9em;
     cursor: pointer;
@@ -556,12 +563,12 @@ a.match-link {
     font-family: Orbitron, sans-serif;
 }
 
-.gestion-btn:hover{
+.gestion-btn:hover {
     background-color: #8acdd4;
     transform: scale(1.1);
 }
 
-.report-input{
+.report-input {
     width: 485px;
     height: 50px;
     color: #ffffff;
@@ -570,6 +577,24 @@ a.match-link {
     border: 5px solid #71a0a5;
 }
 
-.report-input:focus{
+.report-input:focus {
     outline: none;
+}
+
+.limit-reached-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    font-size: larger;
+    background-color: #000000;
+    color: #ffffff;
+    border: 5px solid #71a0a5;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 1em;
+    width: calc(35em - 4em);
+    border-radius: 0.5em;
+    z-index: 9999;
+    /* Assurez-vous que l'alerte s'affiche au-dessus de tout le contenu */
 }

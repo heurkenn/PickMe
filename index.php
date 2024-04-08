@@ -62,6 +62,8 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
             <a href="deconnexion.php" class="account-button">Déconnexion</a>
         </div>
         <div id="match-alert" class="match-alert hidden">C'est un match!</div>
+        <div id="limit-reached-message" class="match-alert hidden">Limite atteinte</div>
+
 
         <!-- Affichage des profils -->
         <?php while ($row = mysqli_fetch_assoc($resultUtilisateurs)): ?>
@@ -103,7 +105,7 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
                 </p>
                 <!-- Continuez selon le même modèle pour les autres champs si nécessaire -->
                 <section>
-                    <button onclick='likeProfile(<?php echo $row['id']; ?>, "non")'><img src="img/non.png"></button>
+                    <button onclick='dislikeProfile(<?php echo $row['id']; ?>, "non")'><img src="img/non.png"></button>
                     <button onclick='likeProfile(<?php echo $row['id']; ?>, "oui")'><img src="img/oui.png"></button>
 
                 </section>
