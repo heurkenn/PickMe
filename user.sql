@@ -4,6 +4,7 @@ USE InfoUser;
 DROP TABLE IF EXISTS Gouts;
 DROP TABLE IF EXISTS LikeList;
 DROP TABLE IF EXISTS Messages;
+DROP TABLE IF EXISTS Report;
 DROP TABLE IF EXISTS Utilisateurs;
 CREATE TABLE Utilisateurs (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -42,6 +43,13 @@ CREATE TABLE Messages (
     UtilisateurIdBis INT,
     MessageEnv VARCHAR(500),
     Horaire DATETIME
+);
+
+CREATE TABLE Report(
+    IdSignal INT,
+    IdProbleme INT,
+    Horaire DATETIME,
+    MessageReport VARCHAR(500)
 );
 
 

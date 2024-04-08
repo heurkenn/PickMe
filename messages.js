@@ -218,20 +218,22 @@ document.addEventListener("DOMContentLoaded", function () {
     xhr.open("POST", "reportUser.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onload = function () {
-      if (xhr.status === 200) {
-        // Afficher un message de confirmation ou effectuer une action supplémentaire si nécessaire
-        alert("Report envoyé avec succès.");
-      } else {
-        console.error("Erreur lors de l'envoi du report.");
-      }
+        if (xhr.status === 200) {
+            // Afficher un message de confirmation ou effectuer une action supplémentaire si nécessaire
+            alert("Report envoyé avec succès.");
+            // Masquer la div gestion-container
+            gestionContainer.classList.add("hidden");
+        } else {
+            console.error("Erreur lors de l'envoi du report.");
+        }
     };
     xhr.send(
-      "receiver_id=" +
+        "receiver_id=" +
         receiverId +
         "&report_message=" +
         encodeURIComponent(reportMessage)
     );
-  }
+}
   document.getElementById("gestion-btn").addEventListener("click", function () {
     // Cacher la zone de messagerie
   

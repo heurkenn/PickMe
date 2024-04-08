@@ -560,3 +560,16 @@ a.match-link {
     background-color: #8acdd4;
     transform: scale(1.1);
 }
+
+.report-input{
+    width: 485px;
+    height: 50px;
+    color: #ffffff;
+    background-color: #000000;
+    font-family: Orbitron, sans-serif;
+    border: 5px solid #71a0a5;
+}
+
+.report-input:focus{
+    outline: none;
+}

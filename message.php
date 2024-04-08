@@ -49,9 +49,9 @@ mysqli_close($conn);
         <h1><a href="index.php" class="custom-link">PICK ME !</a></h1>
         <nav>
             <ul>
-                <li><a href="#">À propos</a></li>
+                <li><a href="apropos.php">À propos</a></li>
                 <li><a href="#">Abonnement</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="contact.php">Contact</a></li>
                 <li><a href="message.php">Tes matchs</a></li>
             </ul>
         </nav>
@@ -90,8 +90,8 @@ mysqli_close($conn);
                     <button id="delete-match-btn" class="gestion-btn">Supprimer le match</button>
                     <button id="report-btn" class="gestion-btn">Report</button>
                     <div id="report-div" style="display: none;">
-                        <textarea id="report-message" placeholder="Raison du report"></textarea>
-                        <button id="send-report-btn">Envoyer</button>
+                        <textarea id="report-message" placeholder="Raison du report" class="report-input"></textarea>
+                        <button id="send-report-btn" class="gestion-btn">Envoyer</button>
                     </div>
                 </div>
                 <div id="message-input">

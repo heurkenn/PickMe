@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Insérer le rapport dans la base de données
-        $insertQuery = "INSERT INTO Reports (SenderId, ReceiverId, Message) VALUES ('$userId', '$receiverId', '$reportMessage')";
+        $insertQuery = "INSERT INTO Report (Idsignal, IdProbleme, Horaire, MessageReport) VALUES ('$userId', '$receiverId', NOW(), '$reportMessage')";
         if (mysqli_query($conn, $insertQuery)) {
             echo "Report envoyé avec succès.";
         } else {

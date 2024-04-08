@@ -24,8 +24,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Supprimer le match de la base de données
         $deleteQuery = "DELETE FROM LikeList WHERE (IdEnvoi = $userId AND IdRecoi = $receiverId) OR (IdEnvoi = $receiverId AND IdRecoi = $userId)";
+        $deleteQuery2 = "DELETE FROM Messages WHERE (UtilisateurId = $userId AND UtilisateurIdBis = $receiverId) OR (UtilisateurId = $receiverId AND UtilisateurIdBis = $userId)";
+
         if (mysqli_query($conn, $deleteQuery)) {
             echo "Match supprimé avec succès.";
+            if (mysqli_query($conn, $deleteQuery2)) {
+                echo "Discussio, supprimé avec succès.";
+                
+            } else {
+                echo "Erreur lors de la suppression de la discussion: " . mysqli_error($conn);
+            }
         } else {
             echo "Erreur lors de la suppression du match: " . mysqli_error($conn);
         }
