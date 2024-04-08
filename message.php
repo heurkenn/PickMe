@@ -21,9 +21,13 @@ if (!$conn) {
 
 $query = "SELECT DISTINCT Utilisateurs.id, Gouts.ProfilPicture, Utilisateurs.Pseudonyme 
           FROM Utilisateurs 
-          JOIN LikeList ON Utilisateurs.id = LikeList.IdEnvoi OR Utilisateurs.id = LikeList.IdRecoi
-          JOIN Gouts ON Utilisateurs.id= Gouts.UtilisateurId
-          WHERE (LikeList.IdEnvoi = $userId OR LikeList.IdRecoi = $userId) AND LikeList.Etat = 'oui' AND Utilisateurs.id <> {$_SESSION['user_id']}";
+          JOIN LikeList AS SenderLikes ON Utilisateurs.id = SenderLikes.IdRecoi
+          JOIN LikeList AS ReceiverLikes ON Utilisateurs.id = ReceiverLikes.IdEnvoi
+          JOIN Gouts ON Utilisateurs.id = Gouts.UtilisateurId
+          WHERE SenderLikes.IdEnvoi = $userId
+          AND ReceiverLikes.IdRecoi = $userId
+          AND SenderLikes.Etat = 'oui'
+          AND ReceiverLikes.Etat = 'oui'";
 $result = mysqli_query($conn, $query);
 $matches = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_free_result($result);
@@ -57,6 +61,7 @@ mysqli_close($conn);
             <a href="deconnexion.php" class="account-button">Déconnexion</a>
         </div>
 
+
         <!-- Zone de sélection des correspondants -->
         <div id="match-list">
             <h2>Tes matchs</h2>
@@ -73,20 +78,21 @@ mysqli_close($conn);
 
         <!-- Zone de messagerie -->
         <div id=test>
-            <div id="gestion-container" class="hidden">
-                <button id="delete-match-btn" class="gestion-btn">Supprimer le match</button>
-                <button id="report-btn" class="gestion-btn">Report</button>
-                <div id="report-div" style="display: none;">
-                    <textarea id="report-message" placeholder="Raison du report"></textarea>
-                    <button id="send-report-btn">Envoyer</button>
-                </div>
-            </div>
+
             <div id="message-container" class="hidden">
                 <span id="selected-profile-name" style="font-weight:bolder; test-align:center;"></span>
                 <button id="close-message-btn" class="close-btn-msg">X</button>
                 <button id="gestion-btn" class="close-btn-msg">...</button>
                 <div id="message-history" class="message-history">
                     <!-- L'historique des messages sera affiché ici -->
+                </div>
+                <div id="gestion-container" class="hidden">
+                    <button id="delete-match-btn" class="gestion-btn">Supprimer le match</button>
+                    <button id="report-btn" class="gestion-btn">Report</button>
+                    <div id="report-div" style="display: none;">
+                        <textarea id="report-message" placeholder="Raison du report"></textarea>
+                        <button id="send-report-btn">Envoyer</button>
+                    </div>
                 </div>
                 <div id="message-input">
                     <form id="send-message-form" method="post">
@@ -97,7 +103,9 @@ mysqli_close($conn);
                     </form>
                 </div>
             </div>
+
         </div>
+
     </div>
     <footer>
         <p>&copy; 2024 Mon Site Web. Tous droits réservés.</p>

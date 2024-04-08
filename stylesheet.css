@@ -411,7 +411,6 @@ div .info {
     width: 1000px;
     height: 700px;
 
-    z-index: 9998;
 }
 
 
@@ -517,12 +516,47 @@ a.match-link {
     border: #000000;
 }
 
-#gestion-container{
-    width: 350px;
-    height: fit-content;
+.close-btn-msg:hover{
+    cursor: pointer;
+    background-color: #000000;
+    color: #71a0a5;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    border: #000000;
+}
+
+
+
+.gestion-container{
+    width: 500px;
+    height: 100px;
     color: #ffffff;
     background-color: #000000;
     font-family: Orbitron, sans-serif;
     border: 5px solid #71a0a5;
     z-index: 9999;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
+
+.gestion-btn{
+    padding: 1em 2em;
+    font-size: 0.9em;
+    cursor: pointer;
+    display: inline-block;
+    margin: 1em 0.5em;
+    border: 5px solid #71a0a5;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 0.5em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: Orbitron, sans-serif;
+}
+
+.gestion-btn:hover{
+    background-color: #8acdd4;
+    transform: scale(1.1);
 }
