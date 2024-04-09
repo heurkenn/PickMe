@@ -598,3 +598,78 @@ a.match-link {
     z-index: 9999;
     /* Assurez-vous que l'alerte s'affiche au-dessus de tout le contenu */
 }
+
+.search-container {
+    width: 500px;
+    height: 200px;
+    color: #ffffff;
+    background-color: #000000;
+    font-family: Orbitron, sans-serif;
+    border: 5px solid #71a0a5;
+    padding: 10px;
+    /* Ajouter une ombre si nécessaire */
+    z-index: 999;
+    /* Assurez-vous que la zone de recherche est au-dessus du contenu */
+    position: relative;
+    margin-bottom: 30px;
+    top: 20%;
+    left: 50%; /* alignement horizontal au centre */
+    transform: translate(-50%); /* correction pour centrer la div */
+
+
+}
+
+.search-input {
+    width: 490px;
+    height: 50px;
+    color: #ffffff;
+    background-color: #000000;
+    font-family: Orbitron, sans-serif;
+    border: 5px solid #71a0a5;
+}
+
+
+
+.search-input:focus {
+    outline: none;
+}
+
+.profile-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.profile {
+    width: 530px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile h2 {
+    margin-top: 0;
+}
+
+.profile form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile form button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.profile p {
+    margin: 0;
+}
+
+.img-search-profil {
+    height: 50px;
+    width: 33px;
+}

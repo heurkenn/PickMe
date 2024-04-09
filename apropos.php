@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <h1>PICK ME !</h1>
+        <h1><a href="index.php" class="custom-link">PICK ME !</h1>
         <nav>
             <ul>
                 <li><a href="apropos.php">À propos</a></li>
