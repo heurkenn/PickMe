@@ -95,6 +95,14 @@ nav ul li a:focus::after {
     /* Espacement depuis le haut et la droite de la page */
 }
 
+.admin-button-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    /* Espacement depuis le haut et la droite de la page */
+}
+
 /* Style pour le bouton "Mon compte" */
 .account-button {
     padding: 8px 15px;

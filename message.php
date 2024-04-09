@@ -19,6 +19,16 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+// Vérifier si l'utilisateur a le forfait "admin"
+$query = "SELECT Forfait FROM Utilisateurs WHERE id = {$_SESSION['user_id']}";
+$result = mysqli_query($conn, $query);
+if (mysqli_num_rows($result) == 0) {
+    header("Location: InsCon.php");
+    exit();
+}
+$row = mysqli_fetch_assoc($result);
+$forfait = $row['Forfait'];
+
 $query = "SELECT DISTINCT Utilisateurs.id, Gouts.ProfilPicture, Utilisateurs.Pseudonyme 
           FROM Utilisateurs 
           JOIN LikeList AS SenderLikes ON Utilisateurs.id = SenderLikes.IdRecoi
@@ -57,8 +67,14 @@ mysqli_close($conn);
         </nav>
     </header>
     <div class="main">
-        <div class="account-button-container">
+    <div class="account-button-container">
+            <a href="profil.php" class="account-button">Mon compte</a>
             <a href="deconnexion.php" class="account-button">Déconnexion</a>
+        </div>
+        <div class="admin-button-container">
+            <?php if ($forfait === 'admin'): ?>
+                <a href="admin.php" class="account-button">Admin</a>
+            <?php endif; ?>
         </div>
 
 

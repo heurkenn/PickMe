@@ -1,3 +1,33 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "ProjetR";
+$password = "Paulympe742@";
+$dbname = "InfoUser";
+
+// Connexion à la base de données
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: InsCon.php");
+    exit();
+}
+
+// Vérifier si l'utilisateur a le forfait "admin"
+$query = "SELECT Forfait FROM Utilisateurs WHERE id = {$_SESSION['user_id']}";
+$result = mysqli_query($conn, $query);
+if (mysqli_num_rows($result) == 0) {
+    header("Location: InsCon.php");
+    exit();
+}
+$row = mysqli_fetch_assoc($result);
+$forfait = $row['Forfait'];
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,6 +52,15 @@
     </header>
 
     <main class="main">
+        <div class="account-button-container">
+            <a href="profil.php" class="account-button">Mon compte</a>
+            <a href="deconnexion.php" class="account-button">Déconnexion</a>
+        </div>
+        <div class="admin-button-container">
+            <?php if ($forfait === 'admin'): ?>
+                <a href="admin.php" class="account-button">Admin</a>
+            <?php endif; ?>
+        </div>
         <h2>Contactez-nous</h2>
 
         <section id="contact-form">

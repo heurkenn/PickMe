@@ -17,6 +17,16 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
+// Vérifier si l'utilisateur a le forfait "admin"
+$query = "SELECT Forfait FROM Utilisateurs WHERE id = {$_SESSION['user_id']}";
+$result = mysqli_query($conn, $query);
+if (mysqli_num_rows($result) == 0) {
+    header("Location: InsCon.php");
+    exit();
+}
+$row = mysqli_fetch_assoc($result);
+$forfait = $row['Forfait'];
+
 // Définissez le nombre de profils à afficher
 $nombreProfils = 5;
 
@@ -60,6 +70,11 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
         <div class="account-button-container">
             <a href="profil.php" class="account-button">Mon compte</a>
             <a href="deconnexion.php" class="account-button">Déconnexion</a>
+        </div>
+        <div class="admin-button-container">
+            <?php if ($forfait === 'admin'): ?>
+                <a href="admin.php" class="account-button">Admin</a>
+            <?php endif; ?>
         </div>
         <div id="match-alert" class="match-alert hidden">C'est un match!</div>
         <div id="limit-reached-message" class="match-alert hidden">Limite atteinte</div>

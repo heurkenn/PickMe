@@ -1,3 +1,33 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "ProjetR";
+$password = "Paulympe742@";
+$dbname = "InfoUser";
+
+// Connexion à la base de données
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: InsCon.php");
+    exit();
+}
+
+// Vérifier si l'utilisateur a le forfait "admin"
+$query = "SELECT Forfait FROM Utilisateurs WHERE id = {$_SESSION['user_id']}";
+$result = mysqli_query($conn, $query);
+if (mysqli_num_rows($result) == 0) {
+    header("Location: InsCon.php");
+    exit();
+}
+$row = mysqli_fetch_assoc($result);
+$forfait = $row['Forfait'];
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -21,7 +51,16 @@
         </nav>
     </header>
 
-    <main>
+    <div class="main">
+        <div class="account-button-container">
+            <a href="profil.php" class="account-button">Mon compte</a>
+            <a href="deconnexion.php" class="account-button">Déconnexion</a>
+        </div>
+        <div class="admin-button-container">
+            <?php if ($forfait === 'admin'): ?>
+                <a href="admin.php" class="account-button">Admin</a>
+            <?php endif; ?>
+        </div>
         <section id="mission">
             <h1>Notre Mission</h1>
             <p>Créer des connexions significatives entre joueurs du monde entier. Offrir une plateforme où les
@@ -59,14 +98,14 @@
         <section id="temoignages">
             <h2>Témoignages</h2>
             "Ce site a changé ma façon de rencontrer des gens avec qui jouer. Je ne me suis jamais autant
-                amusé!"
+            amusé!"
         </section>
 
         <section id="faq">
             <h2>FAQ</h2>
             <p>Retrouvez ici les réponses aux questions les plus fréquentes.</p>
         </section>
-    </main>
+    </div>
 
     <footer>
         <p>&copy; 2024 PICK ME ! Tous droits réservés.</p>
