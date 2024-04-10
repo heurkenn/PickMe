@@ -144,13 +144,13 @@ nav ul li a:focus::after {
 footer {
     background-color: #77628c;
     color: #fff;
-    padding: 1.5rem;
+    padding: 0.5rem;
     text-align: center;
     bottom: 0;
     z-index: 10;
     margin-top: auto;
     width: 100%;
-    padding: 0;
+    /*padding: 0;*/
 
 }
 
@@ -680,4 +680,37 @@ a.match-link {
 .img-search-profil {
     height: 50px;
     width: 33px;
+}
+
+.buttons_gene{
+    padding: 1em 2em;
+    font-size: 0.9em;
+    cursor: pointer;
+    display: inline-block;
+    margin: 1em 0.5em;
+    border: 5px solid #71a0a5;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 0.5em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: Orbitron, sans-serif;
+}
+
+.buttons_gene:hover {
+    background-color: #8acdd4;
+    transform: scale(1.1);
+}
+
+div .info2 {
+    background-color: #000000;
+    border: 5px solid #71a0a5;
+    color: #ffffff;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 1em;
+    width: calc(35em - 4em);
+    margin: 2em auto;
+    border-radius: 0.5em;
+    position: inherit;
+    
+
 }

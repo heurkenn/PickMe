@@ -82,6 +82,26 @@ if (isset($_POST['action']) && isset($_POST['profile_id'])) {
         header("Location: modifier_profil.php?id=$profile_id");
         exit();
     }
+    // Vérifie si le formulaire a été soumis pour mettre à jour les informations de l'utilisateur
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Récupère les données du formulaire
+        $nPseudo = $_POST['pseuso-input'];
+        $nBio = $_POST['biographie'];
+
+
+        // Met à jour les informations de l'utilisateur dans la base de données
+        $sql = "UPDATE Utilisateurs SET Pseudonyme = ?  WHERE id = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "si", $nPseudo, $userId);
+        mysqli_stmt_execute($stmt);
+        $sql = "UPDATE Gouts SET Biographie = ?  WHERE UtilisateurId = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "si", $nBio, $userId);
+        mysqli_stmt_execute($stmt);
+        // Redirige l'utilisateur vers la page de profil après la mise à jour
+        header("Location: admin.php");
+        exit();
+    }
 }
 
 ?>
@@ -134,8 +154,33 @@ if (isset($_POST['action']) && isset($_POST['profile_id'])) {
                             <form action="" method="POST">
                                 <input type="hidden" name="profile_id" value="<?php echo $profile['id']; ?>">
                                 <button type="submit" name="action" value="delete">Supprimer</button>
-                                <button type="submit" name="action" value="edit">Modifier</button>
+                                <button type="button" class="buttons" name="action"
+                                    onclick="showModifier(<?php echo $profile['id']; ?>)">Modifier</button>
+
                             </form>
+                            <div id="modif-container-<?php echo $profile['id']; ?>" class="hidden">
+                                <section class="buttons_gene">
+                                    <button id="pseudo " onclick="pseudoMofifier(<?php echo $profile['id']; ?>)">Pseudonyme</button>
+                                    <button id="bio">Biographie</button>
+                                </section>
+                                <form id="modifAdmin" method="POST" action="">
+                                    <div id="pseudoDiv-<?php echo $profile['id']; ?>" class="hidden">
+                                        <label for="pseudo">Pseudonyme :</label>
+                                        <input type="text" id="pseuso-input" placeholder="Pseudo"
+                                            value="<?php echo $profile['Pseudonyme']; ?>">
+                                        <br>
+                                        <p>Informations enregistrées:
+                                            <?php echo htmlspecialchars($profile['Pseudonyme']); ?>
+                                        </p>
+                                    </div>
+                                    <div id="biographieDiv-<?php echo $profile['id']; ?>" class="hidden">
+                                        <label for="biographie">Biographie :</label>
+                                        <textarea id="biographie" name="biographie" rows="4"
+                                            cols="50"><?php echo $profile['Biographie']; ?></textarea>
+
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 <?php elseif (isset($_GET['search'])): ?>
@@ -145,6 +190,7 @@ if (isset($_POST['action']) && isset($_POST['profile_id'])) {
                 <?php endif; ?>
             </div>
         </div>
+
     </div>
     <footer>
         <p>&copy; 2024 Mon Site Web. Tous droits réservés.</p>

@@ -51,7 +51,7 @@ $forfait = $row['Forfait'];
         </nav>
     </header>
 
-    <main class="main">
+    <div class="main">
         <div class="account-button-container">
             <a href="profil.php" class="account-button">Mon compte</a>
             <a href="deconnexion.php" class="account-button">Déconnexion</a>
@@ -101,7 +101,7 @@ $forfait = $row['Forfait'];
         </section>
 
         <!-- Ajoutez d'autres sections si nécessaire -->
-    </main>
+    </div>
 
     <footer>
         <p>&copy; 2024 PICK ME ! Tous droits réservés.</p>
