@@ -2,8 +2,8 @@
 session_start();
 
 $servername = "localhost";
-$username = "ProjetR";
-$password = "Paulympe742@";
+$username = "aurenolhan";
+$password = "Ahtuvuing7ei";
 $dbname = "InfoUser";
 
 // Connexion à la base de données
