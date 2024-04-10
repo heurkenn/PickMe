@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site Web</title>
+    <title>PICK ME !</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 
@@ -27,6 +27,7 @@
                     <select name="pays" id="pays" required>>
 
                     </select>
+                    </br>
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
                 </div>
 
@@ -46,6 +47,7 @@
                         data-selected="false">簡体字中国語</button>
 
                     <input type="hidden" id="langue" name="langue" required>
+                    </br>
                     <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
                 </div>
@@ -65,6 +67,7 @@
                         data-selected="false">Horror</button>
 
                     <input type="hidden" id="genres" name="genres" required>
+                    </br>
                     <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
                 </div>
@@ -76,6 +79,7 @@
                         <option value="absoluteConcentration">Concentration absolue</option>
                         <option value="proLeague">Pro-league</option>
                     </select>
+                    </br>
                     <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
                 </div>
@@ -87,6 +91,7 @@
                         <option value="lesDeux">Les deux</option>
                         <option value="autres">Autres</option>
                     </select>
+                    </br>
                     <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
 
@@ -94,24 +99,35 @@
                 <div style="display: none;">
                     <label for="biographie">Biographie :</label>
                     <textarea id="biographie" name="biographie" rows="4" cols="50"></textarea>
+                    </br>
                     <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
 
+
                 </div>
                 <div style="display: none;">
-                <label for="profilPicture">Image de profile:</label>
-                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'langue')"
-                        data-selected="false">Français</button>
-                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'langue')"
-                        data-selected="false">English</button>
-                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'langue')"
-                        data-selected="false">Español</button>
-                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'langue')"
-                        data-selected="false">Deutsch</button>
-                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'langue')"
-                        data-selected="false">日本語</button>
-                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'langue')"
-                        data-selected="false">簡体字中国語</button>
+                    <label for="profilPicture">Image de profile:</label></br>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
+                        data-selected="false"><img src=img/1.png class="img-profil"></button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
+                        data-selected="false"><img src=img/2.png class="img-profil"></button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
+                        data-selected="false"><img src=img/3.png class="img-profil"></button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
+                        data-selected="false"><img src=img/4.png class="img-profil"></button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
+                        data-selected="false"><img src=img/5.png class="img-profil"></button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
+                        data-selected="false"><img src=img/6.png class="img-profil"></button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
+                        data-selected="false"><img src=img/7.png class="img-profil"></button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
+                        data-selected="false"><img src=img/8.png class="img-profil"></button>
+                    <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
+                        data-selected="false"><img src=img/9.png class="img-profil"></button>
+
+                    </br>
+                    <input type="hidden" id="profilPicture" name="profilPicture" required>
                     <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="submit">Soumettre</button>
                 </div>

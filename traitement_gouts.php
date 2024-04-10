@@ -28,16 +28,20 @@ $genre = $_POST['genres'];
 $styleGameplay = $_POST['styleGameplay'];
 $recherche = $_POST['recherche'];
 $biographie = $_POST['biographie'];
+$profilPic = $_POST['profilPicture'];
 
 
-$query = "INSERT INTO Gouts (UtilisateurId, Pays, Langue, GenreJeux, StyleGameplay, TypeRecherche, Biographie)
-        VALUES ('$userId', '$pays', '$langue', '$genre', '$styleGameplay', '$recherche', '$biographie')";
+$query = "INSERT INTO Gouts (UtilisateurId, Pays, Langue, GenreJeux, StyleGameplay, TypeRecherche, Biographie,ProfilPicture)
+        VALUES ('$userId', '$pays', '$langue', '$genre', '$styleGameplay', '$recherche', '$biographie','$profilPic')";
+
 
 
 echo "Requête SQL: " . $query . "<br>";
 
 
 $result = mysqli_query($conn, $query);
+
+
 if (!$result) {
     printf("Erreur: %s\n", mysqli_error($conn));
 } else {

@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Press+Start+2P&display=swap');*
-html,body {
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Press+Start+2P&display=swap');
+
+* html,
+body {
     margin: 0;
     padding: 0;
     font-family: Orbitron, sans-serif;
     color: #333;
-    background-image: url("img/bkg.png");
+    background-image: url("img/backgroung.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,53 +17,56 @@ html,body {
 }
 
 .main {
-    padding: 2rem 0; 
+    padding: 2rem 0;
     text-align: center;
     min-height: 592px;
 }
+
+
 
 header {
     background-color: #77628c;
     color: #fff;
     padding: 1.5rem;
     text-align: center;
-    position: relative; 
+    position: relative;
 }
 
 header h1 {
     margin: 0;
-    cursor: pointer; 
-    transition: transform 0.3s ease; 
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 
-header h1:hover, header h1:focus {
-    transform: scale(1.1); 
+header h1:hover,
+header h1:focus {
+    transform: scale(1.1);
     color: #acc6aa;
 }
 
 nav ul {
     list-style-type: none;
-    padding: 0; 
-    display: flex; 
-    justify-content: center; 
+    padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul li {
-    margin: 0 25px; 
+    margin: 0 25px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    position: relative; 
-    transition: color 0.3s ease; 
+    position: relative;
+    transition: color 0.3s ease;
 }
 
 
 nav ul li a:hover,
-nav ul li a:focus { 
-    color: #acc6aa; 
+nav ul li a:focus {
+    color: #acc6aa;
 }
 
 nav ul li a::after {
@@ -71,46 +76,65 @@ nav ul li a::after {
     height: 2px;
     background-color: #acc6aa;
     left: 50%;
-    bottom: -5px; 
+    bottom: -5px;
     transition: width 0.3s ease, left 0.3s ease;
 }
 
 nav ul li a:hover::after,
 nav ul li a:focus::after {
-    width: 100%; 
-    left: 0; 
+    width: 100%;
+    left: 0;
 }
+
 /* Ceci place le conteneur du bouton en haut à droite de la page */
 .account-button-container {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 10px; /* Espacement depuis le haut et la droite de la page */
+    padding: 10px;
+    /* Espacement depuis le haut et la droite de la page */
+}
+
+.admin-button-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    /* Espacement depuis le haut et la droite de la page */
 }
 
 /* Style pour le bouton "Mon compte" */
 .account-button {
-    padding: 8px 15px; /* Taille du bouton */
-    background-color: #77628c; /* Couleur de fond */
-    color: #ffffff; /* Couleur du texte */
-    text-decoration: none; /* Pas de soulignement de texte */
-    font-weight: bold; /* Gras pour le texte */
-    border-radius: 4px; /* Coins arrondis */
-    transition: background-color 0.3s, transform 0.3s; /* Transition douce pour le survol */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre portée subtile */
-    display: inline-block; /* Permet le padding et les transitions */
+    padding: 8px 15px;
+    /* Taille du bouton */
+    background-color: #77628c;
+    /* Couleur de fond */
+    color: #ffffff;
+    /* Couleur du texte */
+    text-decoration: none;
+    /* Pas de soulignement de texte */
+    font-weight: bold;
+    /* Gras pour le texte */
+    border-radius: 4px;
+    /* Coins arrondis */
+    transition: background-color 0.3s, transform 0.3s;
+    /* Transition douce pour le survol */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Ombre portée subtile */
+    display: inline-block;
+    /* Permet le padding et les transitions */
 }
 
 
 .account-button:hover {
-    background-color: #acc6aa; 
-    transform: translateY(-2px); 
+    background-color: #acc6aa;
+    transform: translateY(-2px);
 }
 
 
 .main {
-  flex: 1;
-  padding: 5em;
+    flex: 1;
+    padding: 5em;
 }
 
 .main h2 {
@@ -120,88 +144,89 @@ nav ul li a:focus::after {
 footer {
     background-color: #77628c;
     color: #fff;
-    padding: 1.5rem;
+    padding: 0.5rem;
     text-align: center;
-    width: 15;
-    bottom: 0; 
+    bottom: 0;
     z-index: 10;
     margin-top: auto;
     width: 100%;
-    padding: 0;
-    height: 3em;
-    
-    
+    /*padding: 0;*/
+
 }
 
-.forms, .buttons {
+
+.forms,
+.buttons {
     font-family: 'Press Start 2P', cursive;
 }
+
 .forms h2 {
     margin-bottom: 1.5em;
-    text-align: center; 
-    color: #ffffff; 
-    padding-top: 1em; 
+    text-align: center;
+    color: #ffffff;
+    padding-top: 1em;
 }
 
 
 .forms div {
-    background-color: #000000; 
-    border: 5px solid #a72b96;
+    background-color: #000000;
+    border: 5px solid #71a0a5;
     color: #ffffff;
-    transition: transform 0.3s ease, background-color 0.3s ease; 
-    padding: 1em; 
-    width: calc(35em - 4em); 
-    margin: 2em auto; 
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 1em;
+    width: calc(35em - 4em);
+    margin: 2em auto;
     border-radius: 0.5em;
 }
 
 /* Styles pour les input */
-.forms input[type="text"], 
-.forms input[type="date"], 
-.forms input[type="email"], 
+.forms input[type="text"],
+.forms input[type="date"],
+.forms input[type="email"],
 .forms input[type="password"] {
     width: calc(100% - 1em);
-    margin-bottom: 1.5em; 
+    margin-bottom: 1.5em;
     padding: 0.75em;
-    border: 2px solid #555555; 
+    border: 2px solid #555555;
     border-radius: 0.5em;
-    background-color: #333333; 
-    color: #ffffff; 
-    font-size: 1rem; 
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 1rem;
 }
 
 
 .forms input[type="submit"] {
-    padding: 0.75em 1em; 
-    font-size: 0.9em; 
-    cursor: pointer; 
-    display: inline-block; 
-    margin: 0 0.5em; 
-    background-color: #71a0a5; 
-    color: #ffffff; 
-    border-radius: 0.5em; 
+    padding: 0.75em 1em;
+    font-size: 0.9em;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 0.5em;
+    background-color: #71a0a5;
+    color: #ffffff;
+    border-radius: 0.5em;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 
-.forms input[type="submit"]:hover, 
+.forms input[type="submit"]:hover,
 .buttons button:hover {
-    background-color: #8acdd4; 
-    transform: scale(1.1); 
+    background-color: #8acdd4;
+    transform: scale(1.1);
 }
 
 .buttons button {
-    margin: 0em 15em; display: block;
+    margin: 0em 15em;
+    display: block;
     width: 15em;
     background-color: #71a0a5;
     color: #ffffff;
     font-weight: bold;
     display: inline-block;
-    height: auto; 
-    font-size: 1rem; 
+    height: auto;
+    font-size: 1rem;
     transition: background-color 0.3s, transform 0.3s;
-    cursor: pointer; 
-    border-radius: 0.5em; 
+    cursor: pointer;
+    border-radius: 0.5em;
     padding: 0.5em 2em;
 }
 
@@ -224,8 +249,8 @@ footer {
     padding: 10px;
     margin-top: 10px;
     display: inline-block;
-    height: auto; 
-    vertical-align: top; 
+    height: auto;
+    vertical-align: top;
     height: 25em;
     width: 25em;
     margin-right: 10em;
@@ -236,7 +261,7 @@ footer {
 .image-container img {
     max-width: 100%;
     height: 100%;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
 .images .hidden {
@@ -249,7 +274,7 @@ footer {
     cursor: pointer;
     display: inline-block;
     margin: 0 0.5em;
-    border: 5px solid #a72b96;
+    border: 5px solid #71a0a5;
     background-color: #000000;
     color: #ffffff;
     border-radius: 0.5em;
@@ -259,7 +284,7 @@ footer {
 }
 
 .genres-btn:hover {
-    background-color: #7e1a70;
+    background-color: #8acdd4;
     transform: scale(1.1);
 }
 
@@ -269,7 +294,7 @@ footer {
     cursor: pointer;
     display: inline-block;
     margin: 0 0.5em;
-    border: 5px solid #a72b96;
+    border: 5px solid #71a0a5;
     background-color: #000000;
     color: #ffffff;
     border-radius: 0.5em;
@@ -279,31 +304,413 @@ footer {
 }
 
 .langue-btn:hover {
-    background-color: #7e1a70;
+    background-color: #8acdd4;
     transform: scale(1.1);
 }
+
 .selected {
-    background-color: #7e1a70;
+    background-color: #8acdd4;
 }
 
 
 a.custom-link {
-    text-decoration: none; /* Supprimer le soulignement du lien */
-    color: inherit; /* Utiliser la couleur du texte parent */
-    cursor: default; /* Utiliser le curseur par défaut */
-    /* Autres styles personnalisés si nécessaire */
+    text-decoration: none;
+    /* Supprimer le soulignement du lien */
+    color: inherit;
+    /* Utiliser la couleur du texte parent */
+
 }
 
 div .hidden {
     display: none;
 }
-div .info{
-    background-color: #000000; 
-    border: 5px solid #a72b96; 
+
+div .info {
+    background-color: #000000;
+    border: 5px solid #71a0a5;
     color: #ffffff;
-    transition: transform 0.3s ease, background-color 0.3s ease; 
-    padding: 1em; 
-    width: calc(35em - 4em); 
-    margin: 2em auto; 
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 1em;
+    width: calc(35em - 4em);
+    margin: 2em auto;
     border-radius: 0.5em;
+}
+
+.img-profil {
+    height: 100px;
+    width: 66px;
+}
+
+.profil-btn:hover {
+    background-color: #8acdd4;
+    transform: scale(1.1);
+}
+
+.modal-background {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    color: black;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.close-btn {
+    color: #000000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.match-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    font-size: larger;
+    background-color: #000000;
+    color: #ffffff;
+    border: 5px solid #71a0a5;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 1em;
+    width: calc(35em - 4em);
+    border-radius: 0.5em;
+    z-index: 9999;
+    /* Assurez-vous que l'alerte s'affiche au-dessus de tout le contenu */
+}
+
+.message-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    font-size: larger;
+    background-color: #000000;
+    color: #ffffff;
+    border: 5px solid #71a0a5;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 1em;
+    width: calc(35em - 4em);
+    border-radius: 0.5em;
+    width: 1000px;
+    height: 700px;
+
+}
+
+
+.message-history {
+    overflow-y: auto;
+    margin-top: 20px;
+    height: 600px;
+}
+
+
+
+.message-bubble {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: fit-content;
+    max-width: 70%;
+    /* Limitez la largeur des bulles de message */
+    word-wrap: break-word;
+    /* Permettez le retour à la ligne */
+    color: red;
+    /* Définissez la couleur du texte */
+}
+
+.receiver-message {
+    background-color: #fadb5f;
+    color: red;
+    /* Couleur jaune pour les messages du profil */
+}
+
+.sender-message {
+    background-color: #8fc97b;
+    color: red;
+    margin-left: auto;
+    /* Pousse les bulles de message envoyées vers la droite */
+}
+
+
+
+.message-time {
+    display: none;
+    /* Couleur grise pour les horaires */
+}
+
+
+.message-bubble:hover+.message-time {
+    display: block;
+    font-size: small;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.msg-input {
+    width: 700px;
+    height: 50px;
+    color: #ffffff;
+    background-color: #000000;
+    font-family: Orbitron, sans-serif;
+    border: 5px solid #71a0a5;
+}
+
+.msg-input:focus {
+    outline: none;
+}
+
+#match-list {
+    width: 350px;
+    height: fit-content;
+    color: #ffffff;
+    background-color: #000000;
+    font-family: Orbitron, sans-serif;
+    border: 5px solid #71a0a5;
+}
+
+a.match-link {
+    font-size: larger;
+    /* Supprimer le soulignement du lien */
+    color: inherit;
+    /* Utiliser la couleur du texte parent */
+}
+
+.img-profil2 {
+    height: 100px;
+    /* Hauteur fixe pour les images de profil */
+    width: 66px;
+    border-radius: 50%;
+    /* Assurez-vous que les images de profil sont des cercles */
+    margin-right: 15px;
+    /* Espacement entre l'image de profil et le pseudonyme */
+}
+
+
+#match-list ul li {
+    display: flex;
+    align-items: center;
+    /* Centrer verticalement les éléments enfants */
+    margin-bottom: 10px;
+    /* Espacement entre les éléments de la liste */
+}
+
+.close-btn-msg {
+    background-color: #000000;
+    color: #71a0a5;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    border: #000000;
+}
+
+.close-btn-msg:hover {
+    cursor: pointer;
+    background-color: #000000;
+    color: #71a0a5;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    border: #000000;
+}
+
+
+
+.gestion-container {
+    width: 500px;
+    height: 100px;
+    color: #ffffff;
+    background-color: #000000;
+    font-family: Orbitron, sans-serif;
+    border: 5px solid #71a0a5;
+    z-index: 9999;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
+
+.gestion-btn {
+    padding: 1em 2em;
+    font-size: 0.9em;
+    cursor: pointer;
+    display: inline-block;
+    margin: 1em 0.5em;
+    border: 5px solid #71a0a5;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 0.5em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: Orbitron, sans-serif;
+}
+
+.gestion-btn:hover {
+    background-color: #8acdd4;
+    transform: scale(1.1);
+}
+
+.report-input {
+    width: 485px;
+    height: 50px;
+    color: #ffffff;
+    background-color: #000000;
+    font-family: Orbitron, sans-serif;
+    border: 5px solid #71a0a5;
+}
+
+.report-input:focus {
+    outline: none;
+}
+
+.limit-reached-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    font-size: larger;
+    background-color: #000000;
+    color: #ffffff;
+    border: 5px solid #71a0a5;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 1em;
+    width: calc(35em - 4em);
+    border-radius: 0.5em;
+    z-index: 9999;
+    /* Assurez-vous que l'alerte s'affiche au-dessus de tout le contenu */
+}
+
+.search-container {
+    width: 500px;
+    height: 200px;
+    color: #ffffff;
+    background-color: #000000;
+    font-family: Orbitron, sans-serif;
+    border: 5px solid #71a0a5;
+    padding: 10px;
+    /* Ajouter une ombre si nécessaire */
+    z-index: 999;
+    /* Assurez-vous que la zone de recherche est au-dessus du contenu */
+    position: relative;
+    margin-bottom: 30px;
+    top: 20%;
+    left: 50%; /* alignement horizontal au centre */
+    transform: translate(-50%); /* correction pour centrer la div */
+
+
+}
+
+.search-input {
+    width: 490px;
+    height: 50px;
+    color: #ffffff;
+    background-color: #000000;
+    font-family: Orbitron, sans-serif;
+    border: 5px solid #71a0a5;
+}
+
+
+
+.search-input:focus {
+    outline: none;
+}
+
+.profile-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.profile {
+    width: 530px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile h2 {
+    margin-top: 0;
+}
+
+.profile form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile form button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.profile p {
+    margin: 0;
+}
+
+.img-search-profil {
+    height: 50px;
+    width: 33px;
+}
+
+.buttons_gene{
+    padding: 1em 2em;
+    font-size: 0.9em;
+    cursor: pointer;
+    display: inline-block;
+    margin: 1em 0.5em;
+    border: 5px solid #71a0a5;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 0.5em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: Orbitron, sans-serif;
+}
+
+.buttons_gene:hover {
+    background-color: #8acdd4;
+    transform: scale(1.1);
+}
+
+div .info2 {
+    background-color: #000000;
+    border: 5px solid #71a0a5;
+    color: #ffffff;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 1em;
+    width: calc(35em - 4em);
+    margin: 2em auto;
+    border-radius: 0.5em;
+    position: inherit;
+    
+
 }

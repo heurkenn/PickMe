@@ -2,6 +2,9 @@ CREATE DATABASE IF NOT EXISTS InfoUser;
 USE InfoUser;
 
 DROP TABLE IF EXISTS Gouts;
+DROP TABLE IF EXISTS LikeList;
+DROP TABLE IF EXISTS Messages;
+DROP TABLE IF EXISTS Report;
 DROP TABLE IF EXISTS Utilisateurs;
 CREATE TABLE Utilisateurs (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -11,6 +14,7 @@ CREATE TABLE Utilisateurs (
     Pseudonyme VARCHAR(50) NOT NULL UNIQUE, 
     Email VARCHAR(100) NOT NULL UNIQUE, 
     MotDePasse VARCHAR(255) NOT NULL,
+    NombreVu INT DEFAULT 0,
     Forfait VARCHAR(20) DEFAULT "free"
 );
 
@@ -26,5 +30,27 @@ CREATE TABLE Gouts (
     
     FOREIGN KEY (UtilisateurId) REFERENCES Utilisateurs(id)
 );
+
+CREATE TABLE LikeList (
+    IdEnvoi INT,
+    IdRecoi INT,
+    Etat VARCHAR(3)
+
+);
+
+CREATE TABLE Messages (
+    UtilisateurId INT,
+    UtilisateurIdBis INT,
+    MessageEnv VARCHAR(500),
+    Horaire DATETIME
+);
+
+CREATE TABLE Report(
+    IdSignal INT,
+    IdProbleme INT,
+    Horaire DATETIME,
+    MessageReport VARCHAR(500)
+);
+
 
 
