@@ -135,9 +135,7 @@
         </section>
 
     </div>
-    <footer>
-        <p>&copy; 2024 Mon Site Web. Tous droits réservés.</p>
-    </footer>
+    <?php include('footer/footer.php'); ?>
     <script src="gouts.js"></script>
 </body>
 

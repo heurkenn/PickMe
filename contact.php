@@ -103,9 +103,7 @@ $forfait = $row['Forfait'];
         <!-- Ajoutez d'autres sections si nécessaire -->
     </div>
 
-    <footer>
-        <p>&copy; 2024 PICK ME ! Tous droits réservés.</p>
-    </footer>
+    <?php include('footer/footer.php'); ?>
 </body>
 
 </html>

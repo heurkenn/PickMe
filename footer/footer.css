@@ -1,0 +1,140 @@
+/*
+footer {
+    background-color: #77628c;
+    color: #fff;
+    padding: 0.5rem;
+    text-align: center;
+    bottom: 0;
+    z-index: 10;
+    margin-top: auto;
+    width: 100%;
+}*/
+
+
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #77628c;
+    min-height: 100px;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .reseaux,
+  .menufooter {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+  }
+  
+  .image-reseaux,
+  .image-menu {
+    list-style: none;
+  }
+  
+  .lien-reseaux {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+  }
+  .lien-reseaux:hover {
+    transform: translateY(-10px);
+  }
+  
+  .lien-menu {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+    text-decoration: none;
+    opacity: 0.75;
+    font-weight: 300;
+  }
+  
+  .lien-menu:hover {
+    opacity: 1;
+  }
+  
+  .footer p {
+    color: #fff;
+    margin: 15px 0 10px 0;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  
+  
+  .icons {
+      display: flex;
+      column-gap: 25px;
+  }
+  .icon {
+      display: inline-flex;
+      width: 60px;
+      height: 60px;
+      text-decoration: none;
+      font-size: 26px;
+      color: #fff;
+      border-radius: 50%;
+      outline: 2px solid #fff;
+      transition-property: outline-offset, outline-color, background-color;
+      transition-duration: 0.25s;
+  }
+  .icon:hover {
+      outline-offset: 4px;
+  }
+  .icon i {
+      margin: auto;
+  }
+  .icon:hover i {
+      animation: shake 0.25s;
+  }
+  .icon--instagram:hover {
+      background-image: radial-gradient(
+          circle at 30% 107%,
+          #fdf497 0%,
+          #fdf497 5%,
+          #fd5949 45%,
+          #d6249f 60%,
+          #285aeb 90%
+      );
+      outline-color: #a02d76;
+  }
+  .icon--twitter:hover {
+      background-color: #1da1f2;
+      outline-color: #1da1f2;
+  }
+  
+  .icon--facebook:hover {
+      background-color: #4267B2 ;
+      outline-color: #FEFEFE;
+  }
+  
+  .icon--linkedin:hover {
+      background-color: #0077b5;
+      outline-color: #0077b5;
+  }
+  
+  @keyframes shake {
+      10% {
+          transform: rotate(15deg);
+      }
+      20% {
+          transform: rotate(-15deg);
+      }
+      30% {
+          transform: rotate(15deg);
+      }
+      40% {
+          transform: rotate(-15deg);
+      }
+  }
