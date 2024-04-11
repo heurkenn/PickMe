@@ -89,13 +89,11 @@ nav ul li a:focus::after {
     left: 0;
 }
 
-/* Ceci place le conteneur du bouton en haut à droite de la page */
 .account-button-container {
     position: absolute;
     top: 0;
     right: 0;
     padding: 10px;
-    /* Espacement depuis le haut et la droite de la page */
 }
 
 .admin-button-container {
@@ -103,29 +101,20 @@ nav ul li a:focus::after {
     top: 0;
     left: 0;
     padding: 10px;
-    /* Espacement depuis le haut et la droite de la page */
+
 }
 
-/* Style pour le bouton "Mon compte" */
+
 .account-button {
     padding: 8px 15px;
-    /* Taille du bouton */
     background-color: #77628c;
-    /* Couleur de fond */
     color: #ffffff;
-    /* Couleur du texte */
     text-decoration: none;
-    /* Pas de soulignement de texte */
     font-weight: bold;
-    /* Gras pour le texte */
     border-radius: 4px;
-    /* Coins arrondis */
     transition: background-color 0.3s, transform 0.3s;
-    /* Transition douce pour le survol */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Ombre portée subtile */
     display: inline-block;
-    /* Permet le padding et les transitions */
     font-size: 0.9em;
 }
 
@@ -187,21 +176,20 @@ textarea:focus {
 
 
 select {
-    display: block; /* Assurer qu'il utilise toute la largeur disponible */
-    width: 100%; /* Utiliser toute la largeur disponible */
-    height: 40px; /* Hauteur suffisante pour une bonne lisibilité et interaction */
-    padding: 5px 10px; /* Padding pour le texte */
-    border-radius: 5px; /* Coins arrondis pour un look moderne */
-    border: 2px solid #ffffff; /* Bordure colorée */
-    background-color: #222; /* Couleur d'arrière-plan sombre */
-    color: #fff; /* Texte en blanc pour un bon contraste */
-    font-family: 'Arial', sans-serif; /* Assurer la cohérence avec le reste du formulaire */
-    appearance: none; /* Supprimer le style par défaut pour permettre une personnalisation plus poussée */
+    display: block; 
+    width: 100%; 
+    height: 40px; 
+    padding: 5px 10px;
+    border-radius: 5px; 
+    border: 2px solid #ffffff; 
+    background-color: #222; 
+    color: #fff; 
+    font-family: 'Arial', sans-serif; 
+    appearance: none; 
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23fff" d="M7 10l5 5 5-5z"/></svg>'); /* Icône de flèche personnalisée */
     background-repeat: no-repeat;
-    background-position: right 10px center; /* Positionner l'icône de flèche */
-    background-size: 12px; /* Taille de l'icône de flèche */
-}
+    background-position: right 10px center; 
+    background-size: 12px; 
 
 select:focus {
     outline: none; 
@@ -225,17 +213,17 @@ select:focus {
 
 
 .forms input[type="submit"], button{
-    padding: 1em 1.5em; /* Augmenter un peu le padding pour un aspect plus généreux */
-    font-size: 1em; /* Taille de la police standard pour une meilleure lisibilité */
+    padding: 1em 1.5em; 
+    font-size: 1em; 
     cursor: pointer;
     display: inline-block;
-    margin: 0.5em; /* Espacement uniforme autour du bouton */
-    background-color: #83b7b9; /* Couleur de fond légèrement plus claire pour un aspect plus doux */
+    margin: 0.5em; 
+    background-color: #83b7b9; 
     color: #ffffff;
-    border: none; /* Supprimer la bordure pour un design plus épuré */
-    border-radius: 1em; /* Augmenter le rayon pour des coins encore plus arrondis */
-    transition: all 0.3s ease; /* Transition sur toutes les propriétés pour une cohérence lors du hover */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre légère pour la profondeur */
+    border: none; 
+    border-radius: 1em; 
+    transition: all 0.3s ease; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
 
 
@@ -347,9 +335,7 @@ select:focus {
 
 a.custom-link {
     text-decoration: none;
-    /* Supprimer le soulignement du lien */
     color: inherit;
-    /* Utiliser la couleur du texte parent */
 
 }
 
@@ -377,7 +363,7 @@ div .info {
     background-color: #8acdd4;
     transform: scale(1.1);
 }
-/* Styles pour la bulle modale */
+
 .modal-background {
     display: none;
     position: fixed;
@@ -386,7 +372,7 @@ div .info {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden; /* Changez "overflow: auto;" à "overflow: hidden;" */
+    overflow: hidden; 
     background-color: rgba(0, 0, 0, 0.4);
    
 }
@@ -404,7 +390,6 @@ div .info {
     overflow-y:auto; 
 }
 
-/* Animation pour l'ouverture de la bulle modale */
 @keyframes zoomIn {
     from {
         transform: scale(0);
@@ -414,7 +399,6 @@ div .info {
     }
 }
 
-/* Animation pour la fermeture de la bulle modale */
 @keyframes zoomOut {
     from {
         transform: scale(1);
@@ -463,7 +447,6 @@ div .info {
     width: calc(35em - 4em);
     border-radius: 0.5em;
     z-index: 9999;
-    /* Assurez-vous que l'alerte s'affiche au-dessus de tout le contenu */
 }
 
 .message-container {
@@ -499,32 +482,26 @@ div .info {
     padding: 10px;
     margin-bottom: 10px;
     width: fit-content;
-    max-width: 70%;
-    /* Limitez la largeur des bulles de message */
+    max-width: 65%;
     word-wrap: break-word;
-    /* Permettez le retour à la ligne */
     color: red;
-    /* Définissez la couleur du texte */
 }
 
 .receiver-message {
     background-color: #fadb5f;
     color: red;
-    /* Couleur jaune pour les messages du profil */
 }
 
 .sender-message {
     background-color: #8fc97b;
     color: red;
     margin-left: auto;
-    /* Pousse les bulles de message envoyées vers la droite */
 }
 
 
 
 .message-time {
     display: none;
-    /* Couleur grise pour les horaires */
 }
 
 
@@ -559,28 +536,21 @@ div .info {
 
 a.match-link {
     font-size: larger;
-    /* Supprimer le soulignement du lien */
     color: inherit;
-    /* Utiliser la couleur du texte parent */
 }
 
 .img-profil2 {
     height: 100px;
-    /* Hauteur fixe pour les images de profil */
     width: 66px;
     border-radius: 50%;
-    /* Assurez-vous que les images de profil sont des cercles */
     margin-right: 15px;
-    /* Espacement entre l'image de profil et le pseudonyme */
 }
 
 
 #match-list ul li {
     display: flex;
     align-items: center;
-    /* Centrer verticalement les éléments enfants */
     margin-bottom: 10px;
-    /* Espacement entre les éléments de la liste */
 }
 
 .close-btn-msg {
@@ -667,7 +637,7 @@ a.match-link {
     width: calc(35em - 4em);
     border-radius: 0.5em;
     z-index: 9999;
-    /* Assurez-vous que l'alerte s'affiche au-dessus de tout le contenu */
+ 
 }
 
 .search-container {
@@ -678,14 +648,14 @@ a.match-link {
     font-family: Orbitron, sans-serif;
     border: 5px solid #71a0a5;
     padding: 10px;
-    /* Ajouter une ombre si nécessaire */
+
     z-index: 999;
-    /* Assurez-vous que la zone de recherche est au-dessus du contenu */
+ 
     position: relative;
     margin-bottom: 30px;
     top: 20%;
-    left: 50%; /* alignement horizontal au centre */
-    transform: translate(-50%); /* correction pour centrer la div */
+    left: 50%; 
+    transform: translate(-50%); 
 
 
 }
@@ -794,7 +764,7 @@ th {
 }
 
 td {
-    padding: 12px; /* Augmentez la marge intérieure pour plus d'espace entre les cellules */
+    padding: 12px; 
 }
 
 .container {
@@ -828,11 +798,11 @@ td {
 }
 
  h4 {
-    color: #4CAF50; /* Titre en couleur vive pour se démarquer */
+    color: #71a0a5; 
     font-size: 1.1em;
     margin-bottom: 0.5em;
     padding-bottom: 0.2em;
-    border-bottom: 1px solid #4CAF50; /* Ligne subtile sous le titre pour la séparation */
+    border-bottom: 1px solid #71a0a5; 
 }
 
 .formsProfil input[type="text"]
@@ -862,15 +832,15 @@ li {
 }
 
 .profile-card {
-    flex: 0 1 20%; /* Les cartes ne grandissent pas mais peuvent rétrécir, largeur initiale de 20% */
+    flex: 0 1 20%; 
     display: flex;
-    flex-direction: column; /* Organise le contenu de la carte en colonne */
-    align-items: center; /* Centre le contenu sur l'axe horizontal */
+    flex-direction: column;
+    align-items: center;
     padding: 1rem;
-    background: #2a2a2a; /* Fond des cartes */
-    border-radius: 10px; /* Coins arrondis des cartes */
-    margin-bottom: 1rem; /* Espacement en bas de la carte */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner de la profondeur */
+    background: #2a2a2a;
+    border-radius: 10px; 
+    margin-bottom: 1rem; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
 }
 
 
