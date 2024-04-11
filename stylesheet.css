@@ -143,6 +143,7 @@ nav ul li a:focus::after {
 
 .main h2 {
     margin: 0;
+    color: #fff;
 }
 
 .forms,
