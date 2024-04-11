@@ -58,5 +58,6 @@ CREATE TABLE Contact(
     Id INT PRIMARY KEY AUTO_INCREMENT,
     IdContact INT,
     Sujet VARCHAR(50),
+    Horaire DATETIME,
     MessageContact VARCHAR(500)
 );

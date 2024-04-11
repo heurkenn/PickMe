@@ -4,6 +4,7 @@
             <ul>
                 <li><a href="report.php">Rapport</a></li>
                 <li><a href="admin.php">Gestion</a></li>
+                <li><a href="contactAdmin.php">Contact</a></li>
                 
             </ul>
         </nav>

@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = $_POST['message'];
 
     // Enregistre le message dans la base de données
-    $sql = "INSERT INTO Contact (IdContact, Sujet, MessageContact) VALUES ('$user_id', '$subject', '$message')";
+    $sql = "INSERT INTO Contact (IdContact, Sujet, Horaire, MessageContact) VALUES ('$user_id', '$subject', NOW(), '$message')";
     mysqli_query($conn, $sql);
 }
 
