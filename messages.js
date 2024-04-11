@@ -212,6 +212,29 @@ document.addEventListener("DOMContentLoaded", function () {
     xhr.send("receiver_id=" + receiverId);
   }
 
+  var blockMatchBtn = document.getElementById("block-match-btn");
+blockMatchBtn.addEventListener("click", function () {
+    var receiverId = receiverIdInput.value;
+    blockMatch(receiverId);
+});
+
+// Définition de la fonction pour bloquer le match
+function blockMatch(receiverId) {
+    // Effectuer une requête AJAX pour bloquer le match de la liste des matches
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "blockMatch.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            // Actualiser la liste des matches après le blocage
+            location.reload();
+        } else {
+            console.error("Erreur lors du blocage du match.");
+        }
+    };
+    xhr.send("receiver_id=" + receiverId);
+}
+
   function reportUser(receiverId, reportMessage) {
     // Effectuer une requête AJAX pour envoyer le report
     var xhr = new XMLHttpRequest();

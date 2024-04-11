@@ -104,6 +104,7 @@ mysqli_close($conn);
                 </div>
                 <div id="gestion-container" class="hidden">
                     <button id="delete-match-btn" class="gestion-btn">Supprimer le match</button>
+                    <button id="block-match-btn" class="gestion-btn">Bloquer le match</button>
                     <button id="report-btn" class="gestion-btn">Report</button>
                     <div id="report-div" style="display: none;">
                         <textarea id="report-message" placeholder="Raison du report" class="report-input"></textarea>

@@ -46,6 +46,7 @@ CREATE TABLE Messages (
 );
 
 CREATE TABLE Report(
+    IdReport INT PRIMARY KEY AUTO_INCREMENT,
     IdSignal INT,
     IdProbleme INT,
     Horaire DATETIME,
