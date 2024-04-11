@@ -70,7 +70,7 @@ if (isset($_POST['delete_report'])) {
             <a href="deconnexion.php" class="account-button">Déconnexion</a>
         </div>
         <div class="main">
-            <h2>Liste des rapports :</h2>
+            <h2>Liste des rapports :</h2><br>
             <table>
                 <tr>
                     <th>ID Rapport</th>

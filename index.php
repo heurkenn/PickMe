@@ -91,28 +91,28 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
                 <p>
                     <img src=<?php echo htmlspecialchars($row['ProfilPicture'], ENT_QUOTES, 'UTF-8'); ?> class="img-profil">
                 </p>
-                <p>Pays:
+                <p>Pays :
                     <?= htmlspecialchars($row['Pays'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
-                <p>Langue:
+                <p>Langue :
                     <?= htmlspecialchars($row['Langue'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
-                <p>Genre de jeux:
+                <p>Genre de jeux :
                     <?= htmlspecialchars($row['GenreJeux'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
-                <p>Style de gameplay:
+                <p>Style de gameplay :
                     <?= htmlspecialchars($row['StyleGameplay'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
-                <p>Recherche:
+                <p>Recherche :
                     <?= htmlspecialchars($row['TypeRecherche'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
-                <p>Biographie:
+                <p>Biographie :
                     <?= htmlspecialchars($row['Biographie'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
                 <!-- Continuez selon le même modèle pour les autres champs si nécessaire -->
                 <section>
-                <button onclick="dislikeProfile('<?= $row['id'] ?>', 'non')"><img src="img/non.png"></button>
-                <button onclick="likeProfile('<?= $row['id'] ?>', 'oui')"><img src="img/oui.png"></button>  
+                <button onclick="dislikeProfile('<?= $row['id'] ?>', 'non')"><img class="smash" src="img/non.png"></button>
+                <button onclick="likeProfile('<?= $row['id'] ?>', 'oui')"><img class="smash" src="img/oui.png"></button>  
 
         </section>-
             </div>
