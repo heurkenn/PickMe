@@ -77,21 +77,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="account-button-container">
             <a href="deconnexion.php" class="account-button">Déconnexion</a>
         </div>
-        <h1>Ton profil</h1>
+        <h2>Ton profil</h2>
         <div id="infPerso" class="hidden">
-            <h3>Tes infos personelles</h3></br></br>
-            <div style="font-weight: bold;">Nom: </div>
-            <?php echo $user2['Nom']; ?></br></br>
-            <div style="font-weight: bold;">Prénom: </div>
-            <?php echo $user2['Prenom']; ?></br></br>
-            <div style="font-weight: bold;">Date de naissance: </div>
-            <?php echo $user2['DateNaissance_format']; ?></br></br>
-            <div style="font-weight: bold;">Pseudonyme: </div>
-            <?php echo $user2['Pseudonyme']; ?></br></br>
-            <div style="font-weight: bold;">Email: </div>
-            <?php echo $user2['Email']; ?></br></br>
-            <div style="font-weight: bold;">Forfait: </div>
-            <?php echo $user2['Forfait']; ?></br></br>
+            <h3>Tes infos personelles</h3>
+            <h4><div class="perso" style="font-weight: bold;">Nom: </div></h4>
+            <?php echo $user2['Nom']; ?><br>
+            <h4><div class="perso" style="font-weight: bold;">Prénom: </div></h4>
+            <?php echo $user2['Prenom']; ?><br>
+            <h4><div class="perso" style="font-weight: bold;">Date de naissance: </div></h4>
+            <?php echo $user2['DateNaissance_format']; ?><br>
+            <h4><div class="perso" style="font-weight: bold;">Pseudonyme: </div></h4>
+            <?php echo $user2['Pseudonyme']; ?></br>
+            <h4><div class="perso" style="font-weight: bold;">Email: </div></h4>
+            <?php echo $user2['Email']; ?><br>
+            <h4><div class="perso" style="font-weight: bold;">Forfait: </div></h4>
+            <?php echo $user2['Forfait']; ?><br>
         </div>
         <div id="infGene" class="hidden">
             <section class="buttons_gene">
@@ -104,18 +104,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button id="pictureButtons">PP</button>
             </section>
             <h3>Tes gouts</h3>
+           <section class="formsProfil">
             <form id="changeProfil" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <div id="paysDiv" class="hidden">
-                    <label for="pays">Pays :</label>
+                    <label for="pays">Pays :</label><br><br>
                     <input type="text" id="paysSearch" oninput="filterCountries()" placeholder="Recherche par pays..."
-                        value="<?php echo $user['Pays']; ?>">
+                        value="<?php echo $user['Pays']; ?>"><br><br>
                     <select name="pays" id="pays">
                     </select>
                     <br>
-                    <p>Informations enregistrées:
+                    <p>Informations enregistrées : <br><br>
                         <?php echo htmlspecialchars($user['Pays']); ?>
                     </p>
                 </div>
+                    </section>
+       
                 <div id="langueDiv" class="hidden">
                     <label for="langues">Langue(s) :</label>
                     <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
@@ -131,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
                         data-selected="false">簡体字中国語</button>
                     <input type="hidden" id="langue" name="langue" value="<?php echo $user['Langue']; ?>">
-                    <p>Informations enregistrées:
+                    <p>Informations enregistrées : <br><br>
                         <?php echo htmlspecialchars($user['Langue']); ?>
                     </p>
                 </div>
@@ -151,42 +154,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         data-selected="false">Horror</button>
 
                     <input type="hidden" id="genres" name="genres" value="<?php echo $user['GenreJeux']; ?>">
-                    <p>Informations enregistrées:
+                    <p>Informations enregistrées : <br><br>
                         <?php echo htmlspecialchars($user['GenreJeux']); ?>
                     </p>
                 </div>
                 <div id="styleJeuxDiv" class="hidden">
-                    <label for="styleGameplay">Style de gameplay :</label>
+                    <label for="styleGameplay">Style de gameplay :</label><br><br>
                     <select id="styleGameplay" name="styleGameplay" value="<?php echo $user['StyleGameplay']; ?>">
                         <option value="casual">Casual</option>
                         <option value="funSerious">Fun but Serious</option>
                         <option value="absoluteConcentration">Concentration absolue</option>
                         <option value="proLeague">Pro-league</option>
                     </select>
-                    <p>Informations enregistrées:
+                    <p>Informations enregistrées : <br><br>
                         <?php echo htmlspecialchars($user['StyleGameplay']); ?>
                     </p>
                 </div>
                 <div id="rechercheDiv" class="hidden">
-                    <label for="recherche">Recherche :</label>
+                    <label for="recherche">Recherche :</label><br><br>
                     <select id="recherche" name="recherche" value="<?php echo $user['TypeRecherche']; ?>">
                         <option value="discuter">Gens pour discuter</option>
                         <option value="jouer">Gens pour jouer</option>
                         <option value="lesDeux">Les deux</option>
                         <option value="autres">Autres</option>
                     </select>
-                    <p>Informations enregistrées:
+                    <p>Informations enregistrées : <br><br>
                         <?php echo htmlspecialchars($user['TypeRecherche']); ?>
                     </p>
                 </div>
                 <div id="biographieDiv" class="hidden">
-                    <label for="biographie">Biographie :</label>
+                    <label for="biographie">Biographie :</label><br><br>
                     <textarea id="biographie" name="biographie" rows="4"
-                        cols="50"><?php echo $user['Biographie']; ?></textarea>
+                        cols="50"><?php echo $user['Biographie']; ?></textarea><br><br>
 
                 </div>
                 <div id="profilPictureDiv" class="hidden">
-                    <label for="profilPicture">Image de profile:</label></br>
+                    <label for="profilPicture">Image de profile:</label></br><br>
                     <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
                         data-selected="false"><img src=img/1.png class="img-profil"></button>
                     <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
@@ -209,7 +212,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <input type="hidden" id="profilPicture" name="profilPicture"
                         value="<?php echo $user['ProfilPicture']; ?>">
-                    <p>Informations enregistrées:
+                    <p>Informations enregistrées : <br><br>
                         <img src=<?php echo htmlspecialchars($user['ProfilPicture']); ?> class="img-profil">
                     </p>
                 </div>
@@ -218,7 +221,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <section class="buttons">
             <button id="persoButtons">infos personnelles</button>
-            <button id="geneButtons">gouts</button>
+            <button id="geneButtons">Gouts</button>
         </section>
     </div>
 

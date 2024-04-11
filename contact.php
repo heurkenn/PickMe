@@ -52,10 +52,9 @@ $forfait = $row['Forfait'];
                 <a href="admin.php" class="account-button">Admin</a>
             <?php endif; ?>
         </div>
-        <h2>Contactez-nous</h2>
 
         <section class="forms">
-            <h3>Formulaire de Contact</h3>
+            <h2>Formulaire de Contact</h2>
             <div id="contactForm" >
             <form action="send_message.php" method="post">
                 <label for="name">Nom :</label><br><br>

@@ -36,6 +36,7 @@ $forfait = $row['Forfait'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos - PICK ME !</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="apropos.css">
 </head>
 
 <body>
@@ -51,8 +52,10 @@ $forfait = $row['Forfait'];
                 <a href="admin.php" class="account-button">Admin</a>
             <?php endif; ?>
         </div>
+        <section class="apropos">
+    <div class="container-propos">
+        <h2>Notre Mission</h2>
         <section id="mission">
-            <h2>Notre Mission</h2>
             <p>Créer des connexions significatives entre joueurs du monde entier. Offrir une plateforme où les
                 passionnés de jeux vidéo peuvent se rencontrer, échanger, et partager.</p>
         </section>
@@ -81,14 +84,13 @@ $forfait = $row['Forfait'];
 
         <section id="contact">
             <h2>Contactez-nous</h2>
-            <p>Pour du support, des partenariats, ou des questions générales, n'hésitez pas à nous contacter à [adresse
-                email].</p>
+            <p>Pour du support, des partenariats, ou des questions générales, n'hésitez pas à nous contacter à <a href="mailto:contact@pickme.com">contact@pickme.com</a>.</p>
         </section>
 
         <section id="temoignages">
             <h2>Témoignages</h2>
-            "Ce site a changé ma façon de rencontrer des gens avec qui jouer. Je ne me suis jamais autant
-            amusé!"
+            <p>"Ce site a changé ma façon de rencontrer des gens avec qui jouer. Je ne me suis jamais autant
+                amusé!"</p>
         </section>
 
         <section id="faq">
@@ -96,9 +98,14 @@ $forfait = $row['Forfait'];
             <p>Retrouvez ici les réponses aux questions les plus fréquentes.</p>
         </section>
     </div>
+</section>
+
+        
+    </div>
+    
 
     <?php include('footer/footer.php'); ?>
-    <script src="js/index.js"></script> <!-- Si tu utilises un script commun -->
+    <script src="js/index.js"></script>
 </body>
 
 </html>

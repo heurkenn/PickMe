@@ -89,14 +89,13 @@ if (isset($_POST['admin'])) {
                     <li>Avantage 1: t'es content</li>
                     <li>Avantage 2: je suis content</li>
                     <li>Avantage 3: nous sommes content</li>
-                    <!-- Ajoutez d'autres avantages ici -->
                 </ul>
                 <?php if ($forfait === 'free'): ?>
                     <form action="" method="post">
                         <button type="submit" name="subscribe">S'abonner</button>
                     </form>
                 <?php else: ?>
-                    <p>Vous êtes déjà abonné(e).</p>
+                    <p style="font-weight : bolder;">Vous êtes déjà abonné(e).</p>
                 <?php endif; ?>
             </div>
             <div class="admin-box">

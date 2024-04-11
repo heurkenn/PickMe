@@ -1,0 +1,51 @@
+.apropos {
+    background-color: #0a0a0a; /* Fond sombre pour le contraste */
+    color: #ffffff;
+    font-family: 'Press Start 2P', sans-serif;
+    padding: 2em;
+}
+
+.container-propos {
+    max-width: 800px; /* Largeur maximale pour le confort de lecture */
+    margin: 0 auto; /* Centrer dans la page */
+    padding: 1em; /* Espacement intérieur */
+    background: rgba(255, 255, 255, 0.05); /* Légère opacité pour un effet de superposition subtil */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Ombre pour la profondeur */
+}
+
+.apropos h2 {
+    color: #4CAF50; /* Titre en couleur vive pour se démarquer */
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #4CAF50; /* Ligne subtile sous le titre pour la séparation */
+}
+
+.apropos p {
+    color: #ccc; /* Gris clair pour les paragraphes pour un meilleur contraste */
+    line-height: 1.6; /* Espacement de ligne pour une meilleure lisibilité */
+    margin-bottom: 1em;
+    font-size: 0.75em;
+}
+
+.apropos a {
+    color: #FFC107; /* Liens en couleur vive pour se démarquer */
+    text-decoration: none; /* Pas de soulignement pour un aspect épuré */
+}
+
+.apropos a:hover {
+    text-decoration: underline; /* Soulignement au survol pour indiquer l'interactivité */
+}
+
+.apropos section {
+    margin-bottom: 2em; /* Espacement entre les sections */
+}
+
+/* Style pour les citations ou témoignages */
+.apropos blockquote {
+    border-left: 4px solid #4CAF50;
+    padding-left: 1em;
+    font-style: italic;
+    margin: 1em 0;
+}

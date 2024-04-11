@@ -23,8 +23,7 @@
                 <div>
                     <label for="pays">Pays :</label><br><br>
                     <input type="text" id="paysSearch" oninput="filterCountries()" placeholder="Recherche par pays...">
-                    <select name="pays" id="pays" required>>
-
+                    <select name="pays" id="pays" required>
                     </select>
                     </br>
                     <button type="button" onclick="etapeSuivante()">Suivant</button>

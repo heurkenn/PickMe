@@ -69,7 +69,7 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
         <div id="match-alert" class="match-alert hidden">C'est un match!</div>
         <div id="limit-reached-message" class="match-alert hidden">Limite atteinte</div>
 
-
+        <section class='choixprofil'>
         <!-- Affichage des profils -->
         <?php while ($row = mysqli_fetch_assoc($resultUtilisateurs)): ?>
             <div id='prof-<?= $row['id'] ?>' class='profile-card'>
@@ -79,9 +79,10 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
                 <p>
                     <img src=<?php echo htmlspecialchars($row['ProfilPicture'], ENT_QUOTES, 'UTF-8'); ?> class="img-profil">
                 </p>
-                <button onclick='showAdditionalInfo(<?= $row['id'] ?>)'>Plus d'infos</button>
-            </div>
+                <button onclick="showAdditionalInfo('<?= $row['id'] ?>')">Plus d'infos</button>
 
+            </div>
+        
             <!-- Informations additionnelles cachées pour la bulle modale -->
             <div id='additional-info-<?= $row['id'] ?>' class='additional-info hidden'>
                 <h3>
@@ -110,13 +111,14 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
                 </p>
                 <!-- Continuez selon le même modèle pour les autres champs si nécessaire -->
                 <section>
-                    <button onclick='dislikeProfile(<?php echo $row['id']; ?>, "non")'><img src="img/non.png"></button>
-                    <button onclick='likeProfile(<?php echo $row['id']; ?>, "oui")'><img src="img/oui.png"></button>
+                <button onclick="dislikeProfile('<?= $row['id'] ?>', 'non')"><img src="img/non.png"></button>
+                <button onclick="likeProfile('<?= $row['id'] ?>', 'oui')"><img src="img/oui.png"></button>  
 
-                </section>
+        </section>-
             </div>
         <?php endwhile; ?>
-    </div>
+        </section>
+    
 
     <div id="modal-background" class="modal-background">
         <div class="modal-content">
@@ -124,6 +126,8 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
             <div id="modal-info"></div>
         </div>
     </div>
+        </div>
+        </div>
 
     <?php include('footer/footer.php'); ?>
     <script src="js/index.js"></script>
