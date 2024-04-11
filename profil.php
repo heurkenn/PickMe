@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <nav>
             <ul>
                 <li><a href="apropos.php">À propos</a></li>
-                <li><a href="#">Abonnement</a></li>
+                <li><a href="abonnement.php">Abonnement</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <li><a href="message.php">Tes matchs</a></li>
             </ul>
