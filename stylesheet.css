@@ -708,6 +708,7 @@ a.match-link {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    
 }
 
 .profile {
