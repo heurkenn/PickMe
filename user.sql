@@ -54,4 +54,9 @@ CREATE TABLE Report(
 );
 
 
-
+CREATE TABLE Contact(
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    IdContact INT,
+    Sujet VARCHAR(50),
+    MessageContact VARCHAR(500)
+);

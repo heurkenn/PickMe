@@ -17,15 +17,28 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Vérifier si l'utilisateur a le forfait "admin"
-$query = "SELECT Forfait FROM Utilisateurs WHERE id = {$_SESSION['user_id']}";
+$user_id = $_SESSION['user_id'];
+$query = "SELECT Forfait FROM Utilisateurs WHERE id = $user_id";
 $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) == 0) {
+    // Redirige si l'utilisateur n'existe pas dans la base de données
     header("Location: InsCon.php");
     exit();
 }
+
 $row = mysqli_fetch_assoc($result);
 $forfait = $row['Forfait'];
+
+// Traitement du formulaire de contact
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+
+    // Enregistre le message dans la base de données
+    $sql = "INSERT INTO Contact (IdContact, Sujet, MessageContact) VALUES ('$user_id', '$subject', '$message')";
+    mysqli_query($conn, $sql);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +53,7 @@ $forfait = $row['Forfait'];
 </head>
 
 <body>
-<?php include('header/header.php'); ?>
+    <?php include ('header/header.php'); ?>
 
     <div class="main">
         <div class="account-button-container">
@@ -55,22 +68,21 @@ $forfait = $row['Forfait'];
 
         <section class="forms">
             <h2>Formulaire de Contact</h2>
-            <div id="contactForm" >
-            <form action="send_message.php" method="post">
-                <label for="name">Nom :</label><br><br>
-                <input type="text" id="name" name="name" required>
+            <div id="contactForm">
+                <form action="" method="post">
+                    <label for="subject">Sujet :</label><br><br>
+                    <select id="subject" name="subject" required>
+                        <option value="Question">Question</option>
+                        <option value="Problème technique">Problème technique</option>
+                        <option value="Suggestions">Suggestions</option>
+                        <!-- Ajoutez d'autres options ici -->
+                    </select><br><br>
 
-                <label for="email">Email :</label><br><br>
-                <input type="email" id="email" name="email" required>
+                    <label for="message">Message :</label><br><br>
+                    <textarea id="message" name="message" required></textarea><br><br>
 
-                <label for="subject">Sujet :</label><br><br>
-                <input type="text" id="subject" name="subject" required>
-
-                <label for="message">Message :</label><br><br>
-                <textarea type="text" id="message" name="message" required></textarea><br><br>
-
-                <input type="submit" value="Envoyer">
-            </form>
+                    <input type="submit" value="Envoyer">
+                </form>
         </section>
 
         <section id="direct-contact">
@@ -82,7 +94,7 @@ $forfait = $row['Forfait'];
 
     </div>
 
-    <?php include('footer/footer.php'); ?>
+    <?php include ('footer/footer.php'); ?>
 </body>
 
 </html>
