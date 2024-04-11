@@ -63,7 +63,7 @@ if (isset($_POST['delete_contact'])) {
 </head>
 
 <body>
-<?php include('header/headerAdmin.php'); ?>
+    <?php include ('header/headerAdmin.php'); ?>
     <div class="main">
         <div class="account-button-container">
             <a href="profil.php" class="account-button">Mon compte</a>
@@ -97,7 +97,8 @@ if (isset($_POST['delete_contact'])) {
                 <?php endforeach; ?>
             </table>
         </div>
-        <?php include ('footer/footer.php'); ?>
+    </div>
+    <?php include ('footer/footer.php'); ?>
 </body>
 
 </html>

@@ -24,26 +24,36 @@ function bioMofifier(profileId) {
 }
 
 function showAdditionalInfo(userId) {
-  
   var modalBackground = document.getElementById("modal-background");
   var modalInfo = document.getElementById("modal-info");
 
   // Récupération des informations cachées et leur affichage dans la bulle modale
-  var additionalInfo = document.getElementById(
-    "additional-info-" + userId
-  ).innerHTML;
+  var additionalInfo = document.getElementById("additional-info-" + userId).innerHTML;
   modalInfo.innerHTML = additionalInfo;
 
-  modalBackground.style.display = "block";
-  modalBackground.style.zIndex= 9999; // Affichage de la bulle modale
+  modalBackground.style.display = "block"; // Affichage de la bulle modale
+
+  // Ajout de la classe 'open' pour déclencher l'animation CSS
+  modalInfo.classList.add('open');
 }
 
 function hideAdditionalInfo() {
   var modalBackground = document.getElementById("modal-background");
-  modalBackground.style.display = "none"; // Masquage de la bulle modale
   var modalInfo = document.getElementById("modal-info");
-  modalInfo.innerHTML = ""; // Nettoyage de la bulle modale
+
+  // Ajout de la classe 'close' pour déclencher l'animation de fermeture CSS
+  modalInfo.classList.add('close');
+  modalBackground.classList.add('close');
+
+  // Suppression de la bulle modale après l'animation
+  setTimeout(function () {
+      modalBackground.style.display = "none"; // Masquage de la bulle modale
+      modalInfo.innerHTML = ""; // Nettoyage de la bulle modale
+      modalInfo.classList.remove('close');
+      modalBackground.classList.remove('close');
+  }, 300); // Durée de l'animation (300 ms dans notre cas)
 }
+
 
 function showMessages(userId) {
   var modalBackground = document.getElementById("modal-background");

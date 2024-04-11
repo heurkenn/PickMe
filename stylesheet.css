@@ -423,7 +423,7 @@ div .info {
 
 .close-btn:hover,
 .close-btn:focus {
-    color: black;
+    color: #8acdd4; 
     text-decoration: none;
     cursor: pointer;
 }
@@ -649,7 +649,7 @@ a.match-link {
     border: 5px solid #71a0a5;
     padding: 10px;
 
-    z-index: 999;
+    
  
     position: relative;
     margin-bottom: 30px;
@@ -738,7 +738,6 @@ div .info2 {
     color: #ffffff;
     transition: transform 0.3s ease, background-color 0.3s ease;
     padding: 1em;
-    width: calc(35em - 4em);
     margin: 2em auto;
     border-radius: 0.5em;
     position: inherit;
@@ -862,3 +861,6 @@ li {
     position: absolute;
 }
 
+.pos{
+    margin-left: 9em;
+}

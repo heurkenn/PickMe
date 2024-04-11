@@ -130,9 +130,9 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
                 <div id="modal-info"></div>
             </div>
         </div>
-
-        <?php include ('footer/footer.php'); ?>
-        <script src="js/index.js"></script>
+    </div>
+    <?php include ('footer/footer.php'); ?>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

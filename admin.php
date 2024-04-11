@@ -35,7 +35,7 @@ if (isset($_GET['search'])) {
     $search_query = trim($_GET['search_query']);
 
     // Requête pour trouver les profils correspondants à la recherche
-    $sql = "SELECT * 
+    $sql = "SELECT *, DATE_FORMAT(DateNaissance, '%d/%m/%Y') AS DateNaissance_format 
     FROM Utilisateurs 
     JOIN Gouts ON Utilisateurs.id = Gouts.UtilisateurId
     WHERE nom LIKE '%$search_query%' OR prenom LIKE '%$search_query%' OR pseudonyme LIKE '%$search_query%' OR id = '$search_query'";
@@ -158,9 +158,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </section>
                                 <form id="modifAdmin" method="POST" action="">
                                     <div id="pseudoDiv-<?php echo $profile['id']; ?>" class="hidden">
-                                        <label for="pseudo">Pseudonyme :</label>
+                                        <label for="pseudo">Pseudonyme :</label><br><br>
                                         <input type="text" id="pseudo-input" name="pseudo" placeholder="Pseudo"
-                                            value="<?php echo $profile['Pseudonyme']; ?>">
+                                            value="<?php echo $profile['Pseudonyme']; ?>"><br><br>
 
                                         <br>
                                         <p>Informations enregistrées:
@@ -192,7 +192,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <?= htmlspecialchars($profile['Nom'], ENT_QUOTES, 'UTF-8') ?>
                                 </p>
                                 <p>Date de Naissance:
-                                    <?= htmlspecialchars($profile['DateNaissance'], ENT_QUOTES, 'UTF-8') ?>
+                                    <?= htmlspecialchars($profile['DateNaissance_format'], ENT_QUOTES, 'UTF-8') ?>
                                 </p>
                                 <p>Email:
                                     <?= htmlspecialchars($profile['Email'], ENT_QUOTES, 'UTF-8') ?>

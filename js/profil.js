@@ -170,3 +170,7 @@ document
     document.getElementById("profilPictureDiv").classList.remove("hidden");
     document.getElementById("enr").classList.remove("hidden");
   });
+
+  document.getElementById("mdpButton").addEventListener("click", function() {
+    document.getElementById("changePasswordDiv").classList.remove("hidden");
+});
