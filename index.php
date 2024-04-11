@@ -54,7 +54,7 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
 </head>
 
 <body>
-<?php include('header/header.php'); ?>
+    <?php include ('header/header.php'); ?>
 
     <div class="main">
         <div class="account-button-container">
@@ -70,67 +70,69 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
         <div id="limit-reached-message" class="match-alert hidden">Limite atteinte</div>
 
         <section class='choixprofil'>
-        <!-- Affichage des profils -->
-        <?php while ($row = mysqli_fetch_assoc($resultUtilisateurs)): ?>
-            <div id='prof-<?= $row['id'] ?>' class='profile-card'>
-                <h2>
-                    <?= htmlspecialchars($row['Pseudonyme'], ENT_QUOTES, 'UTF-8') ?>
-                </h2>
-                <p>
-                    <img src=<?php echo htmlspecialchars($row['ProfilPicture'], ENT_QUOTES, 'UTF-8'); ?> class="img-profil">
-                </p>
-                <button onclick="showAdditionalInfo('<?= $row['id'] ?>')">Plus d'infos</button>
+            <!-- Affichage des profils -->
+            <?php while ($row = mysqli_fetch_assoc($resultUtilisateurs)): ?>
+                <div id='prof-<?= $row['id'] ?>' class='profile-card'>
+                    <h2>
+                        <?= htmlspecialchars($row['Pseudonyme'], ENT_QUOTES, 'UTF-8') ?>
+                    </h2>
+                    <p>
+                        <img src=<?php echo htmlspecialchars($row['ProfilPicture'], ENT_QUOTES, 'UTF-8'); ?>
+                            class="img-profil">
+                    </p>
+                    <button onclick="showAdditionalInfo('<?= $row['id'] ?>')">Plus d'infos</button>
 
-            </div>
-        
-            <!-- Informations additionnelles cachées pour la bulle modale -->
-            <div id='additional-info-<?= $row['id'] ?>' class='additional-info hidden'>
-                <h3>
-                    <?= htmlspecialchars($row['Pseudonyme'], ENT_QUOTES, 'UTF-8') ?>
-                </h3>
-                <p>
-                    <img src=<?php echo htmlspecialchars($row['ProfilPicture'], ENT_QUOTES, 'UTF-8'); ?> class="img-profil">
-                </p>
-                <p>Pays :
-                    <?= htmlspecialchars($row['Pays'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
-                <p>Langue :
-                    <?= htmlspecialchars($row['Langue'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
-                <p>Genre de jeux :
-                    <?= htmlspecialchars($row['GenreJeux'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
-                <p>Style de gameplay :
-                    <?= htmlspecialchars($row['StyleGameplay'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
-                <p>Recherche :
-                    <?= htmlspecialchars($row['TypeRecherche'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
-                <p>Biographie :
-                    <?= htmlspecialchars($row['Biographie'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
-                <!-- Continuez selon le même modèle pour les autres champs si nécessaire -->
-                <section>
-                <button onclick="dislikeProfile('<?= $row['id'] ?>', 'non')"><img class="smash" src="img/non.png"></button>
-                <button onclick="likeProfile('<?= $row['id'] ?>', 'oui')"><img class="smash" src="img/oui.png"></button>  
+                </div>
 
-        </section>-
-            </div>
-        <?php endwhile; ?>
+                <!-- Informations additionnelles cachées pour la bulle modale -->
+                <div id='additional-info-<?= $row['id'] ?>' class='additional-info hidden'>
+                    <h3>
+                        <?= htmlspecialchars($row['Pseudonyme'], ENT_QUOTES, 'UTF-8') ?>
+                    </h3>
+                    <p>
+                        <img src=<?php echo htmlspecialchars($row['ProfilPicture'], ENT_QUOTES, 'UTF-8'); ?>
+                            class="img-profil">
+                    </p>
+                    <p>Pays :
+                        <?= htmlspecialchars($row['Pays'], ENT_QUOTES, 'UTF-8') ?>
+                    </p>
+                    <p>Langue :
+                        <?= htmlspecialchars($row['Langue'], ENT_QUOTES, 'UTF-8') ?>
+                    </p>
+                    <p>Genre de jeux :
+                        <?= htmlspecialchars($row['GenreJeux'], ENT_QUOTES, 'UTF-8') ?>
+                    </p>
+                    <p>Style de gameplay :
+                        <?= htmlspecialchars($row['StyleGameplay'], ENT_QUOTES, 'UTF-8') ?>
+                    </p>
+                    <p>Recherche :
+                        <?= htmlspecialchars($row['TypeRecherche'], ENT_QUOTES, 'UTF-8') ?>
+                    </p>
+                    <p>Biographie :
+                        <?= htmlspecialchars($row['Biographie'], ENT_QUOTES, 'UTF-8') ?>
+                    </p>
+                    <!-- Continuez selon le même modèle pour les autres champs si nécessaire -->
+                    <section>
+                        <button onclick="dislikeProfile('<?= $row['id'] ?>', 'non')"><img class="smash"
+                                src="img/non.png"></button>
+                        <button onclick="likeProfile('<?= $row['id'] ?>', 'oui')"><img class="smash"
+                                src="img/oui.png"></button>
+
+                    </section>-
+                </div>
+            <?php endwhile; ?>
         </section>
-    
 
-    <div id="modal-background" class="modal-background">
-        <div class="modal-content">
-            <span class="close-btn" onclick="hideAdditionalInfo()">&times;</span>
-            <div id="modal-info"></div>
-        </div>
-    </div>
-        </div>
+
+        <div id="modal-background" class="modal-background">
+            <div class="modal-content">
+                <span class="close-btn" onclick="hideAdditionalInfo()">&times;</span>
+                <div id="modal-info"></div>
+            </div>
         </div>
 
-    <?php include('footer/footer.php'); ?>
-    <script src="js/index.js"></script>
+        <?php include ('footer/footer.php'); ?>
+        <script src="js/index.js"></script>
 </body>
 
 </html>

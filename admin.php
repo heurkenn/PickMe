@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<?php include('header/headerAdmin.php'); ?>
+    <?php include ('header/headerAdmin.php'); ?>
     <div class="main">
         <div class="account-button-container">
             <a href="profil.php" class="account-button">Mon compte</a>
@@ -231,10 +231,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <?php endif; ?>
             </div>
         </div>
-
+        <div id="modal-background" class="modal-background">
+            <div class="modal-content">
+                <span class="close-btn" onclick="hideAdditionalInfo()">&times;</span>
+                <div id="modal-info"></div>
+            </div>
+        </div>
     </div>
-    <?php include('footer/footer.php'); ?>
-    <script src="admin.js"></script>
+    <?php include ('footer/footer.php'); ?>
+    <script src="js/admin.js"></script>
 </body>
 
 </html>
