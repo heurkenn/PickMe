@@ -15,11 +15,11 @@
 }
 
 .apropos h2 {
-    color: #4CAF50; /* Titre en couleur vive pour se démarquer */
+    color: #71a0a5; /* Titre en couleur vive pour se démarquer */
     font-size: 1.1em;
     margin-bottom: 0.5em;
     padding-bottom: 0.2em;
-    border-bottom: 1px solid #4CAF50; /* Ligne subtile sous le titre pour la séparation */
+    border-bottom: 1px solid #71a0a5; /* Ligne subtile sous le titre pour la séparation */
 }
 
 .apropos p {
@@ -44,7 +44,7 @@
 
 /* Style pour les citations ou témoignages */
 .apropos blockquote {
-    border-left: 4px solid #4CAF50;
+    border-left: 4px solid #71a0a5;
     padding-left: 1em;
     font-style: italic;
     margin: 1em 0;
