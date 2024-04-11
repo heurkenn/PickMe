@@ -63,15 +63,7 @@ if (isset($_POST['delete_report'])) {
 </head>
 
 <body>
-    <header>
-        <h1><a href="index.php" class="custom-link">Pick Me !</a></h1>
-        <nav>
-            <ul>
-                <li><a href="report.php">Rapport</a></li>
-                <li><a href="admin.php">Gestion</a></li>
-            </ul>
-        </nav>
-    </header>
+<?php include('header/headerAdmin.php'); ?>
     <div class="main">
         <div class="account-button-container">
             <a href="profil.php" class="account-button">Mon compte</a>
