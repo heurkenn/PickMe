@@ -773,12 +773,13 @@ td {
     justify-content: space-around;
     align-items: center;
     margin-top: 50px;
+    
 }
 
 .premium-box,
 .admin-box {
     width: 45%;
-    height: 200px;
+    height: 300px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
