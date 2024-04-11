@@ -12,8 +12,6 @@
 <body>
     <header>
         <h1><a href="InsCon.php" class="custom-link">PICK ME !</a></h1>
-
-
     </header>
     <div class="main">
         <section class="forms">
@@ -59,17 +57,17 @@
         </section>
         <section class="images">
             <div id="imgs1" class="image-container">
-                <img src="img/left_choice.png" alt="Image 1">
+                <img src="img/start1.jpg" alt="Image 1">
             </div>
             <div id="imgs2" class="image-container">
-                <img src="img/left_choice.png" alt="Image 2">
+                <img src="img/continue.jpg" alt="Image 2">
             </div>
         </section>
 
     </div>
    
     <?php include('footer/footer.php'); ?>
-    <script src="InsCon.js"></script>
+    <script src="js/InsCon.js"></script>
 </body>
 
 </html>

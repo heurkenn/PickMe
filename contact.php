@@ -36,20 +36,11 @@ $forfait = $row['Forfait'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - PICK ME !</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="contact.css">
 </head>
 
 <body>
-    <header>
-        <h1><a href="index.php" class="custom-link">PICK ME !</h1>
-        <nav>
-            <ul>
-                <li><a href="apropos.php">À propos</a></li>
-                <li><a href="abonnement.php">Abonnement</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <li><a href="message.php">Tes matchs</a></li>
-            </ul>
-        </nav>
-    </header>
+<?php include('header/header.php'); ?>
 
     <div class="main">
         <div class="account-button-container">
@@ -63,22 +54,23 @@ $forfait = $row['Forfait'];
         </div>
         <h2>Contactez-nous</h2>
 
-        <section id="contact-form">
+        <section class="forms">
             <h3>Formulaire de Contact</h3>
+            <div id="contactForm" >
             <form action="send_message.php" method="post">
-                <label for="name">Nom :</label>
+                <label for="name">Nom :</label><br><br>
                 <input type="text" id="name" name="name" required>
 
-                <label for="email">Email :</label>
+                <label for="email">Email :</label><br><br>
                 <input type="email" id="email" name="email" required>
 
-                <label for="subject">Sujet :</label>
+                <label for="subject">Sujet :</label><br><br>
                 <input type="text" id="subject" name="subject" required>
 
-                <label for="message">Message :</label>
-                <textarea id="message" name="message" required></textarea>
+                <label for="message">Message :</label><br><br>
+                <textarea type="text" id="message" name="message" required></textarea><br><br>
 
-                <button type="submit">Envoyer</button>
+                <input type="submit" value="Envoyer">
             </form>
         </section>
 
@@ -86,21 +78,9 @@ $forfait = $row['Forfait'];
             <h3>Contact Direct</h3>
             <p>Email : contact@pickme.com</p>
             <p>Téléphone : 01 23 45 67 89</p>
-            <!-- Ajouter plus d'informations si nécessaire -->
+
         </section>
 
-        <section id="social-media">
-            <h3>Nos Réseaux Sociaux</h3>
-            <p>Retrouvez-nous sur :</p>
-            <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Instagram</a></li>
-                <!-- Plus de liens vers les réseaux sociaux si nécessaire -->
-            </ul>
-        </section>
-
-        <!-- Ajoutez d'autres sections si nécessaire -->
     </div>
 
     <?php include('footer/footer.php'); ?>

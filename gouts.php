@@ -9,20 +9,19 @@
 </head>
 
 <body>
-    <header>
-        <h1>Click me!</h1>
-
+<header>
+        <h1><a href="InsCon.php" class="custom-link">PICK ME !</a></h1>
     </header>
     <div class="main">
-        <h1>
+        <h2>
             Très bien, tu vas pouvoir commencer à personnaliser ton profil et ne t'inquiète pas tu pourras le modifier
             plus tard
-        </h1>
+        </h2>
 
         <section class="forms">
             <form id="monFormulaire" method="post" action="traitement_gouts.php" onsubmit="return validateForm()">
                 <div>
-                    <label for="pays">Pays :</label>
+                    <label for="pays">Pays :</label><br><br>
                     <input type="text" id="paysSearch" oninput="filterCountries()" placeholder="Recherche par pays...">
                     <select name="pays" id="pays" required>>
 
@@ -32,7 +31,7 @@
                 </div>
 
                 <div style="display: none;">
-                    <label for="langues">Langue(s) :</label>
+                    <label for="langues">Langue(s) :</label><br><br>
                     <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
                         data-selected="false">Français</button>
                     <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
@@ -44,7 +43,7 @@
                     <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
                         data-selected="false">日本語</button>
                     <button type="button" class="langue-btn" onclick="toggleSelection(this,'langue')"
-                        data-selected="false">簡体字中国語</button>
+                        data-selected="false">簡体字中国語</button><br>
 
                     <input type="hidden" id="langue" name="langue" required>
                     </br>
@@ -72,7 +71,7 @@
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
                 </div>
                 <div style="display: none;">
-                    <label for="styleGameplay">Style de gameplay :</label>
+                    <label for="styleGameplay">Style de gameplay :</label><br><br>
                     <select id="styleGameplay" name="styleGameplay" required>
                         <option value="casual">Casual</option>
                         <option value="funSerious">Fun but Serious</option>
@@ -84,7 +83,7 @@
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
                 </div>
                 <div style="display: none;">
-                    <label for="recherche">Recherche :</label>
+                    <label for="recherche">Recherche :</label><br><br>
                     <select id="recherche" name="recherche" required>
                         <option value="discuter">Gens pour discuter</option>
                         <option value="jouer">Gens pour jouer</option>
@@ -97,8 +96,8 @@
 
                 </div>
                 <div style="display: none;">
-                    <label for="biographie">Biographie :</label>
-                    <textarea id="biographie" name="biographie" rows="4" cols="50"></textarea>
+                    <label for="biographie">Biographie :</label><br><br>
+                    <textarea id="biographie" name="biographie" rows="4" cols="50"></textarea><br><br>
                     </br>
                     <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="button" onclick="etapeSuivante()">Suivant</button>
@@ -106,7 +105,7 @@
 
                 </div>
                 <div style="display: none;">
-                    <label for="profilPicture">Image de profile:</label></br>
+                    <label for="profilPicture">Image de profile:</label><br><br><br>
                     <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
                         data-selected="false"><img src=img/1.png class="img-profil"></button>
                     <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
@@ -126,7 +125,7 @@
                     <button type="button" class="profil-btn" onclick="toggleSelection(this,'profil')"
                         data-selected="false"><img src=img/9.png class="img-profil"></button>
 
-                    </br>
+                    <br><br>
                     <input type="hidden" id="profilPicture" name="profilPicture" required>
                     <button type="button" onclick="etapePrecedente()">Précédent</button>
                     <button type="submit">Soumettre</button>
@@ -136,7 +135,7 @@
 
     </div>
     <?php include('footer/footer.php'); ?>
-    <script src="gouts.js"></script>
+    <script src="js/gouts.js"></script>
 </body>
 
 </html>

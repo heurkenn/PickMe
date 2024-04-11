@@ -55,17 +55,7 @@ mysqli_close($conn);
 </head>
 
 <body>
-    <header>
-        <h1><a href="index.php" class="custom-link">PICK ME !</a></h1>
-        <nav>
-            <ul>
-                <li><a href="apropos.php">À propos</a></li>
-                <li><a href="abonnement.php">Abonnement</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <li><a href="message.php">Tes matchs</a></li>
-            </ul>
-        </nav>
-    </header>
+<?php include('header/header.php'); ?>
     <div class="main">
     <div class="account-button-container">
             <a href="profil.php" class="account-button">Mon compte</a>
@@ -125,7 +115,7 @@ mysqli_close($conn);
 
     </div>
     <?php include('footer/footer.php'); ?>
-    <script src="messages.js"></script>
+    <script src="js/messages.js"></script>
 </body>
 
 </html>

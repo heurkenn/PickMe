@@ -108,7 +108,7 @@ $forfait = $row['Forfait'];
     </div>
 
     <?php include('footer/footer.php'); ?>
-    <script src="index.js"></script> <!-- Si tu utilises un script commun -->
+    <script src="js/index.js"></script> <!-- Si tu utilises un script commun -->
 </body>
 
 </html>

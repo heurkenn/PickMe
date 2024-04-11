@@ -120,8 +120,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1><a href="index.php" class="custom-link">Pick Me !</a></h1>
         <nav>
             <ul>
-                <li><a href="report.php">Rapport</a></li>
-                <li><a href="admin.php">Gestion</a></li>
+                <li><a href="apropos.php">À propos</a></li>
+                <li><a href="#">Abonnement</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="message.php">Tes matchs</a></li>
             </ul>
         </nav>
     </header>
@@ -241,13 +243,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
     </div>
-    <div id="modal-background" class="modal-background">
-        <div class="modal-content">
-            <span class="close-btn" onclick="hideAdditionalInfo()">&times;</span>
-            <div id="modal-info"></div>
-        </div>
-    </div>
-    <?php include ('footer/footer.php'); ?>
+    <?php include('footer/footer.php'); ?>
     <script src="admin.js"></script>
 </body>
 
