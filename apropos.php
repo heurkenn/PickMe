@@ -52,7 +52,7 @@ $forfait = $row['Forfait'];
             <?php endif; ?>
         </div>
         <section id="mission">
-            <h1>Notre Mission</h1>
+            <h2>Notre Mission</h2>
             <p>Créer des connexions significatives entre joueurs du monde entier. Offrir une plateforme où les
                 passionnés de jeux vidéo peuvent se rencontrer, échanger, et partager.</p>
         </section>
