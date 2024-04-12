@@ -6,13 +6,11 @@ $username = "ProjetR";
 $password = "Paulympe742@";
 $dbname = "InfoUser";
 
-// Connexion à la base de données
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Vérifie si l'utilisateur est connecté et a un forfait "admin"
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
@@ -25,51 +23,41 @@ if (mysqli_num_rows($result) == 0) {
     exit();
 }
 
-// Initialisation des variables de recherche
 $search_query = "";
 $search_query2 = "";
 $search_results = [];
 
-// Traitement de la recherche
+
 if (isset($_GET['search'])) {
-    // Récupération des valeurs des critères de recherche
     $search_query = trim($_GET['search_query']);
     $search_query2 = trim($_GET['search_query2']);
 
-    // Requête pour trouver les profils correspondants à la recherche
+
     $sql = "SELECT *, DATE_FORMAT(DateNaissance, '%d/%m/%Y') AS DateNaissance_format
             FROM Utilisateurs 
             JOIN Gouts ON Utilisateurs.id = Gouts.UtilisateurId
             WHERE Utilisateurs.id <> {$_SESSION['user_id']} AND ";
 
-    // Ajoute les conditions en fonction des valeurs des critères de recherche
-    if ($search_query !== 'none' && $search_query2 !== 'none') {
-        // Si les deux critères sont sélectionnés
+
+if ($search_query !== 'none' && $search_query2 !== 'none') {
         $sql .= "TypeRecherche LIKE '%$search_query%' AND StyleGameplay LIKE '%$search_query2%'";
     } elseif ($search_query !== 'none') {
-        // Si seul le premier critère est sélectionné
         $sql .= "TypeRecherche LIKE '%$search_query%'";
     } elseif ($search_query2 !== 'none') {
-        // Si seul le deuxième critère est sélectionné
         $sql .= "StyleGameplay LIKE '%$search_query2%'";
     } elseif ($search_query === 'none' && $search_query2 === 'none') {
-        // Si seul le deuxième critère est sélectionné
         $sql .= "1 = 1";
     } else {
-        // Si aucun critère n'est sélectionné, ne retourne aucun résultat
         $sql .= "1 = 0";
     }
 
     $result = mysqli_query($conn, $sql);
 
-    // Vérification s'il y a des résultats
     if (mysqli_num_rows($result) > 0) {
-        // Récupération des résultats dans un tableau
         while ($row = mysqli_fetch_assoc($result)) {
             $search_results[] = $row;
         }
     } else {
-        // Aucun résultat trouvé
         $search_results = [];
     }
 }

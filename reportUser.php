@@ -12,7 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $receiverId = $_POST["receiver_id"];
         $reportMessage = $_POST["report_message"];
 
-        // Connectez-vous à votre base de données
         $servername = "localhost";
         $username = "ProjetR";
         $password = "Paulympe742@";
@@ -23,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        // Insérer le rapport dans la base de données
         $insertQuery = "INSERT INTO Report (Idsignal, IdProbleme, Horaire, MessageReport) VALUES ('$userId', '$receiverId', NOW(), '$reportMessage')";
         if (mysqli_query($conn, $insertQuery)) {
             echo "Report envoyé avec succès.";

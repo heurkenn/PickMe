@@ -6,24 +6,20 @@ $username = "ProjetR";
 $password = "Paulympe742@";
 $dbname = "InfoUser";
 
-// Connexion à la base de données
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Vérifie si l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
 }
 
-// Récupère le forfait de l'utilisateur depuis la base de données
 $user_id = $_SESSION['user_id'];
 $query = "SELECT Forfait FROM Utilisateurs WHERE id = $user_id";
 $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) == 0) {
-    // Redirige si l'utilisateur n'existe pas dans la base de données
     header("Location: index.php");
     exit();
 }
@@ -31,25 +27,18 @@ if (mysqli_num_rows($result) == 0) {
 $row = mysqli_fetch_assoc($result);
 $forfait = $row['Forfait'];
 
-// Traitement de l'abonnement
 if (isset($_POST['subscribe'])) {
-    // Met à jour le forfait de l'utilisateur
     $sql = "UPDATE Utilisateurs SET Forfait = 'premium' WHERE id = $user_id";
     mysqli_query($conn, $sql);
-    // Redirige vers la page d'abonnement après l'abonnement
     header("Location: abonnement.php");
     exit();
 }
 
-// Traitement de la demande d'administration
 if (isset($_POST['admin'])) {
-    // Vérifie si le mot de passe est correct
     $password = $_POST['password'];
     if ($password === 'root') {
-        // Met à jour le forfait de l'utilisateur en administrateur
         $sql = "UPDATE Utilisateurs SET Forfait = 'admin' WHERE id = $user_id";
         mysqli_query($conn, $sql);
-        // Redirige vers la page d'abonnement après la mise à jour en administrateur
         header("Location: abonnement.php");
         exit();
     }
@@ -80,7 +69,6 @@ if (isset($_POST['admin'])) {
             <?php endif; ?>
         </div>
 
-
         <div class="container">
             <div class="premium-box">
                 <h2>Premium</h2>
@@ -110,7 +98,6 @@ if (isset($_POST['admin'])) {
                 <?php endif; ?>
             </div>
         </div>
-
     </div>
     <?php include ('footer/footer.php'); ?>
 </body>

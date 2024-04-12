@@ -6,7 +6,6 @@ $username = "ProjetR";
 $password = "Paulympe742@";
 $dbname = "InfoUser";
 
-// Connexion à la base de données
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -17,7 +16,6 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Vérifier si l'utilisateur a le forfait "admin"
 $query = "SELECT Forfait FROM Utilisateurs WHERE id = {$_SESSION['user_id']}";
 $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) == 0) {
@@ -27,10 +25,8 @@ if (mysqli_num_rows($result) == 0) {
 $row = mysqli_fetch_assoc($result);
 $forfait = $row['Forfait'];
 
-// Définissez le nombre de profils à afficher
 $nombreProfils = 5;
 
-// Récupérer un nombre spécifié d'utilisateurs de manière aléatoire avec leur biographie et goûts
 $sqlUtilisateurs = "SELECT DISTINCT Utilisateurs.*, Gouts.*
                     FROM Utilisateurs
                     JOIN Gouts ON Utilisateurs.id = Gouts.UtilisateurId
@@ -70,7 +66,6 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
         <div id="limit-reached-message" class="match-alert hidden">Limite atteinte</div>
   
         <section class='choixprofil'>
-            <!-- Affichage des profils -->
             <?php while ($row = mysqli_fetch_assoc($resultUtilisateurs)): ?>
                 <div id='prof-<?= $row['id'] ?>' class='profile-card'>
                     <h2>
@@ -83,7 +78,6 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
                     <button onclick="showAdditionalInfo('<?= $row['id'] ?>')">Plus d'infos</button>
                 </div>
 
-                <!-- Informations additionnelles cachées pour la bulle modale -->
                 <div id='additional-info-<?= $row['id'] ?>' class='additional-info hidden'>
                     <h3>
                         <?= htmlspecialchars($row['Pseudonyme'], ENT_QUOTES, 'UTF-8') ?>
@@ -110,7 +104,6 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
                     <p>Biographie :
                         <?= htmlspecialchars($row['Biographie'], ENT_QUOTES, 'UTF-8') ?>
                     </p>
-                    <!-- Continuez selon le même modèle pour les autres champs si nécessaire -->
                     <section>
                         <button onclick="dislikeProfile('<?= $row['id'] ?>', 'non')"><img class="smash"
                                 src="img/non.png"></button>

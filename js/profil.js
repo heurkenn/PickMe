@@ -49,7 +49,7 @@ window.onload = filterCountries;
 function toggleSelection(button, question) {
   if (question === "profil") {
     var maxSelection = 1;
-    var hiddenInput = document.getElementById("profilPicture"); // Correction ici
+    var hiddenInput = document.getElementById("profilPicture");
     var selectedButtons = document.querySelectorAll(
       "." + question + '-btn[data-selected="true"]'
     );

@@ -6,7 +6,6 @@ $username = "ProjetR";
 $password = "Paulympe742@";
 $dbname = "InfoUser";
 
-// Connexion à la base de données
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -21,7 +20,6 @@ $user_id = $_SESSION['user_id'];
 $query = "SELECT Forfait FROM Utilisateurs WHERE id = $user_id";
 $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) == 0) {
-    // Redirige si l'utilisateur n'existe pas dans la base de données
     header("Location: InsCon.php");
     exit();
 }
@@ -29,12 +27,10 @@ if (mysqli_num_rows($result) == 0) {
 $row = mysqli_fetch_assoc($result);
 $forfait = $row['Forfait'];
 
-// Traitement du formulaire de contact
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $subject = $_POST['subject'];
     $message = $_POST['message'];
 
-    // Enregistre le message dans la base de données
     $sql = "INSERT INTO Contact (IdContact, Sujet, Horaire, MessageContact) VALUES ('$user_id', '$subject', NOW(), '$message')";
     mysqli_query($conn, $sql);
 }
@@ -74,7 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <option value="Question">Question</option>
                         <option value="Problème technique">Problème technique</option>
                         <option value="Suggestions">Suggestions</option>
-                        <!-- Ajoutez d'autres options ici -->
                     </select><br><br>
 
                     <label for="message">Message :</label><br><br>

@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userId = $_SESSION['user_id'];
         $receiverId = $_POST["receiver_id"];
 
-        // Connectez-vous à votre base de données
         $servername = "localhost";
         $username = "ProjetR";
         $password = "Paulympe742@";
@@ -22,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        // Supprimer le match de la base de données
         $deleteQuery = "DELETE FROM LikeList WHERE (IdEnvoi = $userId AND IdRecoi = $receiverId) OR (IdEnvoi = $receiverId AND IdRecoi = $userId)";
         $deleteQuery2 = "DELETE FROM Messages WHERE (UtilisateurId = $userId AND UtilisateurIdBis = $receiverId) OR (UtilisateurId = $receiverId AND UtilisateurIdBis = $userId)";
 

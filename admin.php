@@ -6,13 +6,11 @@ $username = "ProjetR";
 $password = "Paulympe742@";
 $dbname = "InfoUser";
 
-// Connexion à la base de données
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Vérifie si l'utilisateur est connecté et a un forfait "admin"
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
@@ -25,16 +23,12 @@ if (mysqli_num_rows($result) == 0) {
     exit();
 }
 
-// Initialisation des variables de recherche
 $search_query = "";
 $search_results = [];
 
-// Traitement de la recherche
 if (isset($_GET['search'])) {
-    // Récupération de la valeur de recherche
     $search_query = trim($_GET['search_query']);
 
-    // Requête pour trouver les profils correspondants à la recherche
     $sql = "SELECT *, DATE_FORMAT(DateNaissance, '%d/%m/%Y') AS DateNaissance_format 
     FROM Utilisateurs 
     JOIN Gouts ON Utilisateurs.id = Gouts.UtilisateurId
@@ -42,21 +36,18 @@ if (isset($_GET['search'])) {
 
     $result = mysqli_query($conn, $sql);
 
-    // Vérification s'il y a des résultats
     if (mysqli_num_rows($result) > 0) {
-        // Récupération des résultats dans un tableau
         while ($row = mysqli_fetch_assoc($result)) {
             $search_results[] = $row;
         }
     } else {
-        // Aucun résultat trouvé
         $search_results = [];
     }
 }
 
 if (isset($_POST['action']) && $_POST['action'] === 'delete') {
     $profile_id = $_POST['profile_id'];
-    // Suppression du profil de la base de données
+
     $sql_key0 = "SET FOREIGN_KEY_CHECKS = 0";
     $result_key0 = mysqli_query($conn, $sql_key0);
     $sql_delete_user = "DELETE FROM Utilisateurs WHERE id = $profile_id";
@@ -73,18 +64,15 @@ if (isset($_POST['action']) && $_POST['action'] === 'delete') {
     $result_key1 = mysqli_query($conn, $sql_key1);
     header("Location: admin.php");
     exit();
-
 }
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupère l'ID de l'utilisateur à partir du formulaire
     $userId = $_POST['user_id'];
-    // Récupère les données du formulaire
     $nPseudo = $_POST['pseudo'];
     var_dump($nPseudo);
     $nBio = $_POST['biographie'];
     var_dump($nBio);
 
-    // Met à jour les informations de l'utilisateur dans la base de données
     $sql = "UPDATE Utilisateurs SET Pseudonyme = ? WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "si", $nPseudo, $userId);
@@ -95,14 +83,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_stmt_bind_param($stmt, "si", $nBio, $userId);
     mysqli_stmt_execute($stmt);
 
-    // Redirige l'utilisateur vers la page de profil après la mise à jour
     header("Location: admin.php");
     exit();
 }
-// Vérifie si le formulaire a été soumis pour mettre à jour les informations de l'utilisateur
-
-
-
 ?>
 
 <!DOCTYPE html>

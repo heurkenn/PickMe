@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-// Vérifiez si l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
     header("Location: InsCon.php");
     exit();
 }
 
-// Récupérez la liste des correspondances de l'utilisateur connecté depuis la base de données
 $userId = $_SESSION['user_id'];
 $servername = "localhost";
 $username = "ProjetR";
@@ -19,7 +17,6 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Vérifier si l'utilisateur a le forfait "admin"
 $query = "SELECT Forfait FROM Utilisateurs WHERE id = {$_SESSION['user_id']}";
 $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) == 0) {
@@ -68,7 +65,6 @@ mysqli_close($conn);
         </div>
 
 
-        <!-- Zone de sélection des correspondants -->
         <div id="match-list">
             <h2>Tes matchs</h2>
             <ul>

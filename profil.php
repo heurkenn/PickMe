@@ -16,12 +16,10 @@ $dbname = "InfoUser";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// Vérifie la connexion
 if (!$conn) {
     die("La connexion à la base de données a échoué: " . mysqli_connect_error());
 }
 
-// Récupère les informations de l'utilisateur depuis la base de données
 $sql = "SELECT * FROM Gouts WHERE UtilisateurId = ?";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "i", $userId);
@@ -42,12 +40,10 @@ $user2 = mysqli_fetch_assoc($result2);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['currentPassword']) && isset($_POST['newPassword'])) {
-        // Récupère les données du formulaire
         $currentPassword = $_POST['currentPassword'];
         $newPassword = $_POST['newPassword'];
 
 
-        // Préparation de la requête SQL pour sélectionner l'utilisateur et son ID
         $sql3 = "SELECT MotDePasse FROM Utilisateurs WHERE id = '$userId'";
 
         $result = mysqli_query($conn, $sql3);
@@ -68,7 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
     }
-    // Récupère les données du formulaire
     $nPays = $_POST['pays'];
     $nLangue = $_POST['langue'];
     $nGenre = $_POST['genres'];
@@ -77,12 +72,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nBio = $_POST['biographie'];
     $nPic = $_POST['profilPicture'];
 
-    // Met à jour les informations de l'utilisateur dans la base de données
     $sql = "UPDATE Gouts SET Pays = ?, Langue = ?,GenreJeux = ?, StyleGameplay = ?, TypeRecherche = ?, Biographie = ?, ProfilPicture = ? WHERE UtilisateurId = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "sssssssi", $nPays, $nLangue, $nGenre, $nStyle, $nRecherche, $nBio, $nPic, $userId);
     mysqli_stmt_execute($stmt);
-    // Redirige l'utilisateur vers la page de profil après la mise à jour
     header("Location: profil.php");
     exit();
 

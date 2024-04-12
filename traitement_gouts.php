@@ -8,7 +8,6 @@ $dbname = "InfoUser";
 
 
 
-// Vérifier si l'utilisateur est connecté
 if (isset($_SESSION['user_id'])) {
     
     $userId = $_SESSION['user_id'];
@@ -49,5 +48,4 @@ if (!$result) {
     header("Location: index.php");
 }
 
-// Fermeture de la connexion
 mysqli_close($conn);

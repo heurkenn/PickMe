@@ -6,7 +6,6 @@ $username = "ProjetR";
 $password = "Paulympe742@";
 $dbname = "InfoUser";
 
-// Connexion à la base de données
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -17,7 +16,6 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Vérifier si l'utilisateur a le forfait "admin"
 $query = "SELECT Forfait FROM Utilisateurs WHERE id = {$_SESSION['user_id']}";
 $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) == 0) {

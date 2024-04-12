@@ -15,7 +15,6 @@
     </header>
     <div class="main">
         <section class="forms">
-            <!-- Formulaire d'inscription -->
             <div id="inscriptionForm" class="hidden">
                 <h2>Formulaire d'inscription</h2>
                 <form method="post" action="inscription.php">
@@ -45,7 +44,6 @@
                 </form>
             </div>
 
-            <!-- Formulaire de connexion -->
             <div id="connexionForm" class="hidden">
                 <h2>Formulaire de connexion</h2>
                 <form method="post" action="connexion.php">
