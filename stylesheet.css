@@ -679,7 +679,7 @@ a.match-link {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    
+    margin-right: 7em;
 }
 
 .profile {
@@ -863,4 +863,13 @@ li {
 
 .pos{
     margin-left: 9em;
+}
+
+header img{
+    width: 1.75em;
+}
+
+#lui{
+    width: 1em;
+    margin : 0;
 }

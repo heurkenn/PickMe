@@ -25,6 +25,13 @@
                     <input type="text" id="Prenom" name="Prenom" required><br>
                     <label for="DateNaissance">Date de naissance :</label><br><br>
                     <input type="date" id="DateNaissance" name="DateNaissance"><br>
+                    <label for="Sexe">Sexe :</label><br><br>
+                    <select id="Sexe" name="Sexe" required>
+                        <option value="homme">Homme</option>
+                        <option value="femme">Femme</option>
+                        <option value="autre">Autre</option>
+                        <option value="charDeGuerre">Char de Guerre</option>
+                    </select><br>
                     <label for="Pseudonyme">Pseudonyme :</label><br><br>
                     <input type="text" id="Pseudonyme" name="Pseudonyme" required><br>
                     <label for="Email">Email :</label><br><br>

@@ -29,7 +29,7 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 $user = mysqli_fetch_assoc($result);
 
-$sql2 = "SELECT id, Nom, Prenom, DATE_FORMAT(DateNaissance, '%d/%m/%Y') AS DateNaissance_format, Pseudonyme, Email, MotDePasse, Forfait FROM Utilisateurs WHERE id = ?";
+$sql2 = "SELECT id, Nom, Prenom, DATE_FORMAT(DateNaissance, '%d/%m/%Y') AS DateNaissance_format, Sexe, Pseudonyme, Email, MotDePasse, Forfait FROM Utilisateurs WHERE id = ?";
 $stmt2 = mysqli_prepare($conn, $sql2);
 mysqli_stmt_bind_param($stmt2, "i", $userId);
 mysqli_stmt_execute($stmt2);
@@ -123,6 +123,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="perso" style="font-weight: bold;">Date de naissance: </div>
             </h4>
             <?php echo $user2['DateNaissance_format']; ?><br>
+            <h4>
+                <div class="perso" style="font-weight: bold;">Sexe: </div>
+            </h4>
+            <?php echo $user2['Sexe']; ?><br>
             <h4>
                 <div class="perso" style="font-weight: bold;">Pseudonyme: </div>
             </h4>

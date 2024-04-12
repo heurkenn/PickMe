@@ -6,6 +6,8 @@ TRUNCATE TABLE Utilisateurs;
 TRUNCATE TABLE Gouts;
 TRUNCATE TABLE LikeList;
 TRUNCATE TABLE Messages;
+TRUNCATE TABLE Report;
+TRUNCATE TABLE Contact;
 -- Ajoutez ici d'autres tables si nécessaire
 
 -- Réactiver les contraintes de clé étrangère

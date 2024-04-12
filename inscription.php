@@ -20,14 +20,16 @@ if (!$conn) {
 $nom = $_POST['Nom'];
 $prenom = $_POST['Prenom'];
 $dateNaissance = $_POST['DateNaissance'];
+$sexe = $_POST['Sexe'];
 $pseudonyme = $_POST['Pseudonyme'];
 $email = $_POST['Email'];
 $motDePasse = $_POST['MotDePasse'];
 
 $motDePasseHash = password_hash($motDePasse, PASSWORD_DEFAULT);
 
-$query = "INSERT INTO Utilisateurs (Nom, Prenom, DateNaissance, Pseudonyme, Email, MotDePasse)
-        VALUES ('$nom', '$prenom', '$dateNaissance', '$pseudonyme', '$email', '$motDePasseHash')";
+$query = "INSERT INTO Utilisateurs (Nom, Prenom, DateNaissance, Sexe, Pseudonyme, Email, MotDePasse, Horaire)
+        VALUES ('$nom', '$prenom', '$dateNaissance', '$sexe', '$pseudonyme', '$email', '$motDePasseHash', NOW())";
+
 
 $result = mysqli_query($conn, $query);
 

@@ -13,6 +13,7 @@
                     <a href="match.php">Tes Matchs</a>
                 <?php endif; ?>
             </li>
+            <li id="lui"><a href="recherche.php"><img src="img/recherche.png"></img></a></li>
         </ul>
     </nav>
 </header>

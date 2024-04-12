@@ -5,17 +5,20 @@ DROP TABLE IF EXISTS Gouts;
 DROP TABLE IF EXISTS LikeList;
 DROP TABLE IF EXISTS Messages;
 DROP TABLE IF EXISTS Report;
+DROP TABLE IF EXISTS Contact;
 DROP TABLE IF EXISTS Utilisateurs;
 CREATE TABLE Utilisateurs (
     id INT PRIMARY KEY AUTO_INCREMENT,
     Nom VARCHAR(50) NOT NULL,
     Prenom VARCHAR(50) NOT NULL,
-    DateNaissance DATE, 
+    DateNaissance DATE,
+    Sexe VARCHAR(20),
     Pseudonyme VARCHAR(50) NOT NULL UNIQUE, 
     Email VARCHAR(100) NOT NULL UNIQUE, 
     MotDePasse VARCHAR(255) NOT NULL,
     NombreVu INT DEFAULT 0,
-    Forfait VARCHAR(20) DEFAULT "free"
+    Forfait VARCHAR(20) DEFAULT "free",
+    Horaire DATETIME
 );
 
 CREATE TABLE Gouts (
