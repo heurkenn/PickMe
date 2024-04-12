@@ -68,7 +68,7 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
         </div>
         <div id="match-alert" class="match-alert hidden">C'est un match!</div>
         <div id="limit-reached-message" class="match-alert hidden">Limite atteinte</div>
-
+  
         <section class='choixprofil'>
             <!-- Affichage des profils -->
             <?php while ($row = mysqli_fetch_assoc($resultUtilisateurs)): ?>
@@ -81,7 +81,6 @@ $resultUtilisateurs = mysqli_query($conn, $sqlUtilisateurs);
                             class="img-profil">
                     </p>
                     <button onclick="showAdditionalInfo('<?= $row['id'] ?>')">Plus d'infos</button>
-
                 </div>
 
                 <!-- Informations additionnelles cachées pour la bulle modale -->
