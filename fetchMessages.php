@@ -31,7 +31,7 @@ if (!$conn) {
 }
 
 // Sélectionnez les messages de la conversation entre l'utilisateur connecté et le destinataire
-$query = "SELECT UtilisateurId AS sender_id, MessageEnv AS message_content, DATE_FORMAT(Horaire, '%d/%m/%Y %H:%i') AS time_stamp FROM Messages WHERE (UtilisateurId = $userId AND UtilisateurIdBis = $receiverId) OR (UtilisateurId = $receiverId AND UtilisateurIdBis = $userId) ORDER BY Horaire ASC";
+$query = "SELECT UtilisateurId AS sender_id, MessageEnv AS message_content, DATE_FORMAT(Horaire, '%d/%m/%Y %H:%i') AS time_stamp, IdMessage AS id_msg FROM Messages WHERE (UtilisateurId = $userId AND UtilisateurIdBis = $receiverId) OR (UtilisateurId = $receiverId AND UtilisateurIdBis = $userId) ORDER BY Horaire ASC";
 $result = mysqli_query($conn, $query);
 
 // Créez une variable pour stocker les messages

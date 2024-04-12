@@ -10,7 +10,7 @@
                 <?php endif; ?>
             </li>
             <li><?php if ($forfait === 'free'): ?>
-                    <a href="match.php">Tes Matchs</a>
+                    <a href="matchList.php">Tes Matchs</a>
                 <?php endif; ?>
             </li>
             <li id="lui"><a href="recherche.php"><img src="img/recherche.png"></img></a></li>

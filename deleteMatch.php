@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (mysqli_query($conn, $deleteQuery)) {
             echo "Match supprimé avec succès.";
             if (mysqli_query($conn, $deleteQuery2)) {
-                echo "Discussio, supprimé avec succès.";
+                echo "Discussion, supprimé avec succès.";
                 
             } else {
                 echo "Erreur lors de la suppression de la discussion: " . mysqli_error($conn);

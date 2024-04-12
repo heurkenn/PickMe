@@ -42,6 +42,7 @@ CREATE TABLE LikeList (
 );
 
 CREATE TABLE Messages (
+    IdMessage INT PRIMARY KEY AUTO_INCREMENT,
     UtilisateurId INT,
     UtilisateurIdBis INT,
     MessageEnv VARCHAR(500),

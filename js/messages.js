@@ -2,14 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
   var messageBubbles = document.querySelectorAll(".message-bubble");
 
   messageBubbles.forEach(function (bubble) {
+    // Ajouter un événement de clic à chaque bulle de message
     bubble.addEventListener("mouseover", function () {
-      var messageTime = bubble.nextElementSibling;
-      messageTime.classList.remove("hidden");
-    });
+      // Récupérer l'ID du message à partir de l'attribut data-message-id
+      var messageId = bubble.getAttribute("data-message-id");
 
-    bubble.addEventListener("mouseout", function () {
-      var messageTime = bubble.nextElementSibling;
-      messageTime.classList.add("hidden");
+      // Appeler la fonction deleteMessage avec l'ID du message
+      deleteMessage(messageId);
     });
   });
 
@@ -53,6 +52,22 @@ document.addEventListener("DOMContentLoaded", function () {
     scrollMessageHistory(); // Fait défiler automatiquement vers le bas après l'envoi
   });
 
+// Fonction pour supprimer un message
+function deleteMessage(messageId) {
+  // Effectuer une requête AJAX pour supprimer le message
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "deleteMessage.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onload = function () {
+      if (xhr.status === 200) {
+          // Le message a été supprimé avec succès
+          console.log("Le message a été supprimé avec succès.");
+      } else {
+          console.error("Erreur lors de la suppression du message.");
+      }
+  };
+  xhr.send("message_id=" + messageId);
+}
   // Fonction pour charger l'historique des messages
   function loadMessageHistory(receiverId) {
     // Effectuer une requête AJAX pour récupérer l'historique des messages avec le correspondant
@@ -65,6 +80,13 @@ document.addEventListener("DOMContentLoaded", function () {
         messages.forEach(function (message) {
           var messageBubble = document.createElement("div");
           messageBubble.classList.add("message-bubble");
+          messageBubble.onclick = function() {
+           
+            var id=message.id_msg;
+            deleteMessage(id);
+            loadMessageHistory(receiverId);
+            
+        };
           if (message.sender_id == receiverId) {
             messageBubble.classList.add("receiver-message");
           } else {

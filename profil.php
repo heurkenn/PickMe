@@ -144,10 +144,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h3>Changer de mot de passe</h3>
                 <form id="changePasswordForm" method="post"
                     action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                    <label for="currentPassword">Mot de passe actuel :</label><br>
+                    <label for="currentPassword">Mot de passe actuel :</label><br><br>
                     <input type="password" id="currentPassword" name="currentPassword"><br><br>
-                    <label for="newPassword">Nouveau mot de passe :</label><br>
-                    <input type="password" id="newPassword" name="newPassword"><br><br>
+                    <label for="newPassword">Nouveau mot de passe :</label><br><br>
+                    <input type="password" id="newPassword" name="newPassword"
+                        pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}"
+                        title="Le mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial."
+                        placeholder="8 caractères, une majuscule, un chiffre et un caractère spécial."><br><br>
                     <button type="submit" id="submitPassword">Valider</button>
                 </form>
             </div>
